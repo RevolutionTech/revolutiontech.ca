@@ -23,7 +23,7 @@ In the future you can reactivate the virtual environment with:
 
 ### Installation
 
-Then in your virtual environment, you will need to install Python dependencies such as [django](https://www.djangoproject.com/), and [pillow](https://pillow.readthedocs.org/). You can do this simply with the command:
+Then in your virtual environment, you will need to install Python dependencies such as [django](https://www.djangoproject.com/), psycopg2, and [pillow](https://pillow.readthedocs.org/). You can do this simply with the command:
 
     pip install -r requirements.txt
 
