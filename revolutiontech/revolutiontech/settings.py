@@ -10,6 +10,7 @@ import os
 import revolutiontech.settings_secret as secret
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+TOP_DIR = os.path.dirname(BASE_DIR)
 SECRET_KEY = secret.SECRET_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -44,7 +45,7 @@ ROOT_URLCONF = 'revolutiontech.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [TOP_DIR + '/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -79,4 +80,7 @@ USE_L10N = True
 USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
+STATICFILES_DIRS = (
+    os.path.join(TOP_DIR, 'static'),
+)
 STATIC_URL = '/static/'

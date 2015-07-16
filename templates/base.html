@@ -1,0 +1,70 @@
+{% load staticfiles %}
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html lang="en">
+    <head>
+        <title>{% block title %}{% endblock %}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link href='http://fonts.googleapis.com/css?family=Titillium+Web' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="{% static "css/foundation.css" %}" type="text/css" charset="utf-8" />
+        <link rel="stylesheet" href="{% static "css/font-awesome.min.css" %}" type="text/css" charset="utf-8" />
+        <link rel="stylesheet" href="{% block css %}{% endblock %}" type="text/css" charset="utf-8" />
+        <script type="text/javascript" src="{% static "js/jquery.min.js" %}"></script>
+        <script type="text/javascript" src="{% static "js/jquery.cookie.min.js" %}"></script>
+        <script type="text/javascript" src="{% static "js/modernizr.js" %}"></script>
+        <script type="text/javascript" src="{% static "js/foundation.min.js" %}"></script>
+    </head>
+    <body>
+        <!-- Header -->
+        <nav class="top-bar" data-topbar role="navigation">
+            <ul class="title-area">
+                <li class="name">
+                    <h2><a href="#">Revolution Technologies</a></h2>
+                </li>
+                <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+            </ul>
+
+            <section class="top-bar-section">
+                <ul class="left">
+                    <li class="active"><a href="#">Games</a></li>
+                    <li><a href="#">Productions</a></li>
+                    <li><a href="#">Software</a></li>
+                </ul>
+                <ul class="right">
+                    <li><a href="https://bitbucket.org/RevolutionTech/"><i class="fa fa-2x fa-bitbucket"></i></a></li>
+                    <li><a href="https://github.com/RevolutionTech/"><i class="fa fa-2x fa-github"></i></a></li>
+                    <li><a href="http://www.linkedin.com/in/lucasconnors"><i class="fa fa-2x fa-linkedin"></i></a></li>
+                    <li><a href="https://twitter.com/Revolution_Tech"><i class="fa fa-2x fa-twitter"></i></a></li>
+                    <li><a href="http://www.youtube.com/user/RevolutionTechnology"><i class="fa fa-2x fa-youtube"></i></a></li>
+                </ul>
+            </section>
+        </nav>
+
+        <!-- Content -->
+        <div class="container" style="padding: 10px;">
+            {% block content %}
+            {% endblock %}
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="row">
+                <div class="large-12 columns">
+                    <ul>
+                        <li><a href="https://bitbucket.org/RevolutionTech/"><i class="fa fa-2x fa-bitbucket"></i>&ensp;RevolutionTech</a></li>
+                        <li><a href="https://github.com/RevolutionTech/"><i class="fa fa-2x fa-github"></i>&ensp;RevolutionTech</a></li>
+                    </ul>
+                </div>
+                <div class="large-12 columns">
+                    <ul>
+                        <li><a href="http://www.linkedin.com/in/lucasconnors"><i class="fa fa-2x fa-linkedin"></i>&ensp;Lucas Connors</a></li>
+                        <li><a href="https://twitter.com/Revolution_Tech"><i class="fa fa-2x fa-twitter"></i>&ensp;@Revolution_Tech</a></li>
+                        <li><a href="http://www.youtube.com/user/RevolutionTechnology"><i class="fa fa-2x fa-youtube"></i>&ensp;RevolutionTechnology</a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+
+        <!-- JS -->
+        <script type="text/javascript">$(document).foundation();</script>
+    </body>
+</html>

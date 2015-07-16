@@ -1,0 +1,45 @@
+.firstletter {
+    float: left;
+    color: #4ad;
+    font-size: 75px;
+    line-height: 60px;
+    padding-top: 8px;
+    padding-right: 4px;
+    padding-left: 4px;
+    font-family: Georgia;
+}
+
+.avatar {
+    border-radius: 50%;
+    max-height: 175px;
+    float: left;
+    margin-right: 24px;
+    margin-bottom: 24px;
+}
+
+.hero-unit {
+    margin: auto;
+    max-width: 750px;
+    min-height: 223px;
+}
+
+.footer {
+    background: url(/static/img/footer.png) no-repeat center bottom;
+    min-height: 160px;
+    padding-top: 2.5em;
+}
+
+.footer a {
+    color: #000000;
+}
+.footer ul {
+    text-align: center;
+}
+.footer li {
+    display: inline;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.footer a:hover {
+    color: #ffffff;
+}
