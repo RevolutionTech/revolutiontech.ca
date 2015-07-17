@@ -62,7 +62,7 @@
     margin-right: auto;
 }
 
-.footer {
+.footer-back {
     background: url(/static/img/footer.png) no-repeat center bottom;
     min-height: 160px;
     padding-top: 3em;
@@ -74,11 +74,18 @@
 .footer ul {
     text-align: center;
 }
-.footer li {
+.footer-small li {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.footer-back li {
     display: inline;
     margin-left: 20px;
     margin-right: 20px;
 }
-.footer a:hover {
+.footer-small a:hover {
+    color: #999999;
+}
+.footer-back a:hover {
     color: #ffffff;
 }
