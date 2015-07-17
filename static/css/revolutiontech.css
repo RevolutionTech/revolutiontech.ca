@@ -11,7 +11,7 @@
 
 .avatar {
     border-radius: 50%;
-    max-height: 175px;
+    max-height: 125px;
     float: left;
     margin-right: 24px;
     margin-bottom: 24px;
@@ -19,14 +19,53 @@
 
 .hero-unit {
     margin: auto;
-    max-width: 750px;
-    min-height: 223px;
+    max-width: 850px;
+    min-height: 173px;
+}
+
+.semi-avatar {
+    float: right;
+    max-height: 130px;
+}
+
+.semi-hero-unit {
+    margin: auto;
+    max-width: 800px;
+    min-height: 170px;
+}
+
+.category-links {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.category-links > li h4 {
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.category-links > li p {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.category-links > li > .th > .th {
+    width: 100%;
+}
+
+.category-links > li > .th > .th > img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .footer {
     background: url(/static/img/footer.png) no-repeat center bottom;
     min-height: 160px;
-    padding-top: 2.5em;
+    padding-top: 3em;
 }
 
 .footer a {

@@ -1719,13 +1719,13 @@ meta.foundation-mq-topbar {
       width: 100%;
       z-index: 99; }
     .fixed.expanded:not(.top-bar) .top-bar-section {
-      margin-top: 2.8125rem;
+      margin-top: 3.5125rem;
       z-index: 98; }
 
 .top-bar {
   background: #333333;
-  height: 2.8125rem;
-  line-height: 2.8125rem;
+  height: 3.5125rem;
+  line-height: 3.5125rem;
   margin-bottom: 0;
   overflow: hidden;
   position: relative; }
@@ -1758,11 +1758,11 @@ meta.foundation-mq-topbar {
     position: relative; }
   .top-bar .name {
     font-size: 16px;
-    height: 2.8125rem;
+    height: 3.5125rem;
     margin: 0; }
     .top-bar .name h1, .top-bar .name h2, .top-bar .name h3, .top-bar .name h4, .top-bar .name p, .top-bar .name span {
       font-size: 1.0625rem;
-      line-height: 2.8125rem;
+      line-height: 3.5125rem;
       margin: 0; }
       .top-bar .name h1 a, .top-bar .name h2 a, .top-bar .name h3 a, .top-bar .name h4 a, .top-bar .name p a, .top-bar .name span a {
         color: #FFFFFF;
@@ -1779,8 +1779,8 @@ meta.foundation-mq-topbar {
       display: block;
       font-size: 0.8125rem;
       font-weight: bold;
-      height: 2.8125rem;
-      line-height: 2.8125rem;
+      height: 3.5125rem;
+      line-height: 3.5125rem;
       padding: 0 0.9375rem;
       position: relative;
       text-transform: uppercase; }
@@ -2091,7 +2091,7 @@ meta.foundation-mq-topbar {
       color: #FFFFFF; }
     .top-bar-section li:not(.has-form) a:not(.button) {
       background: #333333;
-      line-height: 2.8125rem;
+      line-height: 3.5125rem;
       padding: 0 0.9375rem; }
       .top-bar-section li:not(.has-form) a:not(.button):hover {
         background-color: #555555;
@@ -2099,7 +2099,7 @@ meta.foundation-mq-topbar {
     .top-bar-section li.active:not(.has-form) a:not(.button) {
       background: #008CBA;
       color: #FFFFFF;
-      line-height: 2.8125rem;
+      line-height: 3.5125rem;
       padding: 0 0.9375rem; }
       .top-bar-section li.active:not(.has-form) a:not(.button):hover {
         background: #0078a0;
@@ -2154,7 +2154,7 @@ meta.foundation-mq-topbar {
       .top-bar-section .dropdown li a {
         background: #333333;
         color: #FFFFFF;
-        line-height: 2.8125rem;
+        line-height: 3.5125rem;
         padding: 12px 0.9375rem;
         white-space: nowrap; }
       .top-bar-section .dropdown li:not(.has-form):not(.active) > a:not(.button) {
@@ -2176,11 +2176,11 @@ meta.foundation-mq-topbar {
       border-bottom: none;
       border-top: none;
       clear: none;
-      height: 2.8125rem;
+      height: 3.5125rem;
       width: 0; }
     .top-bar-section .has-form {
       background: #333333;
-      height: 2.8125rem;
+      height: 3.5125rem;
       padding: 0 0.9375rem; }
     .top-bar-section .right li .dropdown {
       left: auto;
@@ -4671,35 +4671,35 @@ blockquote p {
   -webkit-backface-visibility: hidden;
   background: #333333;
   color: #FFFFFF;
-  height: 2.8125rem;
-  line-height: 2.8125rem;
+  height: 3.5125rem;
+  line-height: 3.5125rem;
   position: relative; }
   .tab-bar h1, .tab-bar h2, .tab-bar h3, .tab-bar h4, .tab-bar h5, .tab-bar h6 {
     color: #FFFFFF;
     font-weight: bold;
-    line-height: 2.8125rem;
+    line-height: 3.5125rem;
     margin: 0; }
   .tab-bar h1, .tab-bar h2, .tab-bar h3, .tab-bar h4 {
     font-size: 1.125rem; }
 
 .left-small {
-  height: 2.8125rem;
+  height: 3.5125rem;
   position: absolute;
   top: 0;
-  width: 2.8125rem;
+  width: 3.5125rem;
   border-right: solid 1px #1a1a1a;
   left: 0; }
 
 .right-small {
-  height: 2.8125rem;
+  height: 3.5125rem;
   position: absolute;
   top: 0;
-  width: 2.8125rem;
+  width: 3.5125rem;
   border-left: solid 1px #1a1a1a;
   right: 0; }
 
 .tab-bar-section {
-  height: 2.8125rem;
+  height: 3.5125rem;
   padding: 0 0.625rem;
   position: absolute;
   text-align: center;
@@ -4710,23 +4710,23 @@ blockquote p {
     text-align: right; }
   .tab-bar-section.left {
     left: 0;
-    right: 2.8125rem; }
+    right: 3.5125rem; }
   .tab-bar-section.right {
-    left: 2.8125rem;
+    left: 3.5125rem;
     right: 0; }
   .tab-bar-section.middle {
-    left: 2.8125rem;
-    right: 2.8125rem; }
+    left: 3.5125rem;
+    right: 3.5125rem; }
 
 .tab-bar .menu-icon {
   color: #FFFFFF;
   display: block;
-  height: 2.8125rem;
+  height: 3.5125rem;
   padding: 0;
   position: relative;
   text-indent: 2.1875rem;
   transform: translate3d(0, 0, 0);
-  width: 2.8125rem; }
+  width: 3.5125rem; }
   .tab-bar .menu-icon span::after {
     content: "";
     display: block;
