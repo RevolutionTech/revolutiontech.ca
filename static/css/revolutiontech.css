@@ -45,18 +45,20 @@
     padding-top: 10px;
     padding-left: 10px;
     padding-right: 10px;
+    color: #008CBA;
 }
 
 .category-links > li p {
     padding-left: 10px;
     padding-right: 10px;
+    color: #000000;
 }
 
-.category-links > li > .th > .th {
+.category-links > li > a > .th > .th {
     width: 100%;
 }
 
-.category-links > li > .th > .th > img {
+.category-links > li > a > .th > .th > img {
     display: block;
     margin-left: auto;
     margin-right: auto;

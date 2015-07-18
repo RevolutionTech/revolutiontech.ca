@@ -3,8 +3,6 @@
 
 {% block title %}Revolution Technologies{% endblock %}
 
-{% block css %}{% static "css/revolutiontech.css" %}{% endblock %}
-
 {% block content %}
 <div class="panel hero-unit">
     <img class="avatar" src="{% static "img/Lucas.jpg" %}" alt="Lucas Connors">
@@ -12,25 +10,31 @@
 </div>
 <ul class="category-links small-block-grid-1 medium-block-grid-3 large-block-grid-3">
     <li>
-        <div class="th">
-            <div class="th"><img src="{% static "img/games.png" %}" alt="Revolution Games"></div>
-            <h4><a href="#">Games</a></h4>
-            <p>Computer games including award-winning titles such as <em>Esprit's Labyrinth</em> and <em>Blockade</em>.</p>
-        </div>
+        <a href="{% url 'games' %}">
+            <div class="th">
+                <div class="th"><img src="{% static "img/games.png" %}" alt="Revolution Games"></div>
+                <h4>Games</h4>
+                <p>Computer games including award-winning titles such as <em>Esprit's Labyrinth</em> and <em>Blockade</em>.</p>
+            </div>
+        </a>
     </li>
     <li>
-        <div class="th">
-            <div class="th" style="background: #319966;"><img src="{% static "img/productions.png" %}" alt="Revolution Productions"></div>
-            <h4><a href="#">Productions</a></h4>
-            <p>Short films, and 2D and 3D animations with projects such as <em>The Gum Thief</em>.</p>
-        </div>
+        <a href="{% url 'productions' %}">
+            <div class="th">
+                <div class="th" style="background: #319966;"><img src="{% static "img/productions.png" %}" alt="Revolution Productions"></div>
+                <h4>Productions</h4>
+                <p>Short films, and 2D and 3D animations with projects such as <em>The Gum Thief</em>.</p>
+            </div>
+        </a>
     </li>
     <li>
-        <div class="th">
-            <div class="th"><img src="{% static "img/software.png" %}" alt="Revolution Software"></div>
-            <h4><a href="#">Software</a></h4>
-            <p>Mobile applications and spontaneous hackathon projects such as <em>Hummingbird</em>.</p>
-        </div>
+        <a href="{% url 'software' %}">
+            <div class="th">
+                <div class="th"><img src="{% static "img/software.png" %}" alt="Revolution Software"></div>
+                <h4>Software</h4>
+                <p>Mobile applications and spontaneous hackathon projects such as <em>Hummingbird</em>.</p>
+            </div>
+        </a>
     </li>
 </ul>
 <div class="panel semi-hero-unit">

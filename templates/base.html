@@ -7,6 +7,7 @@
         <link href='http://fonts.googleapis.com/css?family=Titillium+Web' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="{% static "css/foundation.css" %}" type="text/css" charset="utf-8" />
         <link rel="stylesheet" href="{% static "css/font-awesome.min.css" %}" type="text/css" charset="utf-8" />
+        <link rel="stylesheet" href="{% static "css/revolutiontech.css" %}" type="text/css" charset="utf-8" />
         <link rel="stylesheet" href="{% block css %}{% endblock %}" type="text/css" charset="utf-8" />
         <script type="text/javascript" src="{% static "js/jquery.min.js" %}"></script>
         <script type="text/javascript" src="{% static "js/jquery.cookie.min.js" %}"></script>
@@ -18,16 +19,16 @@
         <nav class="top-bar" data-topbar role="navigation">
             <ul class="title-area">
                 <li class="name">
-                    <h2><a href="#">Revolution Technologies</a></h2>
+                    <h2><a href="{% url 'home' %}">Revolution Technologies</a></h2>
                 </li>
                 <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
             </ul>
 
             <section class="top-bar-section">
                 <ul class="left">
-                    <li class="active"><a href="#">Games</a></li>
-                    <li><a href="#">Productions</a></li>
-                    <li><a href="#">Software</a></li>
+                    <li {% if page == 'games' %}class="active"{% endif %}><a href="{% url 'games' %}">Games</a></li>
+                    <li {% if page == 'productions' %}class="active"{% endif %}><a href="{% url 'productions' %}">Productions</a></li>
+                    <li {% if page == 'software' %}class="active"{% endif %}><a href="{% url 'software' %}">Software</a></li>
                 </ul>
                 <ul class="right">
                     <li><a href="https://bitbucket.org/RevolutionTech/"><i class="fa fa-2x fa-bitbucket"></i></a></li>
