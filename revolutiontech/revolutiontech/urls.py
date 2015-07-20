@@ -4,8 +4,10 @@
 
 """
 
+from django.conf import settings
 from django.conf.urls import include, url
 from django.contrib import admin
+from django.views.static import serve
 
 from basecategory.views import HomeView
 from games.views import GamesListView
@@ -20,3 +22,9 @@ urlpatterns = [
     url(r'^software/?$', SoftwareListView.as_view(), name='software'),
     url(r'^/?$', HomeView.as_view(), name='home'),
 ]
+
+# Add media folder to urls when DEBUG = True
+if settings.DEBUG:
+    urlpatterns.append(
+        url(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT})
+    )

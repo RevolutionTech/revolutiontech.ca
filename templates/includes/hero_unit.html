@@ -1,0 +1,16 @@
+<div class="hero-unit">
+    <div class="hero-unit-right">
+        <img src="{{ item.img.url }}" alt="{{ item.name }}">{% if not orbit %}<br />{% endif %}
+        {% if item.button_main %}
+            <a class="button expand {{ item.button_main.css_class }}" href="{{ item.button_main.link }}">{{ item.button_main.text }}</a>
+        {% endif %}
+    </div>
+    <h2>
+        {{ item.name }}&nbsp;
+        {% include "includes/badges.html" with item=item %}
+    </h2>
+    <p><span class="firstletter">{{ item.description_first_letter }}</span>{{ item.description_rest|safe }}</p>
+    {% for button in item.button_rest %}
+        <a class="button small {{ button.css_class }}" href="{{ button.link }}">{{ button.text }}</a>
+    {% endfor %}
+</div>

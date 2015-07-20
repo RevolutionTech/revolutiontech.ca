@@ -1173,7 +1173,7 @@ button, .button {
   button:hover, button:focus, .button:hover, .button:focus {
     color: #FFFFFF; }
   button.secondary, .button.secondary {
-    background-color: #e7e7e7;
+    background-color: #ffffff;
     border-color: #b9b9b9;
     color: #333333; }
     button.secondary:hover, button.secondary:focus, .button.secondary:hover, .button.secondary:focus {
@@ -2910,7 +2910,7 @@ meta.foundation-mq-topbar {
     animation-iteration-count: infinite;
     animation-name: rotate;
     animation-timing-function: linear;
-    border-color: #555555 #FFFFFF;
+    border-color: #555555 #000000;
     border: solid 3px;
     display: block;
     height: 40px;
@@ -2950,14 +2950,14 @@ meta.foundation-mq-topbar {
         bottom: 0;
         position: absolute;
         background-color: rgba(51, 51, 51, 0.8);
-        color: #FFFFFF;
+        color: #000000;
         font-size: 0.875rem;
         padding: 0.625rem 0.875rem;
         width: 100%; }
   .orbit-container .orbit-slide-number {
     left: 10px;
     background: transparent;
-    color: #FFFFFF;
+    color: #000000;
     font-size: 12px;
     position: absolute;
     top: 10px;
@@ -2974,14 +2974,14 @@ meta.foundation-mq-topbar {
     z-index: 10; }
     .orbit-container .orbit-timer .orbit-progress {
       height: 3px;
-      background-color: rgba(255, 255, 255, 0.3);
+      background-color: rgba(0, 0, 0, 0.6);
       display: block;
       width: 0;
       position: relative;
       right: 20px;
       top: 5px; }
     .orbit-container .orbit-timer > span {
-      border: solid 4px #FFFFFF;
+      border: solid 4px #000000;
       border-bottom: none;
       border-top: none;
       display: none;
@@ -2997,7 +2997,7 @@ meta.foundation-mq-topbar {
       border: inset 8px;
       border-left-style: solid;
       border-color: transparent;
-      border-left-color: #FFFFFF;
+      border-left-color: #000000;
       right: -4px; }
       .orbit-container .orbit-timer.paused > span.dark {
         border-left-color: #333333; }
@@ -3006,7 +3006,7 @@ meta.foundation-mq-topbar {
   .orbit-container .orbit-prev,
   .orbit-container .orbit-next {
     background-color: transparent;
-    color: white;
+    color: black;
     height: 60px;
     line-height: 50px;
     margin-top: -25px;
@@ -3017,7 +3017,7 @@ meta.foundation-mq-topbar {
     z-index: 10; }
     .orbit-container .orbit-prev:hover,
     .orbit-container .orbit-next:hover {
-      background-color: rgba(0, 0, 0, 0.3); }
+      background-color: rgba(255, 255, 255, 0.8); }
     .orbit-container .orbit-prev > span,
     .orbit-container .orbit-next > span {
       border: inset 10px;
@@ -3032,19 +3032,19 @@ meta.foundation-mq-topbar {
     .orbit-container .orbit-prev > span {
       border-right-style: solid;
       border-color: transparent;
-      border-right-color: #FFFFFF; }
+      border-right-color: #000000; }
     .orbit-container .orbit-prev:hover > span {
-      border-right-color: #FFFFFF; }
+      border-right-color: #000000; }
   .orbit-container .orbit-next {
     right: 0; }
     .orbit-container .orbit-next > span {
       border-color: transparent;
       border-left-style: solid;
-      border-left-color: #FFFFFF;
+      border-left-color: #000000;
       left: 50%;
       margin-left: -4px; }
     .orbit-container .orbit-next:hover > span {
-      border-left-color: #FFFFFF; }
+      border-left-color: #000000; }
 
 .orbit-bullets-container {
   text-align: center; }

@@ -6,7 +6,8 @@
 
 from django.contrib import admin
 
-from basecategory.models import Platform
+from basecategory.models import Platform, Button
 
 
 admin.site.register(Platform)
+admin.site.register(Button)

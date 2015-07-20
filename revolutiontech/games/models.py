@@ -6,7 +6,7 @@
 
 from django.db import models
 
-from basecategory.models import Category, Item, ItemPlatform
+from basecategory.models import Category, Item
 
 
 class GameCategory(Category):
@@ -20,11 +20,3 @@ class Game(Item):
     category = models.ForeignKey(GameCategory)
     min_players = models.PositiveSmallIntegerField(null=True, blank=True)
     max_players = models.PositiveSmallIntegerField(null=True, blank=True)
-
-
-class GamePlatform(ItemPlatform):
-
-    game = models.ForeignKey(Game)
-
-    def __unicode__(self):
-        return "({game}, {platform})".format(game=self.game, platform=self.platform)

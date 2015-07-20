@@ -1,8 +1,30 @@
 {% extends "base.html" %}
 {% load staticfiles %}
 
-{% block title %}Revolution Technologies{% endblock %}
+{% block title %}Revolution {{ page|title }}{% endblock %}
 
 {% block content %}
-<p>This is a category page.</p>
+    {% if items.heroes or items.regular %}
+        {% if items.heroes|length > 1 %}
+            <ul class="hero-units example-orbit-content" data-orbit>
+                {% for item in items.heroes %}
+                    <li>
+                        {% include "includes/hero_unit.html" with item=item orbit=True %}
+                    </li>
+                {% endfor %}
+            </ul>
+        {% elif items.heroes %}
+            <div class="hero-units">
+                {% include "includes/hero_unit.html" with item=items.heroes|first orbit=False %}
+            </div>
+            <br />
+        {% endif %}
+        <ul class="medium-block-grid-1 large-block-grid-2">
+            {% for item in items.regular %}
+                <li>{% include "includes/item_short.html" with item=item %}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Nothing to see here, check back later!</p>
+    {% endif %}
 {% endblock %}

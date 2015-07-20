@@ -19,8 +19,10 @@ class Migration(migrations.Migration):
                 ('name', models.CharField(max_length=75)),
                 ('img', models.ImageField(null=True, upload_to=basecategory.models.get_img_upload_dir, blank=True)),
                 ('description', models.TextField(null=True, blank=True)),
+                ('hero', models.BooleanField(default=False)),
                 ('min_players', models.PositiveSmallIntegerField(null=True, blank=True)),
                 ('max_players', models.PositiveSmallIntegerField(null=True, blank=True)),
+                ('button', models.ManyToManyField(to='basecategory.Button')),
             ],
             options={
                 'abstract': False,
@@ -37,20 +39,14 @@ class Migration(migrations.Migration):
                 'verbose_name_plural': 'Game categories',
             },
         ),
-        migrations.CreateModel(
-            name='GamePlatform',
-            fields=[
-                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('game', models.ForeignKey(to='games.Game')),
-                ('platform', models.ForeignKey(to='basecategory.Platform')),
-            ],
-            options={
-                'abstract': False,
-            },
-        ),
         migrations.AddField(
             model_name='game',
             name='category',
             field=models.ForeignKey(to='games.GameCategory'),
+        ),
+        migrations.AddField(
+            model_name='game',
+            name='platform',
+            field=models.ManyToManyField(to='basecategory.Platform'),
         ),
     ]

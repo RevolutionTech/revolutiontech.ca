@@ -8,6 +8,7 @@ import basecategory.models
 class Migration(migrations.Migration):
 
     dependencies = [
+        ('basecategory', '0001_initial'),
     ]
 
     operations = [
@@ -18,6 +19,8 @@ class Migration(migrations.Migration):
                 ('name', models.CharField(max_length=75)),
                 ('img', models.ImageField(null=True, upload_to=basecategory.models.get_img_upload_dir, blank=True)),
                 ('description', models.TextField(null=True, blank=True)),
+                ('hero', models.BooleanField(default=False)),
+                ('button', models.ManyToManyField(to='basecategory.Button')),
             ],
             options={
                 'abstract': False,
@@ -38,5 +41,10 @@ class Migration(migrations.Migration):
             model_name='production',
             name='category',
             field=models.ForeignKey(to='productions.ProductionCategory'),
+        ),
+        migrations.AddField(
+            model_name='production',
+            name='platform',
+            field=models.ManyToManyField(to='basecategory.Platform'),
         ),
     ]

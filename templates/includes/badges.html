@@ -1,0 +1,13 @@
+<div class="badges">
+    {% for platform in item.platform.all %}
+        <i class="fa fa-{{ platform.css_class }}"></i>
+    {% endfor %}
+    {% if item.min_players %}
+        {% if item.min_players == item.max_players == 1 %}
+            <i class="fa fa-user"></i>
+        {% else %}
+            <i class="fa fa-users"></i>
+        {% endif %}
+        {{ item.min_players }}{% if not item.max_players %}+{% elif item.max_players and item.max_players > item.min_players %}-{{ item.max_players }}{% endif %}
+    {% endif %}
+</div>

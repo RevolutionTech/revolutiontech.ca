@@ -19,20 +19,13 @@ class Migration(migrations.Migration):
                 ('name', models.CharField(max_length=75)),
                 ('img', models.ImageField(null=True, upload_to=basecategory.models.get_img_upload_dir, blank=True)),
                 ('description', models.TextField(null=True, blank=True)),
+                ('hero', models.BooleanField(default=False)),
+                ('button', models.ManyToManyField(to='basecategory.Button')),
+                ('platform', models.ManyToManyField(to='basecategory.Platform')),
             ],
             options={
                 'abstract': False,
-            },
-        ),
-        migrations.CreateModel(
-            name='SoftwarePlatform',
-            fields=[
-                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('platform', models.ForeignKey(to='basecategory.Platform')),
-                ('software', models.ForeignKey(to='software.Software')),
-            ],
-            options={
-                'abstract': False,
+                'verbose_name_plural': 'Software',
             },
         ),
     ]

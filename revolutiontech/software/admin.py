@@ -4,9 +4,20 @@
 
 """
 
+from django import forms
 from django.contrib import admin
 
 from software.models import Software
 
 
-admin.site.register(Software)
+class SoftwareAdminForm(forms.ModelForm):
+    class Meta:
+        model = Software
+        fields = ['name', 'img', 'description', 'platform', 'button', 'hero',]
+
+
+class SoftwareAdmin(admin.ModelAdmin):
+    form = SoftwareAdminForm
+
+
+admin.site.register(Software, SoftwareAdmin)
