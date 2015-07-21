@@ -87,6 +87,7 @@
 }
 .item-short-left > img {
     margin-bottom: 10px;
+    max-height: 200px;
 }
 .item-short-left > .button {
     margin-bottom: 0.25em;

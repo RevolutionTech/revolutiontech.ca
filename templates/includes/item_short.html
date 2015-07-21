@@ -1,6 +1,6 @@
 <li class="item-regular category-{{ item.category.name|slugify }}">
     <div class="item-short-left">
-        <img src="{{ item.img.url }}" alt="{{ item.name }}">
+        <img src="{{ item.random_image.img.url }}" alt="{{ item.name }}">
         {% for button in item.button.all %}
             <br /><a class="button expand {{ button.css_class }}" href="{{ button.link }}">{{ button.text }}</a>
         {% endfor %}

@@ -13,7 +13,7 @@ from software.models import Software
 class SoftwareAdminForm(forms.ModelForm):
     class Meta:
         model = Software
-        fields = ['name', 'img', 'description', 'platform', 'button', 'hero',]
+        fields = ['name', 'image', 'description', 'platform', 'button', 'hero',]
 
 
 class SoftwareAdmin(admin.ModelAdmin):

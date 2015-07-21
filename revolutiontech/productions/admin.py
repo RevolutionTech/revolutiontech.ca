@@ -13,7 +13,7 @@ from productions.models import ProductionCategory, Production
 class ProductionAdminForm(forms.ModelForm):
     class Meta:
         model = Production
-        fields = ['name', 'category', 'img', 'description', 'platform', 'button', 'hero',]
+        fields = ['name', 'category', 'image', 'description', 'platform', 'button', 'hero',]
 
 
 class ProductionAdmin(admin.ModelAdmin):

@@ -4,18 +4,40 @@
 
 """
 
+import random
+
 from django.db import models
 
 
 class Category(models.Model):
 
-    name = models.CharField(max_length=50)
+    name = models.CharField(max_length=50, db_index=True)
 
     class Meta:
         abstract = True
 
     def __unicode__(self):
         return self.name
+
+
+def get_item_type(item):
+    return item._meta.verbose_name_plural.lower()
+
+
+def get_img_upload_dir(item, filename):
+    return "img/{item_type}/{filename}".format(
+        item_type=get_item_type(item),
+        filename=filename
+    )
+
+
+class Image(models.Model):
+
+    img = models.ImageField(upload_to=get_img_upload_dir)
+    caption = models.TextField()
+
+    def __unicode__(self):
+        return self.caption[:40]
 
 
 class Platform(models.Model):
@@ -49,31 +71,23 @@ class Button(models.Model):
             return "#"
 
 
-def get_item_type(item):
-    return item._meta.verbose_name_plural.lower()
-
-
-def get_img_upload_dir(item, filename):
-    return "img/{item_type}/{filename}".format(
-        item_type=get_item_type(item),
-        filename=filename
-    )
-
-
 class Item(models.Model):
 
-    name = models.CharField(max_length=75)
-    img = models.ImageField(upload_to=get_img_upload_dir, null=True, blank=True)
+    name = models.CharField(max_length=75, db_index=True)
+    image = models.ManyToManyField(Image)
     description = models.TextField(null=True, blank=True, help_text="Enter valid HTML")
     platform = models.ManyToManyField(Platform)
     button = models.ManyToManyField(Button)
-    hero = models.BooleanField(default=False)
+    hero = models.BooleanField(default=False, db_index=True)
 
     class Meta:
         abstract = True
 
     def __unicode__(self):
         return self.name
+
+    def random_image(self):
+        return random.choice(self.image.all())
 
     def description_first_letter(self):
         return self.description[0]
