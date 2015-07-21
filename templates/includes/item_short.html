@@ -1,11 +1,13 @@
-<div class="item-short-left">
-    <img src="{{ item.img.url }}" alt="{{ item.name }}">
-    {% for button in item.button.all %}
-        <br /><a class="button expand {{ button.css_class }}" href="{{ button.link }}">{{ button.text }}</a>
-    {% endfor %}
-</div>
-<h4>
-    {{ item.name }}&nbsp;
-    {% include "includes/badges.html" with item=item %}
-</h4>
-<p>{{ item.description|safe }}</p>
+<li class="item-regular category-{{ item.category.name|slugify }}">
+    <div class="item-short-left">
+        <img src="{{ item.img.url }}" alt="{{ item.name }}">
+        {% for button in item.button.all %}
+            <br /><a class="button expand {{ button.css_class }}" href="{{ button.link }}">{{ button.text }}</a>
+        {% endfor %}
+    </div>
+    <h4>
+        {{ item.name }}&nbsp;
+        {% include "includes/badges.html" with item=item %}
+    </h4>
+    <p>{{ item.description|safe }}</p>
+</li>

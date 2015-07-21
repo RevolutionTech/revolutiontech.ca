@@ -17,13 +17,24 @@
             <div class="hero-units">
                 {% include "includes/hero_unit.html" with item=items.heroes|first orbit=False %}
             </div>
-            <br />
+            <div class="no-orbit-bottom"></div>
         {% endif %}
-        <ul class="medium-block-grid-1 large-block-grid-2">
-            {% for item in items.regular %}
-                <li>{% include "includes/item_short.html" with item=item %}</li>
-            {% endfor %}
-        </ul>
+        <div class="items-regular">
+            {% if categories %}
+                <dl class="sub-nav">
+                    <dt>Filter:</dt>
+                    <dd class="category-all active"><a href="javascript: void(0);">All</a></dd>
+                    {% for category in categories %}
+                        <dd class="category-{{ category.name|slugify }}"><a href="javascript: void(0);">{{ category.name }}</a></dd>
+                    {% endfor %}
+                </dl>
+            {% endif %}
+            <ul class="medium-block-grid-1 large-block-grid-2">
+                {% for item in items.regular %}
+                    {% include "includes/item_short.html" with item=item %}
+                {% endfor %}
+            </ul>
+        </div>
     {% else %}
         <p>Nothing to see here, check back later!</p>
     {% endif %}
