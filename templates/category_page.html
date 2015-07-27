@@ -19,7 +19,7 @@
             </div>
             <div class="no-orbit-bottom"></div>
         {% endif %}
-        <div class="items-regular">
+        <div class="home-container items-regular">
             {% if categories %}
                 <dl class="sub-nav">
                     <dt>Filter:</dt>
@@ -29,7 +29,7 @@
                     {% endfor %}
                 </dl>
             {% endif %}
-            <ul class="medium-block-grid-1 large-block-grid-2">
+            <ul class="large-block-grid-1">
                 {% for item in items.regular %}
                     {% include "includes/item_short.html" with item=item %}
                 {% endfor %}
