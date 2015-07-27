@@ -58,7 +58,7 @@
     float: right;
     margin-left: 24px;
 }
-.hero-unit-right > img {
+.hero-unit-right > a > img {
     margin-bottom: 10px;
     max-height: 200px;
 }
@@ -80,17 +80,15 @@
     margin-top: 30px;
 }
 
-.item-short-left {
+
+.item-regular > a > p {
+    color: #000000;
+}
+.item-short-img {
     float: left;
-    margin-right: 24px;
-    width: auto;
-}
-.item-short-left > img {
-    margin-bottom: 10px;
     max-height: 200px;
-}
-.item-short-left > .button {
-    margin-bottom: 0.25em;
+    width: auto;
+    margin-right: 24px;
 }
 
 .category-links {
@@ -125,6 +123,13 @@
 
 .category-img-productions {
     background: #319966;
+}
+
+.item-page > img {
+    margin-top: 10px;
+    margin-left: 15px;
+    max-width: 300px;
+    float: right;
 }
 
 .footer-back {

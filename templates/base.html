@@ -7,13 +7,9 @@
         <link href='http://fonts.googleapis.com/css?family=Titillium+Web' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="{% static "css/foundation.css" %}" type="text/css" charset="utf-8" />
         <link rel="stylesheet" href="{% static "css/font-awesome.min.css" %}" type="text/css" charset="utf-8" />
+        {% block cssincludes %}{% endblock %}
         <link rel="stylesheet" href="{% static "css/revolutiontech.css" %}" type="text/css" charset="utf-8" />
         <link rel="stylesheet" href="{% block css %}{% endblock %}" type="text/css" charset="utf-8" />
-        <script type="text/javascript" src="{% static "js/jquery.min.js" %}"></script>
-        <script type="text/javascript" src="{% static "js/jquery.cookie.min.js" %}"></script>
-        <script type="text/javascript" src="{% static "js/modernizr.js" %}"></script>
-        <script type="text/javascript" src="{% static "js/foundation.min.js" %}"></script>
-        <script type="text/javascript" src="{% static "js/filter.js" %}"></script>
     </head>
     <body>
         <!-- Header -->
@@ -27,9 +23,9 @@
 
             <section class="top-bar-section">
                 <ul class="left">
-                    <li {% if page == 'games' %}class="active"{% endif %}><a href="{% url 'games' %}">Games</a></li>
-                    <li {% if page == 'productions' %}class="active"{% endif %}><a href="{% url 'productions' %}">Productions</a></li>
-                    <li {% if page == 'software' %}class="active"{% endif %}><a href="{% url 'software' %}">Software</a></li>
+                    <li {% if page == 'games' %}class="active"{% endif %}><a href="{% url 'games:games_list' %}">Games</a></li>
+                    <li {% if page == 'productions' %}class="active"{% endif %}><a href="{% url 'productions:productions_list' %}">Productions</a></li>
+                    <li {% if page == 'software' %}class="active"{% endif %}><a href="{% url 'software:software_list' %}">Software</a></li>
                 </ul>
                 <ul class="right">
                     <li><a href="https://bitbucket.org/RevolutionTech/"><i class="fa fa-2x fa-bitbucket"></i></a></li>
@@ -76,6 +72,12 @@
         </footer>
 
         <!-- JS -->
+        <script type="text/javascript" src="{% static "js/jquery.min.js" %}"></script>
+        <script type="text/javascript" src="{% static "js/jquery.cookie.min.js" %}"></script>
+        <script type="text/javascript" src="{% static "js/modernizr.js" %}"></script>
+        <script type="text/javascript" src="{% static "js/foundation.min.js" %}"></script>
+        <script type="text/javascript" src="{% static "js/filter.js" %}"></script>
         <script type="text/javascript">$(document).foundation();</script>
+        {% block jsincludes %}{% endblock %}
     </body>
 </html>

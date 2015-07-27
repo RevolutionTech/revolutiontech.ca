@@ -6,9 +6,19 @@
 
 from django.contrib import admin
 
-from basecategory.models import Image, Platform, Button
+from basecategory.models import Platform
 
 
-admin.site.register(Image)
+class ImageInline(admin.TabularInline):
+    extra = 2
+
+
+class ButtonInline(admin.TabularInline):
+    extra = 1
+
+
+class ItemAdmin(admin.ModelAdmin):
+    prepopulated_fields = {'slug': ('name',)}
+
+
 admin.site.register(Platform)
-admin.site.register(Button)

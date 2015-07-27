@@ -11,7 +11,7 @@
     </div>
     <ul class="category-links small-block-grid-1 medium-block-grid-3 large-block-grid-3">
         <li>
-            <a href="{% url 'games' %}">
+            <a href="{% url 'games:games_list' %}">
                 <div class="th">
                     <div class="category-img"><img src="{% static "img/games.png" %}" alt="Revolution Games"></div>
                     <h4>Games</h4>
@@ -20,7 +20,7 @@
             </a>
         </li>
         <li>
-            <a href="{% url 'productions' %}">
+            <a href="{% url 'productions:productions_list' %}">
                 <div class="th">
                     <div class="category-img category-img-productions"><img src="{% static "img/productions.png" %}" alt="Revolution Productions"></div>
                     <h4>Productions</h4>
@@ -29,7 +29,7 @@
             </a>
         </li>
         <li>
-            <a href="{% url 'software' %}">
+            <a href="{% url 'software:software_list' %}">
                 <div class="th">
                     <div class="category-img"><img src="{% static "img/software.png" %}" alt="Revolution Software"></div>
                     <h4>Software</h4>
