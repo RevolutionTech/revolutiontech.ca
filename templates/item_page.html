@@ -3,28 +3,45 @@
 
 {% block title %}{{ item.name }}{% endblock %}
 
+{% block cssincludes %}
+    <link rel="stylesheet" href="{% static "slick/slick.css" %}" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="{% static "slick/slick-theme.css" %}" type="text/css" charset="utf-8" />
+{% endblock %}
+
 {% block content %}
-    <div class="home-container item-page">
-        {% with image=item.image_random %}
-            <img src="{{ image.img.url }}" alt="{{ image.caption }}">
-        {% endwith %}
-        <h2>{{ item.name }}</h2>
-        {% if item.platform.all %}
-            <h4>
-                {% for platform in item.platform.all %}
-                    <i class="fa fa-{{ platform.css_class }}"></i> {{ platform.name }}&nbsp;
+    <div class="home-container">
+        <div class="item-page">
+            <div class="item-images">
+                {% for image in item.image_all %}
+                    <div>
+                        <img src="{{ image.img.url }}" alt="{{ image.caption }}">
+                        <p>{{ image.caption }}</p>
+                    </div>
                 {% endfor %}
-            </h4>
-        {% endif %}
-        {% if item.min_players %}
-            <h4>
-                {% include "includes/players.html" with item=item %}
-                Player{% if item.min_players > 1 or not item.max_players or item.max_players > 1 %}s{% endif %}
-            </h4>
-        {% endif %}
-        <p>{{ item.description|safe }}</p>
-        {% for button in item.button_all %}
-            <a class="button small {{ button.css_class }}" href="{{ button.link }}">{{ button.text }}</a>
-        {% endfor %}
+            </div>
+            <h2>{{ item.name }}</h2>
+            {% if item.platform.all %}
+                <h4>
+                    {% for platform in item.platform.all %}
+                        <i class="fa fa-{{ platform.css_class }}"></i> {{ platform.name }}&nbsp;
+                    {% endfor %}
+                </h4>
+            {% endif %}
+            {% if item.min_players %}
+                <h4>
+                    {% include "includes/players.html" with item=item %}
+                    Player{% if item.min_players > 1 or not item.max_players or item.max_players > 1 %}s{% endif %}
+                </h4>
+            {% endif %}
+            <p>{{ item.description|safe }}</p>
+            {% for button in item.button_all %}
+                <a class="button small {{ button.css_class }}" href="{{ button.link }}">{{ button.text }}</a>
+            {% endfor %}
+        </div>
     </div>
+{% endblock %}
+
+{% block jsincludes %}
+    <script type="text/javascript" src="{% static "slick/slick.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "js/slick-item-page.js" %}"></script>
 {% endblock %}
