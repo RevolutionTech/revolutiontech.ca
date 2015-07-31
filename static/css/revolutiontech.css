@@ -126,8 +126,14 @@
 }
 
 .item-images {
-    margin-left: 35px;
     max-width: 300px;
+}
+.item-images.show-for-small-only {
+    margin: auto;
+    margin-bottom: 10px;
+}
+.item-images.show-for-medium-up {
+    margin-left: 35px;
     float: right;
 }
 .item-images > div {
