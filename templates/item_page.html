@@ -15,7 +15,7 @@
                 {% for image in item.image_all %}
                     <div>
                         <img src="{{ image.img.url }}" alt="{{ image.caption }}">
-                        <p>{{ image.caption }}</p>
+                        {% if image.caption %}<p>{{ image.caption }}</p>{% endif %}
                     </div>
                 {% endfor %}
             </div>

@@ -55,7 +55,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('img', models.ImageField(upload_to=basecategory.models.get_img_upload_dir)),
-                ('caption', models.TextField()),
+                ('caption', models.TextField(null=True, blank=True)),
                 ('production', models.ForeignKey(to='productions.Production')),
             ],
             options={

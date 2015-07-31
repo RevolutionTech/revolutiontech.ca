@@ -29,7 +29,7 @@ def get_img_upload_dir(item, filename):
 class Image(models.Model):
 
     img = models.ImageField(upload_to=get_img_upload_dir)
-    caption = models.TextField()
+    caption = models.TextField(null=True, blank=True)
 
     class Meta:
         abstract = True
