@@ -1173,7 +1173,7 @@ button, .button {
   button:hover, button:focus, .button:hover, .button:focus {
     color: #FFFFFF; }
   button.secondary, .button.secondary {
-    background-color: #ffffff;
+    background-color: #e7e7e7;
     border-color: #b9b9b9;
     color: #333333; }
     button.secondary:hover, button.secondary:focus, .button.secondary:hover, .button.secondary:focus {
