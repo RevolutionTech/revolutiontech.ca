@@ -14,7 +14,7 @@
             <div class="item-images show-for-medium-up">
                 {% include "includes/image-rotator.html" with images=item.image_all %}
             </div>
-            <h2>{{ item.name }}</h2>
+            <h2>{{ item.name }}{% if item.release_year %} ({{ item.release_year }}){% endif %}</h2>
             <div class="item-images show-for-small-only">
                 {% include "includes/image-rotator.html" with images=item.image_all %}
             </div>

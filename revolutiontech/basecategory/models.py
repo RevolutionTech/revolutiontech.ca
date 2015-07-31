@@ -76,6 +76,7 @@ class Item(models.Model):
 
     name = models.CharField(max_length=75, db_index=True)
     slug = models.SlugField(max_length=75, db_index=True)
+    release_year = models.PositiveSmallIntegerField(null=True, blank=True, db_index=True, verbose_name="Year released")
     description = models.TextField(null=True, blank=True, help_text="Enter valid HTML")
     platform = models.ManyToManyField(Platform)
     hero = models.BooleanField(default=False, db_index=True)

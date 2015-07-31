@@ -22,8 +22,7 @@ class SoftwareButtonInline(ButtonInline):
 class SoftwareAdminForm(forms.ModelForm):
     class Meta:
         model = Software
-        #fields = ['name', 'slug', 'softwareimage', 'description', 'platform', 'softwarebutton', 'hero',]
-        fields = ['name', 'slug', 'description', 'platform', 'hero',]
+        fields = ['name', 'slug', 'release_year', 'description', 'platform', 'hero',]
 
 
 class SoftwareAdmin(ItemAdmin):

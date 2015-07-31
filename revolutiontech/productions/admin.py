@@ -23,8 +23,7 @@ class ProductionButtonInline(ButtonInline):
 class ProductionAdminForm(forms.ModelForm):
     class Meta:
         model = Production
-        #fields = ['name', 'slug', 'category', 'productionimage', 'description', 'platform', 'productionbutton', 'hero',]
-        fields = ['name', 'slug', 'category', 'description', 'platform', 'hero',]
+        fields = ['name', 'slug', 'category', 'release_year', 'description', 'platform', 'hero',]
 
 
 class ProductionAdmin(ItemAdmin):

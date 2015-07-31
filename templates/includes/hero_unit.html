@@ -6,7 +6,7 @@
         {% endif %}
     </div>
     <h2>
-        <a href="{{ item.url }}">{{ item.name }}</a>&nbsp;
+        <a href="{{ item.url }}">{{ item.name }}</a>{% if item.release_year %} ({{ item.release_year }}){% endif %}&nbsp;
         {% include "includes/badges.html" with item=item %}
     </h2>
     <p><span class="firstletter">{{ item.description_first_letter }}</span>{{ item.description_rest|safe }}</p>

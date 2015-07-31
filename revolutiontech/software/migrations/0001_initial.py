@@ -18,6 +18,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('name', models.CharField(max_length=75, db_index=True)),
                 ('slug', models.SlugField(max_length=75)),
+                ('release_year', models.PositiveSmallIntegerField(db_index=True, null=True, verbose_name=b'Year released', blank=True)),
                 ('description', models.TextField(help_text=b'Enter valid HTML', null=True, blank=True)),
                 ('hero', models.BooleanField(default=False, db_index=True)),
                 ('platform', models.ManyToManyField(to='basecategory.Platform')),

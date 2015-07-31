@@ -22,7 +22,7 @@ class GameButtonInline(ButtonInline):
 class GameAdminForm(forms.ModelForm):
     class Meta:
         model = Game
-        fields = ['name', 'slug', 'category', 'description', 'platform', 'min_players', 'max_players', 'hero',]
+        fields = ['name', 'slug', 'category', 'release_year', 'description', 'platform', 'min_players', 'max_players', 'hero',]
 
 
 class GameAdmin(ItemAdmin):

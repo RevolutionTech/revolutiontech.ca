@@ -2,7 +2,7 @@
     <a class="th" href="{{ item.url }}">
         <img class="item-short-img" src="{{ item.image_random.img.url }}" alt="{{ item.name }}">
         <h4>
-            {{ item.name }}&nbsp;
+            {{ item.name }}{% if item.release_year %} ({{ item.release_year }}){% endif %}&nbsp;
             {% include "includes/badges.html" with item=item %}
         </h4>
         <p>{{ item.description|safe }}</p>
