@@ -42,7 +42,12 @@
 .home-hero-unit {
     margin: auto;
     width: 100%;
+}
+.home-hero-unit.170 {
     min-height: 170px;
+}
+.home-hero-unit.140 {
+    min-height: 140px;
 }
 
 .hero-units {
@@ -69,7 +74,7 @@
 
 .semi-avatar {
     float: right;
-    max-height: 130px;
+    max-height: 100px;
 }
 
 .sub-nav {
