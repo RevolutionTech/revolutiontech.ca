@@ -16,12 +16,12 @@ class HomeView(TemplateView):
 
 class CategoryPageView(TemplateView):
 
-    template_name = "category_page.html"
+    template_name = "category-page.html"
 
 
 class ItemPageView(TemplateView):
 
-    template_name = "item_page.html"
+    template_name = "item-page.html"
 
     def dispatch(self, request, items, slug, *args, **kwargs):
         try:

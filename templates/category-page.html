@@ -13,7 +13,7 @@
         <div class="home-container">
             <div class="hero-units">
                 {% for hero in items.heroes %}
-                    {% include "includes/hero_unit.html" with item=hero %}
+                    {% include "includes/hero-unit.html" with item=hero %}
                 {% endfor %}
             </div>
             <div class="items-regular">
@@ -28,7 +28,7 @@
                 {% endif %}
                 <ul class="large-block-grid-1">
                     {% for item in items.regular %}
-                        {% include "includes/item_short.html" with item=item %}
+                        {% include "includes/item-short.html" with item=item %}
                     {% endfor %}
                 </ul>
             </div>
