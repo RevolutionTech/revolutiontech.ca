@@ -35,6 +35,7 @@
             {% for button in item.button_all %}
                 <a class="button small {{ button.css_class }}" href="{{ button.link }}">{{ button.text }}</a>
             {% endfor %}
+            <div class="fb-comments" data-href="{{ absolute_uri }}" data-width="100%" data-numposts="5"></div>
         </div>
     </div>
 {% endblock %}
@@ -42,4 +43,5 @@
 {% block jsincludes %}
     <script type="text/javascript" src="{% static "slick/slick.min.js" %}"></script>
     <script type="text/javascript" src="{% static "js/slick-item-page.js" %}"></script>
+    <script type="text/javascript" src="{% static "js/facebook-sdk.js" %}"></script>
 {% endblock %}
