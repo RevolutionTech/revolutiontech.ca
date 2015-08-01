@@ -1,16 +1,26 @@
 <div class="hero-unit">
-    <div class="hero-unit-right">
-        <a href="{{ item.url }}"><img src="{{ item.image_random.img.url }}" alt="{{ item.name }}"></a>{% if not orbit %}<br />{% endif %}
-        {% if item.button_main %}
-            <a class="button expand {{ item.button_main.css_class }}" href="{{ item.button_main.link }}">{{ item.button_main.text }}</a>
-        {% endif %}
-    </div>
-    <h2>
-        <a href="{{ item.url }}">{{ item.name }}</a>{% if item.release_year %} ({{ item.release_year }}){% endif %}&nbsp;
-        {% include "includes/badges.html" with item=item %}
-    </h2>
+    {% with image=item.image_random %}
+        <div class="hero-unit-right show-for-medium-up">
+            <a href="{{ item.url }}"><img src="{{ image.img.url }}" alt="{{ item.name }}"></a>
+            {% if item.button_main %}
+                <a class="button expand {{ item.button_main.css_class }}" href="{{ item.button_main.link }}">{{ item.button_main.text }}</a>
+            {% endif %}
+        </div>
+        <h2>
+            <a href="{{ item.url }}">{{ item.name }}</a>{% if item.release_year %} ({{ item.release_year }}){% endif %}&nbsp;
+            {% include "includes/badges.html" with item=item %}
+        </h2>
+        <div class="show-for-small-only">
+            <a href="{{ item.url }}"><img src="{{ image.img.url }}" alt="{{ item.name }}"></a>
+        </div>
+    {% endwith %}
     <p><span class="firstletter">{{ item.description_first_letter }}</span>{{ item.description_rest|safe }}</p>
-    {% for button in item.button_rest %}
-        <a class="button small {{ button.css_class }}" href="{{ button.link }}">{{ button.text }}</a>
-    {% endfor %}
+    <div class="show-for-small-only">
+        <a class="button small expand {{ item.button_main.css_class }}" href="{{ item.button_main.link }}">{{ item.button_main.text }}</a>
+    </div>
+    <div class="show-for-medium-up">
+        {% for button in item.button_rest %}
+            <a class="button small {{ button.css_class }}" href="{{ button.link }}">{{ button.text }}</a>
+        {% endfor %}
+    </div>
 </div>

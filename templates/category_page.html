@@ -3,39 +3,42 @@
 
 {% block title %}Revolution {{ page|title }}{% endblock %}
 
+{% block cssincludes %}
+    <link rel="stylesheet" href="{% static "slick/slick.css" %}" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="{% static "slick/slick-theme.css" %}" type="text/css" charset="utf-8" />
+{% endblock %}
+
 {% block content %}
     {% if items.heroes or items.regular %}
-        {% if items.heroes|length > 1 %}
-            <ul class="hero-units example-orbit-content" data-orbit>
-                {% for item in items.heroes %}
-                    <li>
-                        {% include "includes/hero_unit.html" with item=item orbit=True %}
-                    </li>
-                {% endfor %}
-            </ul>
-        {% elif items.heroes %}
+        <div class="home-container">
             <div class="hero-units">
-                {% include "includes/hero_unit.html" with item=items.heroes|first orbit=False %}
-            </div>
-            <div class="no-orbit-bottom"></div>
-        {% endif %}
-        <div class="home-container items-regular">
-            {% if categories %}
-                <dl class="sub-nav">
-                    <dt>Filter:</dt>
-                    <dd class="category-all active"><a href="javascript: void(0);">All</a></dd>
-                    {% for category in categories %}
-                        <dd class="category-{{ category.name|slugify }}"><a href="javascript: void(0);">{{ category.name }}</a></dd>
-                    {% endfor %}
-                </dl>
-            {% endif %}
-            <ul class="large-block-grid-1">
-                {% for item in items.regular %}
-                    {% include "includes/item_short.html" with item=item %}
+                {% for hero in items.heroes %}
+                    {% include "includes/hero_unit.html" with item=hero %}
                 {% endfor %}
-            </ul>
+            </div>
+            <div class="items-regular">
+                {% if categories %}
+                    <dl class="sub-nav">
+                        <dt>Filter:</dt>
+                        <dd class="category-all active"><a href="javascript: void(0);">All</a></dd>
+                        {% for category in categories %}
+                            <dd class="category-{{ category.name|slugify }}"><a href="javascript: void(0);">{{ category.name }}</a></dd>
+                        {% endfor %}
+                    </dl>
+                {% endif %}
+                <ul class="large-block-grid-1">
+                    {% for item in items.regular %}
+                        {% include "includes/item_short.html" with item=item %}
+                    {% endfor %}
+                </ul>
+            </div>
         </div>
     {% else %}
         <p>Nothing to see here, check back later!</p>
     {% endif %}
+{% endblock %}
+
+{% block jsincludes %}
+    <script type="text/javascript" src="{% static "slick/slick.min.js" %}"></script>
+    <script type="text/javascript" src="{% static "js/slick-category-page.js" %}"></script>
 {% endblock %}
