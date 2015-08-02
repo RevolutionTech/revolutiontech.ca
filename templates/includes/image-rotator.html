@@ -1,6 +1,10 @@
+{% load thumbnail %}
+
 {% for image in images %}
     <div>
-        <img src="{{ image.img.url }}" alt="{{ image.caption }}">
+        {% thumbnail image.img "300" as thumb %}
+            <img src="{{ thumb.url }}" width="{{ thumb.width }}" height="{{ thumb.height }}" alt="{{ image.caption }}">
+        {% endthumbnail %}
         {% if image.caption %}<p>{{ image.caption }}</p>{% endif %}
     </div>
 {% endfor %}

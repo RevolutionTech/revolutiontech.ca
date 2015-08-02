@@ -1,11 +1,15 @@
+{% load thumbnail %}
+
 <li class="item-regular category-{{ item.category.name|slugify }}">
     <a class="th" href="{{ item.url }}">
-        <img class="item-short-img show-for-medium-up" src="{{ item.image_random.img.url }}" alt="{{ item.name }}">
-        <h4>
-            {{ item.name }}{% if item.release_year %} ({{ item.release_year }}){% endif %}&nbsp;
-            {% include "includes/badges.html" with item=item %}
-        </h4>
-        <img class="item-short-img-small show-for-small-only" src="{{ item.image_random.img.url }}" alt="{{ item.name }}">
+        {% thumbnail item.image_random.img "x200" as thumb %}
+            <img class="item-short-img show-for-medium-up" src="{{ thumb.url }}" width="{{ thumb.width }}" height="{{ thumb.height }}" alt="{{ item.name }}">
+            <h4>
+                {{ item.name }}{% if item.release_year %} ({{ item.release_year }}){% endif %}&nbsp;
+                {% include "includes/badges.html" with item=item %}
+            </h4>
+            <img class="item-short-img-small show-for-small-only" src="{{ thumb.url }}" width="{{ thumb.width }}" height="{{ thumb.height }}" alt="{{ item.name }}">
+        {% endthumbnail %}
         <p>{{ item.description|safe }}</p>
     </a>
 </li>
