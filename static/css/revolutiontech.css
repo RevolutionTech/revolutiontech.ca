@@ -1,3 +1,6 @@
+.sub-nav dd a {
+    padding: 0.1rem 0.5rem;
+}
 .hero-unit > .button.secondary {
     background-color: #ffffff;
 }
