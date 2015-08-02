@@ -103,12 +103,18 @@
 .item-regular > a > p {
     color: #000000;
 }
-.item-short-img {
-    float: left;
+.item-regular img {
     max-width: 267px;
     max-height: 200px;
+}
+.item-short-img {
+    float: left;
     width: auto;
     margin-right: 24px;
+}
+.item-short-img-small {
+    margin: auto;
+    margin-bottom: 10px;
 }
 
 .category-links {
