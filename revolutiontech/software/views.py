@@ -17,9 +17,11 @@ class SoftwareListView(CategoryPageView):
         context['page'] = 'software'
 
         software = Software.objects.all().order_by('name')
+        heroes = software.filter(hero=True)
+        regular = software.filter(hero=False)
         context['items'] = {
-            'heroes': software.filter(hero=True),
-            'regular': software.filter(hero=False),
+            'heroes': heroes,
+            'regular': regular,
         }
         context['random_hero_unit_index'] = random.randint(0, heroes.count()-1)
         return context
