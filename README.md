@@ -45,6 +45,11 @@ With everything installed and all files in place, you may now create the databas
 
 ### Deployment
 
+First you will want to manually change some settings in `settings.py` for production. You should update DEBUG and ALLOWED_HOSTS to look like the following:
+
+    DEBUG = False
+    ALLOWED_HOSTS = ['127.0.0.1', 'localhost',]
+
 revolutiontech.ca uses Gunicorn with [runit](http://smarden.org/runit/) and [Nginx](http://nginx.org/). You can install them with the following:
 
     sudo apt-get install runit nginx
