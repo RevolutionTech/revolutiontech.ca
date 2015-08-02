@@ -71,6 +71,9 @@ class Button(models.Model):
         else:
             return "#"
 
+    def link_is_external(self):
+        return self.external_url and not self.local_resource
+
 
 class Item(models.Model):
 
