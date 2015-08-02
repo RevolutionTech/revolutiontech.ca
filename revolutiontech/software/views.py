@@ -23,5 +23,5 @@ class SoftwareListView(CategoryPageView):
             'heroes': heroes,
             'regular': regular,
         }
-        context['random_hero_unit_index'] = random.randint(0, heroes.count()-1)
+        context['random_hero_unit_index'] = random.randint(0, heroes.count()-1) if heroes.count() > 0 else 0
         return context

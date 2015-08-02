@@ -23,7 +23,7 @@ class GamesListView(CategoryPageView):
             'heroes': heroes,
             'regular': regular,
         }
-        context['random_hero_unit_index'] = random.randint(0, heroes.count()-1)
+        context['random_hero_unit_index'] = random.randint(0, heroes.count()-1) if heroes.count() > 0 else 0
 
         regular_categories = regular.values('category')
         category_ids = set(map(lambda cat: cat['category'], regular_categories))
