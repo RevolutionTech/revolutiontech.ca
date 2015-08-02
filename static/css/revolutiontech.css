@@ -71,7 +71,6 @@
     padding-right: 20px;
     max-width: 850px;
     min-height: 275px;
-    text-align: justify;
 }
 .hero-unit-right {
     display: block;
@@ -83,6 +82,9 @@
     margin-bottom: 10px;
     max-width: 267px;
     max-height: 200px;
+}
+.hero-unit p {
+    text-align: justify;
 }
 
 .semi-avatar {
