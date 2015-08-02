@@ -5,9 +5,9 @@
 
 ### Prerequisites
 
-revolutiontech.ca requires [PostgreSQL](http://www.postgresql.org/) and libjpeg-dev, which you can install on debian with:
+revolutiontech.ca requires [memcached](http://memcached.org/), [PostgreSQL](http://www.postgresql.org/) and libjpeg-dev, which you can install on debian with:
 
-    sudo apt-get install postgresql postgresql-contrib libpq-dev python-dev libjpeg-dev
+    sudo apt-get install memcached postgresql postgresql-contrib libpq-dev python-dev libjpeg-dev
 
 I recommend using a virtual environment for revolutiontech.ca. If you don't have it already, you can install [virtualenv](http://virtualenv.readthedocs.org/en/latest/virtualenv.html) and virtualenvwrapper globally with pip:
 
@@ -23,7 +23,7 @@ In the future you can reactivate the virtual environment with:
 
 ### Installation
 
-Then in your virtual environment, you will need to install Python dependencies such as [Gunicorn](http://gunicorn.org/), [django](https://www.djangoproject.com/), psycopg2, [pillow](https://pillow.readthedocs.org/), and [sorl-thumbnail](http://sorl-thumbnail.readthedocs.org/). You can do this simply with the command:
+Then in your virtual environment, you will need to install Python dependencies such as [Gunicorn](http://gunicorn.org/), [django](https://www.djangoproject.com/), python-memcached, psycopg2, [pillow](https://pillow.readthedocs.org/), and [sorl-thumbnail](http://sorl-thumbnail.readthedocs.org/). You can do this simply with the command:
 
     pip install -r requirements.txt
 
