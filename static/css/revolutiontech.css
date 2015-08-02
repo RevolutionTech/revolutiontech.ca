@@ -97,6 +97,9 @@
 }
 
 
+.item-regular > a {
+    width: 100%;
+}
 .item-regular > a > p {
     color: #000000;
 }
