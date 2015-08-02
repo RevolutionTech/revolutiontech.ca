@@ -4,8 +4,9 @@
 
 """
 
-from basecategory.views import CategoryPageView
+import random
 
+from basecategory.views import CategoryPageView
 from productions.models import ProductionCategory, Production
 
 
@@ -22,6 +23,7 @@ class ProductionsListView(CategoryPageView):
             'heroes': heroes,
             'regular': regular,
         }
+        context['random_hero_unit_index'] = random.randint(0, heroes.count()-1)
 
         regular_categories = regular.values('category')
         category_ids = set(map(lambda cat: cat['category'], regular_categories))

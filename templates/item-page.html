@@ -42,6 +42,12 @@
 
 {% block jsincludes %}
     <script type="text/javascript" src="{% static "slick/slick.min.js" %}"></script>
-    <script type="text/javascript" src="{% static "js/slick-item-page.js" %}"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.item-images').slick({
+                adaptiveHeight: true
+            });
+        });
+    </script>
     <script type="text/javascript" src="{% static "js/facebook-sdk.js" %}"></script>
 {% endblock %}

@@ -4,8 +4,9 @@
 
 """
 
-from basecategory.views import CategoryPageView
+import random
 
+from basecategory.views import CategoryPageView
 from software.models import Software
 
 
@@ -20,4 +21,5 @@ class SoftwareListView(CategoryPageView):
             'heroes': software.filter(hero=True),
             'regular': software.filter(hero=False),
         }
+        context['random_hero_unit_index'] = random.randint(0, heroes.count()-1)
         return context
