@@ -23,7 +23,7 @@ In the future you can reactivate the virtual environment with:
 
 ### Installation
 
-Then in your virtual environment, you will need to install Python dependencies such as [django](https://www.djangoproject.com/), psycopg2, and [pillow](https://pillow.readthedocs.org/). You can do this simply with the command:
+Then in your virtual environment, you will need to install Python dependencies such as [Gunicorn](http://gunicorn.org/), [django](https://www.djangoproject.com/), psycopg2, and [pillow](https://pillow.readthedocs.org/). You can do this simply with the command:
 
     pip install -r requirements.txt
 
@@ -42,3 +42,81 @@ Of course you should [generate your own secret key](http://stackoverflow.com/a/1
 With everything installed and all files in place, you may now create the database tables. You can do this with:
 
     python manage.py migrate
+
+### Deployment
+
+revolutiontech.ca uses Gunicorn with [runit](http://smarden.org/runit/) and [Nginx](http://nginx.org/). You can install them with the following:
+
+    sudo apt-get install runit nginx
+
+Then we need to create the Nginx configuration for revolutiontech.ca:
+
+    cd /etc/nginx/sites-available
+    sudo nano revolutiontech.ca
+
+And in this file, generate a configuration similar to the following:
+
+    server {
+        server_name www.revolutiontech.ca;
+        return 301 http://revolutiontech.ca$request_url;
+    }
+
+    server {
+        server_name revolutiontech.ca;
+
+        access_log off;
+
+        location /static/admin/ {
+            alias /home/lucas/.virtualenvs/revolutiontech.ca/lib/python2.7/site-packages/django/contrib/admin/static/admin/;
+        }
+        location /static/ {
+            alias /home/lucas/revolutiontech.ca/static/;
+        }
+        location /media/ {
+            alias /home/lucas/revolutiontech.ca/media/;
+        }
+
+        location /favicon.ico {
+            alias /home/lucas/revolutiontech.ca/static/favicon.ico;
+        }
+
+        location / {
+            proxy_pass http://127.0.0.1:8000;
+            proxy_set_header X-Forwarded-Host $server_name;
+            proxy_set_header X-Real-IP $remote_addr;
+            add_header P3P 'CP="ALL DSP COR PSAa PSDa OUR NOR ONL UNI COM NAV"';
+        }
+    }
+
+Save the file and link to it from sites-enabled:
+
+    cd ../sites-enabled
+    sudo ln -s ../sites-available/revolutiontech.ca revolutiontech.ca
+
+Then we need to create a script to run revolutiontech.ca on boot with runit:
+
+    sudo mkdir /etc/sv/revolutiontech.ca
+    cd /etc/sv/revolutiontech.ca
+    sudo nano run
+
+In this file, create a script similar to the following:
+
+    #!/bin/sh
+
+    GUNICORN=/home/lucas/.virtualenvs/revolutiontech.ca/bin/gunicorn
+    ROOT=/home/lucas/revolutiontech.ca/revolutiontech
+    PID=/var/run/gunicorn.pid
+
+    APP=revolutiontech.wsgi:application
+
+    if [ -f $PID ]; then rm $PID; fi
+
+    cd $ROOT
+    exec $GUNICORN -c $ROOT/revolutiontech/gunicorn.py --pid=$PID $APP
+
+Then change the permissions on the file to be executable and symlink the project to /etc/service:
+
+    sudo chmod u+x run
+    sudo ln -s /etc/sv/revolutiontech.ca /etc/service/revolutiontech.ca
+
+revolutiontech.ca should now automatically be running on the local machine.
