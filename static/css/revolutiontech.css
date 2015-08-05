@@ -197,7 +197,11 @@
     padding-top: 3em;
 }
 
-.footer {
+.footer-small {
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+.footer-back {
     margin-top: 60px;
 }
 .footer a {
