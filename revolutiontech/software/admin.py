@@ -7,8 +7,8 @@
 from django import forms
 from django.contrib import admin
 
-from basecategory.admin import ImageInline, ButtonInline, ItemAdmin
-from software.models import Software, SoftwareImage, SoftwareButton
+from basecategory.admin import ImageInline, ButtonInline, VideoInline, ItemAdmin
+from software.models import Software, SoftwareImage, SoftwareButton, SoftwareVideo
 
 
 class SoftwareImageInline(ImageInline):
@@ -19,6 +19,10 @@ class SoftwareButtonInline(ButtonInline):
     model = SoftwareButton
 
 
+class SoftwareVideoInline(VideoInline):
+    model = SoftwareVideo
+
+
 class SoftwareAdminForm(forms.ModelForm):
     class Meta:
         model = Software
@@ -27,7 +31,7 @@ class SoftwareAdminForm(forms.ModelForm):
 
 class SoftwareAdmin(ItemAdmin):
     form = SoftwareAdminForm
-    inlines = [SoftwareImageInline, SoftwareButtonInline,]
+    inlines = [SoftwareImageInline, SoftwareButtonInline, SoftwareVideoInline,]
 
 
 admin.site.register(Software, SoftwareAdmin)

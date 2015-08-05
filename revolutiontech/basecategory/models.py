@@ -75,6 +75,35 @@ class Button(models.Model):
         return self.external_url and not self.local_resource
 
 
+class Video(models.Model):
+
+    title = models.CharField(max_length=30)
+    youtube_url = models.URLField(verbose_name='YouTube URL')
+
+    class Meta:
+        abstract = True
+
+    def __unicode__(self):
+        return "{title}: {url}".format(
+            title=self.title,
+            url=self.youtube_url
+        )
+
+    def youtube_video_code_and_params(self):
+        video_code_and_params_str = self.youtube_url.split('/watch?v=')[1]
+        video_code_and_params_list = video_code_and_params_str.split('&')
+        video_code, params = video_code_and_params_list[0], video_code_and_params_list[1:]
+        return video_code, '&'.join(params)
+
+    def youtube_embed_url(self):
+        video_code, url_params = self.youtube_video_code_and_params()
+        url = "https://www.youtube.com/embed/{v}".format(v=video_code)
+
+        if url_params:
+            url += "?{params}".format(params=url_params)
+        return url
+
+
 class Item(models.Model):
 
     name = models.CharField(max_length=75, db_index=True)
@@ -114,10 +143,18 @@ class Item(models.Model):
         return getattr(self, button_model_set_name).all().order_by('id')
 
     def button_main(self):
-        return self.button_all()[0]
+        buttons = self.button_all()
+        try:
+            return buttons[0]
+        except IndexError:
+            pass
 
     def button_rest(self):
         return self.button_all()[1:]
+
+    def video_all(self):
+        video_model_set_name = "{item_type}video_set".format(item_type=self._meta.model_name)
+        return getattr(self, video_model_set_name).all().order_by('id')
 
     def url(self):
         item_type = self._meta.verbose_name_plural.lower()
@@ -125,3 +162,7 @@ class Item(models.Model):
             '{item_type}:item_details'.format(item_type=item_type),
             kwargs={'slug': self.slug}
         )
+
+    def youtube_only(self):
+        platforms = self.platform.all()
+        return len(platforms) == 1 and platforms[0].name == 'YouTube'

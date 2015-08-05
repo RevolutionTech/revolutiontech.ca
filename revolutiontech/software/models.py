@@ -6,7 +6,7 @@
 
 from django.db import models
 
-from basecategory.models import Image, Button, Item
+from basecategory.models import Image, Button, Video, Item
 
 
 class Software(Item):
@@ -21,5 +21,10 @@ class SoftwareImage(Image):
 
 
 class SoftwareButton(Button):
+
+    software = models.ForeignKey(Software)
+
+
+class SoftwareVideo(Video):
 
     software = models.ForeignKey(Software)

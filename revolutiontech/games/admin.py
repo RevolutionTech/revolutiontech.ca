@@ -7,8 +7,8 @@
 from django import forms
 from django.contrib import admin
 
-from basecategory.admin import ImageInline, ButtonInline, ItemAdmin
-from games.models import GameCategory, Game, GameImage, GameButton
+from basecategory.admin import ImageInline, ButtonInline, VideoInline, ItemAdmin
+from games.models import GameCategory, Game, GameImage, GameButton, GameVideo
 
 
 class GameImageInline(ImageInline):
@@ -19,6 +19,10 @@ class GameButtonInline(ButtonInline):
     model = GameButton
 
 
+class GameVideoInline(VideoInline):
+    model = GameVideo
+
+
 class GameAdminForm(forms.ModelForm):
     class Meta:
         model = Game
@@ -27,7 +31,7 @@ class GameAdminForm(forms.ModelForm):
 
 class GameAdmin(ItemAdmin):
     form = GameAdminForm
-    inlines = [GameImageInline, GameButtonInline,]
+    inlines = [GameImageInline, GameButtonInline, GameVideoInline,]
 
 
 admin.site.register(GameCategory)

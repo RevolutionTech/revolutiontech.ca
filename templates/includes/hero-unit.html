@@ -17,9 +17,11 @@
         </div>
     {% endthumbnail %}
     <p><span class="firstletter">{{ item.description_first_letter }}</span>{{ item.description_rest|safe }}</p>
-    <div class="show-for-small-only">
-        <a class="button small expand {{ item.button_main.css_class }}" href="{{ item.button_main.link }}" {% if item.button_main.link_is_external %}target="_blank"{% endif %}>{{ item.button_main.text }}</a>
-    </div>
+    {% if item.button_main %}
+        <div class="show-for-small-only">
+            <a class="button small expand {{ item.button_main.css_class }}" href="{{ item.button_main.link }}" {% if item.button_main.link_is_external %}target="_blank"{% endif %}>{{ item.button_main.text }}</a>
+        </div>
+    {% endif %}
     <div class="show-for-medium-up">
         {% for button in item.button_rest %}
             <a class="button small {{ button.css_class }}" href="{{ button.link }}" {% if button.link_is_external %}target="_blank"{% endif %}>{{ button.text }}</a>

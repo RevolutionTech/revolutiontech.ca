@@ -6,7 +6,7 @@
 
 from django.db import models
 
-from basecategory.models import Category, Image, Button, Item
+from basecategory.models import Category, Image, Button, Video, Item
 
 
 class ProductionCategory(Category):
@@ -26,5 +26,10 @@ class ProductionImage(Image):
 
 
 class ProductionButton(Button):
+
+    production = models.ForeignKey(Production)
+
+
+class ProductionVideo(Video):
 
     production = models.ForeignKey(Production)
