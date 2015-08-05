@@ -35,11 +35,15 @@
             {% for button in item.button_all %}
                 <a class="button small {{ button.css_class }}" href="{{ button.link }}" {% if button.link_is_external %}target="_blank"{% endif %}>{{ button.text }}</a>
             {% endfor %}
-            {% for video in item.video_all %}
-                <div class="youtube-video">
-                    <iframe width="560" height="315" src="{{ video.youtube_embed_url }}" frameborder="0" allowfullscreen></iframe>
+            {% if item.video_all %}
+                <div class="youtube-videos">
+                    {% for video in item.video_all %}
+                        <div class="youtube-video">
+                            <iframe width="560" height="315" src="{{ video.youtube_embed_url }}" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                    {% endfor %}
                 </div>
-            {% endfor %}
+            {% endif %}
             {% if not item.youtube_only %}
                 <div class="fb-comments" data-href="{{ absolute_uri }}" data-width="100%" data-numposts="5"></div>
             {% endif %}
