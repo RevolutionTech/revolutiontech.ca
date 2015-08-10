@@ -36,6 +36,7 @@ class SoftwareAdminForm(forms.ModelForm):
 
 
 class SoftwareAdmin(ItemAdmin):
+    list_display = ('name', 'release_year',)
     form = SoftwareAdminForm
     inlines = [SoftwareImageInline, SoftwareButtonInline, SoftwareVideoInline, SoftwareMediaInline,]
 

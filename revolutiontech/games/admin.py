@@ -36,6 +36,7 @@ class GameAdminForm(forms.ModelForm):
 
 
 class GameAdmin(ItemAdmin):
+    list_display = ('name', 'category', 'release_year',)
     form = GameAdminForm
     inlines = [GameImageInline, GameButtonInline, GameVideoInline, GameMediaInline,]
 

@@ -36,6 +36,7 @@ class ProductionAdminForm(forms.ModelForm):
 
 
 class ProductionAdmin(ItemAdmin):
+    list_display = ('name', 'category', 'release_year',)
     form = ProductionAdminForm
     inlines = [ProductionImageInline, ProductionButtonInline, ProductionVideoInline, ProductionMediaInline,]
 
