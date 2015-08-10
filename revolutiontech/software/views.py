@@ -16,7 +16,7 @@ class SoftwareListView(CategoryPageView):
         context = super(SoftwareListView, self).get_context_data(**kwargs)
         context['page'] = 'software'
 
-        software = Software.objects.all().order_by('name')
+        software = Software.objects.filter(visible=True).order_by('name')
         heroes = software.filter(hero=True)
         regular = software.filter(hero=False)
         context['items'] = {

@@ -16,7 +16,7 @@ class GamesListView(CategoryPageView):
         context = super(GamesListView, self).get_context_data(**kwargs)
         context['page'] = 'games'
 
-        games = Game.objects.all().order_by('name')
+        games = Game.objects.filter(visible=True).order_by('name')
         heroes = games.filter(hero=True)
         regular = games.filter(hero=False)
         context['items'] = {

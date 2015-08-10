@@ -16,7 +16,7 @@ class ProductionsListView(CategoryPageView):
         context = super(ProductionsListView, self).get_context_data(**kwargs)
         context['page'] = 'productions'
 
-        productions = Production.objects.all().order_by('name')
+        productions = Production.objects.filter(visible=True).order_by('name')
         heroes = productions.filter(hero=True)
         regular = productions.filter(hero=False)
         context['items'] = {

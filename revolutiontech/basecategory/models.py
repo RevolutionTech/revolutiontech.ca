@@ -128,6 +128,7 @@ class Item(models.Model):
     description = models.TextField(null=True, blank=True, help_text="Enter valid HTML")
     platform = models.ManyToManyField(Platform)
     hero = models.BooleanField(default=False, db_index=True)
+    visible = models.BooleanField(default=True, db_index=True)
 
     class Meta:
         abstract = True

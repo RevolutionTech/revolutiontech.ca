@@ -32,11 +32,11 @@ class SoftwareMediaInline(MediaInline):
 class SoftwareAdminForm(forms.ModelForm):
     class Meta:
         model = Software
-        fields = ['name', 'slug', 'release_year', 'description', 'platform', 'hero',]
+        fields = ['name', 'slug', 'release_year', 'description', 'platform', 'hero', 'visible',]
 
 
 class SoftwareAdmin(ItemAdmin):
-    list_display = ('name', 'release_year',)
+    list_display = ('name', 'release_year', 'visible',)
     form = SoftwareAdminForm
     inlines = [SoftwareImageInline, SoftwareButtonInline, SoftwareVideoInline, SoftwareMediaInline,]
 

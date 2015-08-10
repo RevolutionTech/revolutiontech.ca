@@ -32,11 +32,11 @@ class GameMediaInline(MediaInline):
 class GameAdminForm(forms.ModelForm):
     class Meta:
         model = Game
-        fields = ['name', 'slug', 'category', 'release_year', 'description', 'platform', 'min_players', 'max_players', 'hero',]
+        fields = ['name', 'slug', 'category', 'release_year', 'description', 'platform', 'min_players', 'max_players', 'hero', 'visible',]
 
 
 class GameAdmin(ItemAdmin):
-    list_display = ('name', 'category', 'release_year',)
+    list_display = ('name', 'category', 'release_year', 'visible',)
     form = GameAdminForm
     inlines = [GameImageInline, GameButtonInline, GameVideoInline, GameMediaInline,]
 

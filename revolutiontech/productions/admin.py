@@ -32,11 +32,11 @@ class ProductionMediaInline(MediaInline):
 class ProductionAdminForm(forms.ModelForm):
     class Meta:
         model = Production
-        fields = ['name', 'slug', 'category', 'release_year', 'description', 'platform', 'hero',]
+        fields = ['name', 'slug', 'category', 'release_year', 'description', 'platform', 'hero', 'visible',]
 
 
 class ProductionAdmin(ItemAdmin):
-    list_display = ('name', 'category', 'release_year',)
+    list_display = ('name', 'category', 'release_year', 'visible',)
     form = ProductionAdminForm
     inlines = [ProductionImageInline, ProductionButtonInline, ProductionVideoInline, ProductionMediaInline,]
 
