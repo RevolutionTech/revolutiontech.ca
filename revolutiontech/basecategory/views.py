@@ -4,6 +4,8 @@
 
 """
 
+import random
+
 from django.core.urlresolvers import reverse
 from django.http import HttpResponseRedirect
 from django.views.generic import TemplateView
@@ -17,6 +19,21 @@ class HomeView(TemplateView):
 class CategoryPageView(TemplateView):
 
     template_name = "category-page.html"
+
+    def get_context_data(self, items, **kwargs):
+        context = super(CategoryPageView, self).get_context_data(**kwargs)
+        context['page'] = items._meta.verbose_name_plural.lower()
+
+        item_qs = items.objects.filter(visible=True).order_by('name')
+        heroes = item_qs.filter(hero=True)
+        regular = item_qs.filter(hero=False)
+        context['items'] = {
+            'heroes': heroes,
+            'regular': regular,
+        }
+        context['random_hero_unit_index'] = random.randint(0, heroes.count()-1) if heroes.count() > 0 else 0
+
+        return context
 
 
 class ItemPageView(TemplateView):
