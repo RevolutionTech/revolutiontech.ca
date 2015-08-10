@@ -6,7 +6,7 @@
 
 from django.db import models
 
-from basecategory.models import Image, Button, Video, Item
+from basecategory.models import Image, Button, Video, Media, Item
 
 
 class Software(Item):
@@ -28,3 +28,11 @@ class SoftwareButton(Button):
 class SoftwareVideo(Video):
 
     software = models.ForeignKey(Software)
+
+
+class SoftwareMedia(Media):
+
+    software = models.ForeignKey(Software)
+
+    class Meta(Media.Meta):
+        verbose_name_plural = "Software media"

@@ -6,7 +6,8 @@
 
 from django.db import models
 
-from basecategory.models import Category, Image, Button, Video, Item
+from basecategory.models import Category, Image, Button, Video, Media, \
+    Item
 
 
 class GameCategory(Category):
@@ -35,3 +36,11 @@ class GameButton(Button):
 class GameVideo(Video):
 
     game = models.ForeignKey(Game)
+
+
+class GameMedia(Media):
+
+    game = models.ForeignKey(Game)
+
+    class Meta(Media.Meta):
+        verbose_name_plural = "Game media"

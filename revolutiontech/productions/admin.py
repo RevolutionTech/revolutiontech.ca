@@ -7,9 +7,10 @@
 from django import forms
 from django.contrib import admin
 
-from basecategory.admin import ImageInline, ButtonInline, VideoInline, ItemAdmin
+from basecategory.admin import ImageInline, ButtonInline, VideoInline, \
+    MediaInline, ItemAdmin
 from productions.models import ProductionCategory, Production, \
-    ProductionImage, ProductionButton, ProductionVideo
+    ProductionImage, ProductionButton, ProductionVideo, ProductionMedia
 
 
 class ProductionImageInline(ImageInline):
@@ -24,6 +25,10 @@ class ProductionVideoInline(VideoInline):
     model = ProductionVideo
 
 
+class ProductionMediaInline(MediaInline):
+    model = ProductionMedia
+
+
 class ProductionAdminForm(forms.ModelForm):
     class Meta:
         model = Production
@@ -32,7 +37,7 @@ class ProductionAdminForm(forms.ModelForm):
 
 class ProductionAdmin(ItemAdmin):
     form = ProductionAdminForm
-    inlines = [ProductionImageInline, ProductionButtonInline, ProductionVideoInline,]
+    inlines = [ProductionImageInline, ProductionButtonInline, ProductionVideoInline, ProductionMediaInline,]
 
 
 admin.site.register(ProductionCategory)

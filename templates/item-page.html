@@ -44,6 +44,17 @@
                     {% endfor %}
                 </div>
             {% endif %}
+            {% if item.media_all %}
+                <div class="media-content">
+                    {% for media in item.media_all %}
+                        <div class="flash-content">
+                            <div id="{{ media.title|slugify }}-flash-content">
+                                Adobe Flash is required to view this content. However, you may <a href="{{ media.media.url }}">download it</a> instead.
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
             {% if not item.youtube_only %}
                 <div class="fb-comments" data-href="{{ absolute_uri }}" data-width="100%" data-numposts="5"></div>
             {% endif %}
@@ -60,5 +71,15 @@
             });
         });
     </script>
-    <script type="text/javascript" src="{% static "js/facebook-sdk.js" %}"></script>
+    {% if item.media_all %}
+        <script type="text/javascript" src="{% static "js/swfobject.js" %}"></script>
+        <script type="text/javascript">
+            {% for media in item.media_all %}
+                swfobject.embedSWF("{{ media.media.url }}", "{{ media.title|slugify }}-flash-content", "100%", "100%", "9.0.0");
+            {% endfor %}
+        </script>
+    {% endif %}
+    {% if not item.youtube_only %}
+        <script type="text/javascript" src="{% static "js/facebook-sdk.js" %}"></script>
+    {% endif %}
 {% endblock %}

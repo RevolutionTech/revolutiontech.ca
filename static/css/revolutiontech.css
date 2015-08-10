@@ -209,6 +209,28 @@
     height: 100%;
 }
 
+.media-content {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.flash-content {
+    width: 100%;
+    display: inline-block;
+    position: relative;
+}
+.flash-content:after {
+    padding-top: 56.25%;
+    display: block;
+    content: ' ';
+}
+.flash-content object {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
 .footer-back {
     background: url(/static/img/footer.png) no-repeat center bottom;
     min-height: 160px;

@@ -21,6 +21,10 @@ class VideoInline(admin.TabularInline):
     extra = 1
 
 
+class MediaInline(admin.TabularInline):
+    extra = 1
+
+
 class ItemAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('name',)}
 

@@ -104,6 +104,22 @@ class Video(models.Model):
         return url
 
 
+class Media(models.Model):
+
+    title = models.CharField(max_length=30)
+    media = models.FileField(upload_to="download/media")
+
+    class Meta:
+        abstract = True
+        verbose_name_plural = "Media"
+
+    def __unicode__(self):
+        return "{title}: {filename}".format(
+            title=self.title,
+            filename=self.media
+        )
+
+
 class Item(models.Model):
 
     name = models.CharField(max_length=75, db_index=True)
@@ -155,6 +171,10 @@ class Item(models.Model):
     def video_all(self):
         video_model_set_name = "{item_type}video_set".format(item_type=self._meta.model_name)
         return getattr(self, video_model_set_name).all().order_by('id')
+
+    def media_all(self):
+        media_model_set_name = "{item_type}media_set".format(item_type=self._meta.model_name)
+        return getattr(self, media_model_set_name).all().order_by('id')
 
     def url(self):
         item_type = self._meta.verbose_name_plural.lower()
