@@ -71,6 +71,9 @@ And in this file, generate a configuration similar to the following:
 
         access_log off;
 
+        location /static/ordered_model/ {
+            alias /home/lucas/.virtualenvs/revolutiontech.ca/lib/python2.7/site-packages/ordered_model/static/ordered_model/;
+        }
         location /static/admin/ {
             alias /home/lucas/.virtualenvs/revolutiontech.ca/lib/python2.7/site-packages/django/contrib/admin/static/admin/;
         }
