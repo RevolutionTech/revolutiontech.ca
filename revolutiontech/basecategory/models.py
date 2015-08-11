@@ -9,13 +9,14 @@ import re
 
 from django.core.urlresolvers import reverse
 from django.db import models
+from ordered_model.models import OrderedModel
 
 
-class Category(models.Model):
+class Category(OrderedModel):
 
     name = models.CharField(max_length=50, db_index=True)
 
-    class Meta:
+    class Meta(OrderedModel.Meta):
         abstract = True
 
     def __unicode__(self):
@@ -120,7 +121,7 @@ class Media(models.Model):
         )
 
 
-class Item(models.Model):
+class Item(OrderedModel):
 
     name = models.CharField(max_length=75, db_index=True)
     slug = models.SlugField(max_length=75, db_index=True)
@@ -130,7 +131,7 @@ class Item(models.Model):
     hero = models.BooleanField(default=False, db_index=True)
     visible = models.BooleanField(default=True, db_index=True)
 
-    class Meta:
+    class Meta(OrderedModel.Meta):
         abstract = True
 
     @staticmethod

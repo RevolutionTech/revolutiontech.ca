@@ -8,7 +8,7 @@ from django import forms
 from django.contrib import admin
 
 from basecategory.admin import ImageInline, ButtonInline, VideoInline, \
-    MediaInline, ItemAdmin
+    MediaInline, CategoryAdmin, ItemAdmin
 from productions.models import ProductionCategory, Production, \
     ProductionImage, ProductionButton, ProductionVideo, ProductionMedia
 
@@ -36,10 +36,10 @@ class ProductionAdminForm(forms.ModelForm):
 
 
 class ProductionAdmin(ItemAdmin):
-    list_display = ('name', 'category', 'release_year', 'visible',)
+    list_display = ('name', 'category', 'release_year', 'visible', 'move_up_down_links',)
     form = ProductionAdminForm
     inlines = [ProductionImageInline, ProductionButtonInline, ProductionVideoInline, ProductionMediaInline,]
 
 
-admin.site.register(ProductionCategory)
+admin.site.register(ProductionCategory, CategoryAdmin)
 admin.site.register(Production, ProductionAdmin)

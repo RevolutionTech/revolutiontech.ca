@@ -5,6 +5,7 @@
 """
 
 from django.contrib import admin
+from ordered_model.admin import OrderedModelAdmin
 
 from basecategory.models import Platform
 
@@ -25,7 +26,11 @@ class MediaInline(admin.TabularInline):
     extra = 1
 
 
-class ItemAdmin(admin.ModelAdmin):
+class CategoryAdmin(OrderedModelAdmin):
+    list_display = ('name', 'move_up_down_links',)
+
+
+class ItemAdmin(OrderedModelAdmin):
     prepopulated_fields = {'slug': ('name',)}
 
 

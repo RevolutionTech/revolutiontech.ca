@@ -8,7 +8,7 @@ from django import forms
 from django.contrib import admin
 
 from basecategory.admin import ImageInline, ButtonInline, VideoInline, \
-    MediaInline, ItemAdmin
+    MediaInline, CategoryAdmin, ItemAdmin
 from games.models import GameCategory, Game, GameImage, GameButton, \
     GameVideo, GameMedia
 
@@ -36,10 +36,10 @@ class GameAdminForm(forms.ModelForm):
 
 
 class GameAdmin(ItemAdmin):
-    list_display = ('name', 'category', 'release_year', 'visible',)
+    list_display = ('name', 'category', 'release_year', 'visible', 'move_up_down_links',)
     form = GameAdminForm
     inlines = [GameImageInline, GameButtonInline, GameVideoInline, GameMediaInline,]
 
 
-admin.site.register(GameCategory)
+admin.site.register(GameCategory, CategoryAdmin)
 admin.site.register(Game, GameAdmin)

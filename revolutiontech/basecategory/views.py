@@ -24,7 +24,7 @@ class CategoryPageView(TemplateView):
         context = super(CategoryPageView, self).get_context_data(**kwargs)
         context['page'] = items._meta.verbose_name_plural.lower()
 
-        item_qs = items.objects.filter(visible=True).order_by('name')
+        item_qs = items.objects.filter(visible=True).order_by('order')
         heroes = item_qs.filter(hero=True)
         regular = item_qs.filter(hero=False)
         context['items'] = {

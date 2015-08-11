@@ -16,6 +16,6 @@ class GamesListView(CategoryPageView):
 
         regular_categories = regular.values('category')
         category_ids = set(map(lambda cat: cat['category'], regular_categories))
-        context['categories'] = GameCategory.objects.filter(id__in=category_ids).order_by('name')
+        context['categories'] = GameCategory.objects.filter(id__in=category_ids).order_by('order')
 
         return context
