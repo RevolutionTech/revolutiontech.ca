@@ -100,24 +100,24 @@
 .no-orbit-bottom {
     padding-bottom: 30px;
 }
-.items-regular {
+.items-short {
     margin-top: 30px;
 }
 
 
-.item-regular > .th {
+.item-short > .th {
     width: 100%;
     padding: 5px;
 }
-.item-regular-hero > .th {
+.item-short-hero > .th {
     background-color: #f2f2f2;
     border-color: #f2f2f2;
 }
-.item-regular > .th > p {
+.item-short > .th > p {
     text-align: justify;
     color: #000000;
 }
-.item-regular img {
+.item-short img {
     max-width: 267px;
     max-height: 200px;
 }

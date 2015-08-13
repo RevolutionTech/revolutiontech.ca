@@ -1,6 +1,6 @@
 {% load thumbnail %}
 
-<li class="item-regular category-{{ item.category.name|slugify }} {% if hero %}item-regular-hero{% endif %}">
+<li class="item-short {% if hero %}item-short-hero{% else %}item-short-regular{% endif %} category-{{ item.category.name|slugify }}">
     <a class="th" href="{{ item.url }}">
         {% thumbnail item.image_random.img "x200" as thumb %}
             <img class="item-short-img show-for-medium-up" src="{{ thumb.url }}" width="{{ thumb.width }}" height="{{ thumb.height }}" alt="{{ item.name }}">

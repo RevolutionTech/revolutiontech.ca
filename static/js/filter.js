@@ -1,7 +1,7 @@
 $(document).ready(function() {
     'use strict'
 
-    var all_regular_items = $('.item-regular').clone();
+    var all_regular_items = $('.item-short-regular').clone();
 
     $('dd').click(function(){
         // If this one is already active, then ignore
@@ -27,9 +27,9 @@ $(document).ready(function() {
         });
 
         // Remove all items
-        $('.item-regular').remove();
+        $('.item-short-regular').remove();
 
         // Re-enter filtered items
-        $('.items-regular > ul').append(filtered_items);
+        $('.items-short-regular').append(filtered_items);
     });
 });
