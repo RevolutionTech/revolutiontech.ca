@@ -2,7 +2,7 @@
 
 <div class="hero-unit">
     {% thumbnail item.image_random.img "x200" as thumb %}
-        <div class="hero-unit-right show-for-medium-up">
+        <div class="hero-unit-right">
             <a href="{{ item.url }}"><img src="{{ thumb.url }}" width="{{ thumb.width }}" height="{{ thumb.height }}" alt="{{ item.name }}"></a>
             {% if item.button_main %}
                 <a class="button expand {{ item.button_main.css_class }}" href="{{ item.button_main.link }}" {% if item.button_main.link_is_external %}target="_blank"{% endif %}>{{ item.button_main.text }}</a>
@@ -12,19 +12,9 @@
             <a href="{{ item.url }}">{{ item.name }}</a>{% if item.release_year %} ({{ item.release_year }}){% endif %}&nbsp;
             {% include "includes/badges.html" with item=item %}
         </h2>
-        <div class="show-for-small-only">
-            <a href="{{ item.url }}"><img src="{{ thumb.url }}" width="{{ thumb.width }}" height="{{ thumb.height }}" alt="{{ item.name }}"></a>
-        </div>
     {% endthumbnail %}
     <p><span class="firstletter">{{ item.description_first_letter }}</span>{{ item.description_rest|safe }}</p>
-    {% if item.button_main %}
-        <div class="show-for-small-only">
-            <a class="button small expand {{ item.button_main.css_class }}" href="{{ item.button_main.link }}" {% if item.button_main.link_is_external %}target="_blank"{% endif %}>{{ item.button_main.text }}</a>
-        </div>
-    {% endif %}
-    <div class="show-for-medium-up">
-        {% for button in item.button_rest %}
-            <a class="button small {{ button.css_class }}" href="{{ button.link }}" {% if button.link_is_external %}target="_blank"{% endif %}>{{ button.text }}</a>
-        {% endfor %}
-    </div>
+    {% for button in item.button_rest %}
+        <a class="button small {{ button.css_class }}" href="{{ button.link }}" {% if button.link_is_external %}target="_blank"{% endif %}>{{ button.text }}</a>
+    {% endfor %}
 </div>

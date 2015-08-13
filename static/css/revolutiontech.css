@@ -105,10 +105,14 @@
 }
 
 
-.item-regular > a {
+.item-regular > .th {
     width: 100%;
 }
-.item-regular > a > p {
+.item-regular-hero > .th {
+    background-color: #f2f2f2;
+    border-color: #f2f2f2;
+}
+.item-regular > .th > p {
     margin-left: 15px;
     margin-right: 15px;
     text-align: justify;

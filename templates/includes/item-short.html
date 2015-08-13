@@ -1,6 +1,6 @@
 {% load thumbnail %}
 
-<li class="item-regular category-{{ item.category.name|slugify }}">
+<li class="item-regular category-{{ item.category.name|slugify }} {% if hero %}item-regular-hero{% endif %}">
     <a class="th" href="{{ item.url }}">
         {% thumbnail item.image_random.img "x200" as thumb %}
             <img class="item-short-img show-for-medium-up" src="{{ thumb.url }}" width="{{ thumb.width }}" height="{{ thumb.height }}" alt="{{ item.name }}">
@@ -12,4 +12,7 @@
         {% endthumbnail %}
         <p>{{ item.description|safe }}</p>
     </a>
+    {% if hero and item.button_main %}
+        <a class="button small expand {{ item.button_main.css_class }}" href="{{ item.button_main.link }}" {% if item.button_main.link_is_external %}target="_blank"{% endif %}>{{ item.button_main.text }}</a>
+    {% endif %}
 </li>

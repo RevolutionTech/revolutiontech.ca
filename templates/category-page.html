@@ -11,12 +11,17 @@
 {% block content %}
     {% if items.heroes or items.regular %}
         <div class="home-container">
-            <div class="hero-units">
+            <div class="hero-units show-for-medium-up">
                 {% for hero in items.heroes %}
                     {% include "includes/hero-unit.html" with item=hero %}
                 {% endfor %}
             </div>
             <div class="items-regular">
+                <ul class="large-block-grid-1 show-for-small-only">
+                    {% for item in items.heroes %}
+                        {% include "includes/item-short.html" with item=item hero=True %}
+                    {% endfor %}
+                </ul>
                 {% if categories %}
                     <dl class="sub-nav">
                         <dt>Filter:</dt>
