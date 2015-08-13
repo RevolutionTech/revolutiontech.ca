@@ -8,7 +8,9 @@
                 {{ item.name }}{% if item.release_year %} ({{ item.release_year }}){% endif %}&nbsp;
                 {% include "includes/badges.html" with item=item %}
             </h4>
-            <img class="item-short-img-small show-for-small-only" src="{{ thumb.url }}" width="{{ thumb.width }}" height="{{ thumb.height }}" alt="{{ item.name }}">
+            <div align="center">
+                <img class="item-short-img-small show-for-small-only" src="{{ thumb.url }}" width="{{ thumb.width }}" height="{{ thumb.height }}" alt="{{ item.name }}">
+            </div>
         {% endthumbnail %}
         <p>{{ item.description|safe }}</p>
     </a>

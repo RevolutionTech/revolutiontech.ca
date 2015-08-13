@@ -107,14 +107,13 @@
 
 .item-regular > .th {
     width: 100%;
+    padding: 5px;
 }
 .item-regular-hero > .th {
     background-color: #f2f2f2;
     border-color: #f2f2f2;
 }
 .item-regular > .th > p {
-    margin-left: 15px;
-    margin-right: 15px;
     text-align: justify;
     color: #000000;
 }
@@ -128,7 +127,6 @@
     margin-right: 24px;
 }
 .item-short-img-small {
-    margin: auto;
     margin-bottom: 10px;
 }
 
