@@ -1,6 +1,8 @@
 # revolutiontech.ca
 ### Created by: Lucas Connors
 
+[![Dependency Status](https://www.versioneye.com/user/projects/5609e7055a262f001a000352/badge.svg?style=flat)](https://www.versioneye.com/user/projects/5609e7055a262f001a000352)
+
 ## Setup
 
 ### Prerequisites
