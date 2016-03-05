@@ -17,7 +17,7 @@ urlpatterns = [
     url(r'^games/', include('games.urls', namespace='games')),
     url(r'^productions/', include('productions.urls', namespace='productions')),
     url(r'^software/', include('software.urls', namespace='software')),
-    url(r'^/?$', HomeView.as_view(), name='home'),
+    url(r'^$', HomeView.as_view(), name='home'),
 ]
 
 # Add media folder to urls when DEBUG = True

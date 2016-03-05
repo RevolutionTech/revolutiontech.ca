@@ -13,5 +13,5 @@ from software.views import SoftwareListView
 
 urlpatterns = [
     url(r'^(?P<slug>[\w_-]+)/?$', ItemPageView.as_view(), {'items': Software}, name='item_details'),
-    url(r'^/?$', SoftwareListView.as_view(), {'items': Software}, name='software_list'),
+    url(r'^$', SoftwareListView.as_view(), {'items': Software}, name='software_list'),
 ]

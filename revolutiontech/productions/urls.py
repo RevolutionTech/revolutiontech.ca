@@ -13,5 +13,5 @@ from productions.views import ProductionsListView
 
 urlpatterns = [
     url(r'^(?P<slug>[\w_-]+)/?$', ItemPageView.as_view(), {'items': Production}, name='item_details'),
-    url(r'^/?$', ProductionsListView.as_view(), {'items': Production}, name='productions_list'),
+    url(r'^$', ProductionsListView.as_view(), {'items': Production}, name='productions_list'),
 ]
