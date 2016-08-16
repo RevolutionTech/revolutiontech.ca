@@ -9,6 +9,7 @@ import os
 
 import revolutiontech.settings_secret as secret
 
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TOP_DIR = os.path.dirname(BASE_DIR)
 SECRET_KEY = secret.SECRET_KEY
