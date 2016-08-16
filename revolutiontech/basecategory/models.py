@@ -7,8 +7,8 @@
 import random
 import re
 
-from django.core.urlresolvers import reverse
 from django.db import models
+from django.urls import reverse
 from ordered_model.models import OrderedModel
 
 
