@@ -7,7 +7,18 @@
 from revolutiontech.tests import RevolutionTechTestCase
 
 
-class SoftwareTestCase(RevolutionTechTestCase):
+class SoftwareAdminWebTestCase(RevolutionTechTestCase):
+
+    def get200s(self):
+        return [
+            '/admin/software/',
+            '/admin/software/software/',
+            '/admin/software/software/add/',
+            '/admin/software/software/{software_id}/change/'.format(software_id=self.software.id),
+        ]
+
+
+class SoftwareWebTestCase(RevolutionTechTestCase):
 
     def get200s(self):
         return [
