@@ -9,7 +9,8 @@ from django.test import TestCase
 from django.utils.text import slugify
 
 from games.models import GameCategory, Game
-from productions.models import ProductionCategory
+from productions.models import ProductionCategory, Production
+from software.models import Software
 
 
 class RevolutionTechTestCase(TestCase):
@@ -21,6 +22,8 @@ class RevolutionTechTestCase(TestCase):
     GAME_CATEGORY_NAME = 'Action'
     GAME_NAME = 'Blockade'
     PRODUCTION_CATEGORY_NAME = 'Videography'
+    PRODUCTION_NAME = 'The Gum Thief'
+    SOFTWARE_NAME = 'Flamingo'
 
     @staticmethod
     def strip_query_params(url):
@@ -74,6 +77,12 @@ class RevolutionTechTestCase(TestCase):
         self.game_category = GameCategory.objects.create(name=self.GAME_CATEGORY_NAME)
         self.production_category = ProductionCategory.objects.create(name=self.PRODUCTION_CATEGORY_NAME)
         self.game = Game.objects.create(name=self.GAME_NAME, slug=slugify(self.GAME_NAME), category=self.game_category)
+        self.production = Production.objects.create(
+            name=self.PRODUCTION_NAME,
+            slug=slugify(self.PRODUCTION_NAME),
+            category=self.production_category
+        )
+        self.software = Software.objects.create(name=self.SOFTWARE_NAME, slug=slugify(self.SOFTWARE_NAME))
 
     def testRender200s(self):
         for url in self.get200s():
