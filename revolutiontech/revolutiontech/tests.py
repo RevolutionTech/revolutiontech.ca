@@ -87,3 +87,11 @@ class AdminWebTestCase(RevolutionTechTestCase):
     def testAdminLoginPageRenders(self):
         self.client.logout()
         self.assertResponseRedirects('/admin/', '/admin/login/')
+
+
+class HomeWebTestCase(RevolutionTechTestCase):
+
+    def get200s(self):
+        return [
+            '/',
+        ]
