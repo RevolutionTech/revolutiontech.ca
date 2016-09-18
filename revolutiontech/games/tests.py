@@ -4,13 +4,13 @@
 
 """
 
-from games.models import Game
 from revolutiontech.tests import RevolutionTechTestCase
 
 
-class GamesTestCase(RevolutionTechTestCase):
+class GamesWebTestCase(RevolutionTechTestCase):
 
-    def testCreateGame(self):
-        game_name = 'Game ABC'
-        game = Game.objects.create(name=game_name, category=self.game_category)
-        self.assertEquals(unicode(game), game_name)
+    def get200s(self):
+        return [
+            '/games/',
+            '/games/{slug}/'.format(slug=self.game.slug),
+        ]

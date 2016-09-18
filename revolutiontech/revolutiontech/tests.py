@@ -6,8 +6,9 @@
 
 from django.contrib.auth.models import User
 from django.test import TestCase
+from django.utils.text import slugify
 
-from games.models import GameCategory
+from games.models import GameCategory, Game
 from productions.models import ProductionCategory
 
 
@@ -18,6 +19,7 @@ class RevolutionTechTestCase(TestCase):
     USER_PASSWORD = 'abc123'
 
     GAME_CATEGORY_NAME = 'Action'
+    GAME_NAME = 'Blockade'
     PRODUCTION_CATEGORY_NAME = 'Videography'
 
     @staticmethod
@@ -71,6 +73,7 @@ class RevolutionTechTestCase(TestCase):
         # Create initial instances
         self.game_category = GameCategory.objects.create(name=self.GAME_CATEGORY_NAME)
         self.production_category = ProductionCategory.objects.create(name=self.PRODUCTION_CATEGORY_NAME)
+        self.game = Game.objects.create(name=self.GAME_NAME, slug=slugify(self.GAME_NAME), category=self.game_category)
 
     def testRender200s(self):
         for url in self.get200s():
