@@ -4,12 +4,11 @@
 
 """
 
-from django.test import TestCase
-
+from revolutiontech.tests import RevolutionTechTestCase
 from software.models import Software
 
 
-class SoftwareTestCase(TestCase):
+class SoftwareTestCase(RevolutionTechTestCase):
 
     def testCreateSoftware(self):
         software_name = 'Software ABC'
