@@ -20,6 +20,10 @@ class RevolutionTechTestCase(TestCase):
     GAME_CATEGORY_NAME = 'Action'
     PRODUCTION_CATEGORY_NAME = 'Videography'
 
+    @staticmethod
+    def strip_query_params(url):
+        return url.split('?')[0]
+
     def assertResponseRenders(self, url, status_code=200, method='GET', data={}, has_form_error=False, **kwargs):
         request_method = getattr(self.client, method.lower())
         follow = status_code == 302
@@ -44,6 +48,12 @@ class RevolutionTechTestCase(TestCase):
         form_error_assertion_method('errorlist', response.content)
 
         return response
+
+    def assertResponseRedirects(self, url, redirect_url, method='GET', data={}, **kwargs):
+        response = self.assertResponseRenders(url, status_code=302, method=method, data=data, **kwargs)
+        redirect_url_from_response, _ = response.redirect_chain[0]
+        self.assertEquals(self.strip_query_params(redirect_url_from_response), redirect_url)
+        self.assertEquals(response.status_code, 200)
 
     def get200s(self):
         return []
@@ -73,3 +83,7 @@ class AdminWebTestCase(RevolutionTechTestCase):
         return [
             '/admin/',
         ]
+
+    def testAdminLoginPageRenders(self):
+        self.client.logout()
+        self.assertResponseRedirects('/admin/', '/admin/login/')
