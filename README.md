@@ -1,6 +1,7 @@
 # revolutiontech.ca
 
 [![Build Status](https://travis-ci.org/RevolutionTech/revolutiontech.ca.svg?branch=master)](https://travis-ci.org/RevolutionTech/revolutiontech.ca)
+[![codecov](https://codecov.io/gh/RevolutionTech/revolutiontech.ca/branch/master/graph/badge.svg)](https://codecov.io/gh/RevolutionTech/revolutiontech.ca)
 [![Dependency Status](https://www.versioneye.com/user/projects/5609e7055a262f001a000352/badge.svg?style=flat)](https://www.versioneye.com/user/projects/5609e7055a262f001a000352)
 
 ## Setup
