@@ -8,6 +8,7 @@ from django.contrib.auth.models import User
 from django.test import TestCase
 from django.utils.text import slugify
 
+from basecategory.models import Platform
 from games.models import GameCategory, Game
 from productions.models import ProductionCategory, Production
 from software.models import Software
@@ -19,6 +20,7 @@ class RevolutionTechTestCase(TestCase):
     USER_EMAIL = 'jsmith@example.com'
     USER_PASSWORD = 'abc123'
 
+    PLATFORM_NAME = 'Windows'
     GAME_CATEGORY_NAME = 'Action'
     GAME_NAME = 'Blockade'
     PRODUCTION_CATEGORY_NAME = 'Videography'
@@ -74,6 +76,7 @@ class RevolutionTechTestCase(TestCase):
         self.client.login(username=self.USER_USERNAME, password=self.USER_PASSWORD)
 
         # Create initial instances
+        self.platform = Platform.objects.create(name=self.PLATFORM_NAME, css_class=self.PLATFORM_NAME.lower())
         self.game_category = GameCategory.objects.create(name=self.GAME_CATEGORY_NAME)
         self.production_category = ProductionCategory.objects.create(name=self.PRODUCTION_CATEGORY_NAME)
         self.game = Game.objects.create(name=self.GAME_NAME, slug=slugify(self.GAME_NAME), category=self.game_category)

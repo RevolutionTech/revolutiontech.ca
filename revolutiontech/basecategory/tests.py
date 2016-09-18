@@ -1,3 +1,18 @@
-from django.test import TestCase
+"""
+:Created: 18 September 2016
+:Author: Lucas Connors
 
-# Create your tests here.
+"""
+
+from revolutiontech.tests import RevolutionTechTestCase
+
+
+class BaseCategoryAdminWebTestCase(RevolutionTechTestCase):
+
+    def get200s(self):
+        return [
+            '/admin/basecategory/',
+            '/admin/basecategory/platform/',
+            '/admin/basecategory/platform/add/',
+            '/admin/basecategory/platform/{platform_id}/change/'.format(platform_id=self.platform.id),
+        ]
