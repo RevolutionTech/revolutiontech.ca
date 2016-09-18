@@ -11,7 +11,9 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
+import cbsettings
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "revolutiontech.settings")
+cbsettings.configure('revolutiontech.settings.switcher')
 
 application = get_wsgi_application()
