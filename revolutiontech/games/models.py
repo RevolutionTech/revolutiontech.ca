@@ -18,29 +18,29 @@ class GameCategory(Category):
 
 class Game(Item):
 
-    category = models.ForeignKey(GameCategory)
+    category = models.ForeignKey(GameCategory, on_delete=models.PROTECT)
     min_players = models.PositiveSmallIntegerField(null=True, blank=True)
     max_players = models.PositiveSmallIntegerField(null=True, blank=True)
 
 
 class GameImage(Image):
 
-    game = models.ForeignKey(Game)
+    game = models.ForeignKey(Game, on_delete=models.CASCADE)
 
 
 class GameButton(Button):
 
-    game = models.ForeignKey(Game)
+    game = models.ForeignKey(Game, on_delete=models.CASCADE)
 
 
 class GameVideo(Video):
 
-    game = models.ForeignKey(Game)
+    game = models.ForeignKey(Game, on_delete=models.CASCADE)
 
 
 class GameMedia(Media):
 
-    game = models.ForeignKey(Game)
+    game = models.ForeignKey(Game, on_delete=models.CASCADE)
 
     class Meta(Media.Meta):
         verbose_name_plural = "Game media"
