@@ -6,16 +6,6 @@ from django.db import models, migrations
 
 class Migration(migrations.Migration):
 
-    def set_initial_orders(apps, schema_editor):
-        ProductionCategory = apps.get_model("productions", "ProductionCategory")
-        for category in ProductionCategory.objects.all():
-            category.order = category.id
-            category.save()
-        Production = apps.get_model("productions", "Production")
-        for production in Production.objects.all():
-            production.order = production.id
-            production.save()
-
     dependencies = [
         ('productions', '0004_production_visible'),
     ]
@@ -41,5 +31,4 @@ class Migration(migrations.Migration):
             field=models.PositiveIntegerField(default=0, editable=False, db_index=True),
             preserve_default=False,
         ),
-        migrations.RunPython(set_initial_orders),
     ]

@@ -6,16 +6,6 @@ from django.db import models, migrations
 
 class Migration(migrations.Migration):
 
-    def set_initial_orders(apps, schema_editor):
-        GameCategory = apps.get_model("games", "GameCategory")
-        for category in GameCategory.objects.all():
-            category.order = category.id
-            category.save()
-        Game = apps.get_model("games", "Game")
-        for game in Game.objects.all():
-            game.order = game.id
-            game.save()
-
     dependencies = [
         ('games', '0004_game_visible'),
     ]
@@ -41,5 +31,4 @@ class Migration(migrations.Migration):
             field=models.PositiveIntegerField(default=0, editable=False, db_index=True),
             preserve_default=False,
         ),
-        migrations.RunPython(set_initial_orders),
     ]
