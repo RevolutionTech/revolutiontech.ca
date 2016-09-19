@@ -56,3 +56,6 @@ class GamesWebTestCase(RevolutionTechTestCase):
             '/games/',
             '/games/{slug}/'.format(slug=self.game.slug),
         ]
+
+    def testInvalidSlugRedirectsToList(self):
+        self.assertResponseRedirects('/games/does-not-exist/', '/games/')
