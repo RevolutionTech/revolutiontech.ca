@@ -13,7 +13,7 @@ from basecategory.views import HomeView
 
 
 urlpatterns = [
-    url(r'^admin/', include(admin.site.urls)),
+    url(r'^admin/', admin.site.urls),
     url(r'^games/', include('games.urls', namespace='games')),
     url(r'^productions/', include('productions.urls', namespace='productions')),
     url(r'^software/', include('software.urls', namespace='software')),
