@@ -24,13 +24,9 @@ class Category(OrderedModel):
         return self.name
 
 
-def get_img_upload_dir(item, filename):
-    return "img/{filename}".format(filename=filename)
-
-
 class Image(models.Model):
 
-    img = models.ImageField(upload_to=get_img_upload_dir)
+    img = models.ImageField(upload_to='img')
     caption = models.TextField(null=True, blank=True)
 
     class Meta:
