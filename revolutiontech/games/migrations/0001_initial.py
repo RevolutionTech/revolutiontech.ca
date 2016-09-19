@@ -57,7 +57,7 @@ class Migration(migrations.Migration):
             name='GameImage',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('img', models.ImageField(upload_to=basecategory.models.get_img_upload_dir)),
+                ('img', models.ImageField(upload_to=b'img')),
                 ('caption', models.TextField(null=True, blank=True)),
                 ('game', models.ForeignKey(to='games.Game')),
             ],
