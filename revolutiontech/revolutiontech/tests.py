@@ -12,9 +12,9 @@ from django.test import TestCase, TransactionTestCase
 from django.utils.text import slugify
 
 from basecategory.models import Platform
-from games.models import GameCategory, Game
+from games.models import GameCategory, Game, GameButton, GameVideo
 from productions.models import ProductionCategory, Production
-from software.models import Software
+from software.models import Software, SoftwareButton
 
 
 class RevolutionTechTestCase(TestCase):
@@ -78,7 +78,7 @@ class RevolutionTechTestCase(TestCase):
         self.user.save()
         self.client.login(username=self.USER_USERNAME, password=self.USER_PASSWORD)
 
-        # Create initial instances
+        # Create initial item instances
         self.platform = Platform.objects.create(name=self.PLATFORM_NAME, css_class=self.PLATFORM_NAME.lower())
         self.game_category = GameCategory.objects.create(name=self.GAME_CATEGORY_NAME)
         self.production_category = ProductionCategory.objects.create(name=self.PRODUCTION_CATEGORY_NAME)
@@ -89,6 +89,14 @@ class RevolutionTechTestCase(TestCase):
             category=self.production_category
         )
         self.software = Software.objects.create(name=self.SOFTWARE_NAME, slug=slugify(self.SOFTWARE_NAME))
+
+        # Create instances attached to items
+        GameVideo.objects.create(
+            game=self.game,
+            title='Blockade Trailer',
+            youtube_url='http://www.youtube.com/watch?v=1lAI5e-zkxA'
+        )
+        SoftwareButton.objects.create(software=self.software, text='View Site', external_url='http://flamingo.photo/')
 
     def testRender200s(self):
         for url in self.get200s():
