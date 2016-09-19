@@ -94,7 +94,7 @@ class RevolutionTechTestCase(TestCase):
         GameVideo.objects.create(
             game=self.game,
             title='Blockade Trailer',
-            youtube_url='http://www.youtube.com/watch?v=1lAI5e-zkxA'
+            youtube_url='http://www.youtube.com/watch?v=1lAI5e-zkxA&t=1s'
         )
         SoftwareButton.objects.create(software=self.software, text='View Site', external_url='http://flamingo.photo/')
 
