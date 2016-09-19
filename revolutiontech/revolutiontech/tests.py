@@ -85,6 +85,7 @@ class RevolutionTechTestCase(TestCase):
         self.game = Game.objects.create(
             name=self.GAME_NAME,
             slug=slugify(self.GAME_NAME),
+            description="The idea of <em>Blockade</em> spawned from the basic mechanics of <em>Tetris</em>.",
             hero=True,
             category=self.game_category
         )
