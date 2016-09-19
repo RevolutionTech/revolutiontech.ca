@@ -16,3 +16,11 @@ class BaseCategoryAdminWebTestCase(RevolutionTechTestCase):
             '/admin/basecategory/platform/add/',
             '/admin/basecategory/platform/{platform_id}/change/'.format(platform_id=self.platform.id),
         ]
+
+
+class HomeWebTestCase(RevolutionTechTestCase):
+
+    def get200s(self):
+        return [
+            '/',
+        ]
