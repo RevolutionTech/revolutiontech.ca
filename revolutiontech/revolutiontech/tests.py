@@ -82,7 +82,12 @@ class RevolutionTechTestCase(TestCase):
         self.platform = Platform.objects.create(name=self.PLATFORM_NAME, css_class=self.PLATFORM_NAME.lower())
         self.game_category = GameCategory.objects.create(name=self.GAME_CATEGORY_NAME)
         self.production_category = ProductionCategory.objects.create(name=self.PRODUCTION_CATEGORY_NAME)
-        self.game = Game.objects.create(name=self.GAME_NAME, slug=slugify(self.GAME_NAME), category=self.game_category)
+        self.game = Game.objects.create(
+            name=self.GAME_NAME,
+            slug=slugify(self.GAME_NAME),
+            hero=True,
+            category=self.game_category
+        )
         self.production = Production.objects.create(
             name=self.PRODUCTION_NAME,
             slug=slugify(self.PRODUCTION_NAME),
