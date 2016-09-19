@@ -21,7 +21,7 @@ class RevolutionTechTestCase(TestCase):
     USER_PASSWORD = 'abc123'
 
     PLATFORM_NAME = 'Windows'
-    GAME_CATEGORY_NAME = 'Action'
+    GAME_CATEGORY_NAME = 'Puzzle'
     GAME_NAME = 'Blockade'
     PRODUCTION_CATEGORY_NAME = 'Videography'
     PRODUCTION_NAME = 'The Gum Thief'
