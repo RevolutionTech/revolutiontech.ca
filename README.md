@@ -80,7 +80,7 @@ And in this file, generate a configuration similar to the following:
 
     server {
         server_name www.revolutiontech.ca;
-        return 301 http://revolutiontech.ca$request_url;
+        return 301 http://revolutiontech.ca$request_uri;
     }
 
     server {
