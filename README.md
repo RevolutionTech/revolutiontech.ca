@@ -14,7 +14,7 @@ revolutiontech.ca requires [memcached](http://memcached.org/), [PostgreSQL](http
 
 I recommend using a virtual environment for revolutiontech.ca. If you don't have it already, you can install [virtualenv](http://virtualenv.readthedocs.org/en/latest/virtualenv.html) and virtualenvwrapper globally with pip:
 
-    sudo pip install virtualenv virtualenvwrapper
+    sudo pip install virtualenvwrapper
 
 [Update your .profile or .bashrc file](http://virtualenvwrapper.readthedocs.org/en/latest/install.html#shell-startup-file) to create new environment variables for virtualenvwrapper and then create and activate your virtual environment with:
 
