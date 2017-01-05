@@ -79,12 +79,12 @@ Then we need to create the Nginx configuration for revolutiontech.ca:
 And in this file, generate a configuration similar to the following:
 
     server {
-        server_name www.revolutiontech.ca;
-        return 301 http://revolutiontech.ca$request_uri;
+        server_name revolutiontech.ca;
+        return 301 http://www.revolutiontech.ca$request_uri;
     }
 
     server {
-        server_name revolutiontech.ca;
+        server_name www.revolutiontech.ca;
 
         access_log off;
 
