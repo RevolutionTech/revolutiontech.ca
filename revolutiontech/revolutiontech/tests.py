@@ -8,8 +8,10 @@ from django.apps import apps
 from django.contrib.auth.models import User
 from django.db import connection
 from django.db.migrations.executor import MigrationExecutor
-from django.test import TestCase, TransactionTestCase
+from django.test import TransactionTestCase
 from django.utils.text import slugify
+
+from pigeon.test import RenderTestCase
 
 from basecategory.models import Platform
 from games.models import GameCategory, Game, GameVideo
@@ -17,7 +19,7 @@ from productions.models import ProductionCategory, Production
 from software.models import Software, SoftwareButton
 
 
-class RevolutionTechTestCase(TestCase):
+class RevolutionTechTestCase(RenderTestCase):
 
     USER_USERNAME = 'jsmith'
     USER_EMAIL = 'jsmith@example.com'
@@ -29,44 +31,6 @@ class RevolutionTechTestCase(TestCase):
     PRODUCTION_CATEGORY_NAME = 'Videography'
     PRODUCTION_NAME = 'The Gum Thief'
     SOFTWARE_NAME = 'Flamingo'
-
-    @staticmethod
-    def strip_query_params(url):
-        return url.split('?')[0]
-
-    def assertResponseRenders(self, url, status_code=200, method='GET', data={}, has_form_error=False, **kwargs):
-        request_method = getattr(self.client, method.lower())
-        follow = status_code == 302
-        response = request_method(url, data=data, follow=follow, **kwargs)
-
-        if status_code == 302:
-            redirect_url, response_status_code = response.redirect_chain[0]
-        else:
-            response_status_code = response.status_code
-        self.assertEquals(
-            response_status_code,
-            status_code,
-            "URL {url} returned with status code {actual_status} when {expected_status} was expected.".format(
-                url=url,
-                actual_status=response_status_code,
-                expected_status=status_code
-            )
-        )
-
-        # Check that forms submitted did not return errors (or did if it should have)
-        form_error_assertion_method = self.assertIn if has_form_error else self.assertNotIn
-        form_error_assertion_method('errorlist', response.content)
-
-        return response
-
-    def assertResponseRedirects(self, url, redirect_url, method='GET', data={}, **kwargs):
-        response = self.assertResponseRenders(url, status_code=302, method=method, data=data, **kwargs)
-        redirect_url_from_response, _ = response.redirect_chain[0]
-        self.assertEquals(self.strip_query_params(redirect_url_from_response), redirect_url)
-        self.assertEquals(response.status_code, 200)
-
-    def get200s(self):
-        return []
 
     def setUp(self):
         super(RevolutionTechTestCase, self).setUp()
@@ -103,10 +67,6 @@ class RevolutionTechTestCase(TestCase):
             youtube_url='http://www.youtube.com/watch?v=1lAI5e-zkxA&t=1s'
         )
         SoftwareButton.objects.create(software=self.software, text='View Site', external_url='http://flamingo.photo/')
-
-    def testRender200s(self):
-        for url in self.get200s():
-            self.assertResponseRenders(url)
 
 
 class MigrationTestCase(TransactionTestCase):
