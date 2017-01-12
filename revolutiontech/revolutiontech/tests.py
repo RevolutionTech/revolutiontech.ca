@@ -12,7 +12,7 @@ from django.test import TestCase, TransactionTestCase
 from django.utils.text import slugify
 
 from basecategory.models import Platform
-from games.models import GameCategory, Game, GameButton, GameVideo
+from games.models import GameCategory, Game, GameVideo
 from productions.models import ProductionCategory, Production
 from software.models import Software, SoftwareButton
 
