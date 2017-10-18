@@ -1,10 +1,10 @@
 coverage==4.4.1
 gunicorn==19.7.1
-Django==1.10.7
+Django==1.10.8
 django-pigeon==0.2.0
 python-memcached==1.58
-psycopg2==2.7.1
-Pillow==4.2.1
+psycopg2==2.7.3.1
+Pillow==4.3.0
 django-classbasedsettings==1.5.0
 sorl-thumbnail==12.3
-django-ordered-model==1.4.1
+django-ordered-model==1.4.3
