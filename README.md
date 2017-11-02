@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/RevolutionTech/revolutiontech.ca.svg?branch=master)](https://travis-ci.org/RevolutionTech/revolutiontech.ca)
 [![codecov](https://codecov.io/gh/RevolutionTech/revolutiontech.ca/branch/master/graph/badge.svg)](https://codecov.io/gh/RevolutionTech/revolutiontech.ca)
-[![Dependency Status](https://www.versioneye.com/user/projects/57de428f037c2000458f702e/badge.svg?style=flat-square)](https://www.versioneye.com/user/projects/57de428f037c2000458f702e)
+[![Updates](https://pyup.io/repos/github/RevolutionTech/revolutiontech.ca/shield.svg)](https://pyup.io/repos/github/RevolutionTech/revolutiontech.ca/)
 
 ## Setup
 
