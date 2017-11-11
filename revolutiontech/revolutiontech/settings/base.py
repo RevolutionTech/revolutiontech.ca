@@ -47,7 +47,6 @@ class BaseSettings(DjangoDefaults):
     TEMPLATES = [
         {
             'BACKEND': 'django.template.backends.django.DjangoTemplates',
-            'DIRS': [TOP_DIR + '/templates'],
             'APP_DIRS': True,
             'OPTIONS': {
                 'context_processors': [
