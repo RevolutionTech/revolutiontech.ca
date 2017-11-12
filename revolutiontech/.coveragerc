@@ -4,7 +4,6 @@ source = ./
 # Omit files from coverage that only run on prod
 omit =
     revolutiontech/gunicorn.py
-    revolutiontech/settings/__init__.py
     revolutiontech/wsgi.py
 
 [report]
