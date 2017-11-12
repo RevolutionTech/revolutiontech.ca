@@ -7,6 +7,7 @@
 import os
 
 from cbsettings import DjangoDefaults
+import dj_database_url
 
 
 class BaseSettings(DjangoDefaults):
@@ -14,6 +15,7 @@ class BaseSettings(DjangoDefaults):
     BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
     TOP_DIR = os.path.dirname(BASE_DIR)
 
+    SECRET_KEY = os.environ['REVOLUTIONTECH_SECRET_KEY']
     DEBUG = True
     ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 
@@ -68,14 +70,10 @@ class BaseSettings(DjangoDefaults):
         }
     }
     DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': 'revolutiontech',
-            'USER': 'postgres',
-            'PASSWORD': '',
-            'HOST': 'localhost',
-            'PORT': '',
-        },
+        'default': dj_database_url.config(
+            env='REVOLUTIONTECH_DATABASE_URL',
+            default='postgres://postgres@localhost/revolutiontech'
+        ),
     }
 
     # Internationalization

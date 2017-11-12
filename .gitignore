@@ -18,5 +18,4 @@ Thumbs.db
 
 # Secure files #
 ################
-revolutiontech/revolutiontech/settings/dev.py
-revolutiontech/revolutiontech/settings/prod.py
+revolutiontech/revolutiontech/settings/secrets

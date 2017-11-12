@@ -32,24 +32,18 @@ Then in your virtual environment, you will need to install Python dependencies s
 
 ### Configuration
 
-Next we will need to create a file in the settings directory called `dev.py`. This is where we will store all of the settings that are specific to your development instance. Most of these settings should be only known to you. Your file should subclass `BaseSettings` from `base.py` and then define a secret key and the database credentials. Your `dev.py` file might look something like:
+Next we will need to set up some environment variables for your dev instance of revolutiontech.ca. These values should be kept secret. Add a secret key and the database credentials to your `~/.bashrc` file:
 
-    from revolutiontech.settings.base import BaseSettings
+    export REVOLUTIONTECH_SECRET_KEY='-3f5yh&(s5%9uigtx^yn=t_woj0@90__fr!t2b*96f5xoyzb%b'
+    export REVOLUTIONTECH_DATABASE_URL='postgres://postgres:abc123@localhost:5432/revolutiontech'
 
-    class DevSettings(BaseSettings):
-        SECRET_KEY = '-3f5yh&(s5%9uigtx^yn=t_woj0@90__fr!t2b*96f5xoyzb%b'
-        DATABASES = {
-            'default': {
-                'ENGINE': 'django.db.backends.postgresql_psycopg2',
-                'NAME': 'revolutiontech',
-                'USER': 'postgres',
-                'PASSWORD': 'abc123',
-                'HOST': 'localhost',
-                'PORT': '5432',
-            },
-        }
+For reference, the format of the `DATABASE_URL` is as follows:
 
-Of course you should [generate your own secret key](http://stackoverflow.com/a/16630719) and use a more secure password for your database. If you like, you can override more of Django settings here. If you do not create this file, you will get a `cbsettings.exceptions.NoMatchingSettings` exception when starting the server.
+    postgres://{USER}:{PASSWORD}@{HOST}:{PORT}/{NAME}
+
+Of course you should [generate your own secret key](http://stackoverflow.com/a/16630719) and use a more secure password for your database. Then source your `~/.bashrc` file to set these environment variables:
+
+    source ~/.bashrc
 
 With everything installed and all files in place, you may now create the database tables. You can do this with:
 
@@ -57,15 +51,12 @@ With everything installed and all files in place, you may now create the databas
 
 ### Deployment
 
-In the production environment, you'll need to create a different dev settings configuration file. It will be similar to the one above, except that you will be using production keys and secrets instead of development keys. In addition, you will need to create a `prod.py` file, similar to your `dev.py` file, but this one will contain settings only relevant to production. It may be best to subclass the `DevSettings` class you created, in order to get something like this:
+In the production environment, you will need to create a directory under `revolutiontech/revolutiontech/settings` called `secrets` and place all of the revolutiontech.ca environment variables in that directory, where the key of the variable is the name of the file and the value of the variable is the content in the file. In addition to the environment variables for the development environment, you will also need to provide one additional environment variable. `REVOLUTIONTECH_ENV` should be set to `PROD`:
 
-    from revolutiontech.settings.dev import DevSettings
-
-    class ProdSettings(DevSettings):
-        DEBUG = False
-        ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'revolutiontech.ca']
-
-Alternatively, you may choose to merge your production `dev.py` file into `prod.py`. In that case, be sure to subclass `BaseSettings` instead of `DevSettings` and make sure that all definitions from `dev.py` are in `prod.py`.
+    cd revolutiontech/settings
+    mkdir secrets
+    cd secrets
+    echo 'PROD' > REVOLUTIONTECH_ENV
 
 revolutiontech.ca uses Gunicorn with [runit](http://smarden.org/runit/) and [Nginx](http://nginx.org/). You can install them with the following:
 
@@ -137,7 +128,7 @@ In this file, create a script similar to the following:
     if [ -f $PID ]; then rm $PID; fi
 
     cd $ROOT
-    exec $GUNICORN -c $ROOT/revolutiontech/gunicorn.py --pid=$PID $APP
+    exec chpst -e $ROOT/revolutiontech/settings/secrets $GUNICORN -c $ROOT/revolutiontech/gunicorn.py --pid=$PID $APP
 
 Then change the permissions on the file to be executable and symlink the project to /etc/service:
 
