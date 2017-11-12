@@ -41,7 +41,7 @@ For reference, the format of the `DATABASE_URL` is as follows:
 
     postgres://{USER}:{PASSWORD}@{HOST}:{PORT}/{NAME}
 
-Of course you should [generate your own secret key](http://stackoverflow.com/a/16630719) and use a more secure password for your database. Then source your `~/.bashrc` file to set these environment variables:
+Of course you should [generate your own secret key](http://stackoverflow.com/a/16630719) and use a more secure password for your database. Also, be sure that special characters (such as `?` and `#`) in your `DATABASE_URL` are percent-encoded. Then source your `~/.bashrc` file to set these environment variables:
 
     source ~/.bashrc
 
