@@ -13,6 +13,6 @@ from revolutiontech.settings.base import BaseSettings
 from revolutiontech.settings.prod import ProdSettings
 
 
-revolutiontech_env = os.environ.get('REVOLUTIONTECH_ENV', 'DEV')
-switcher.register(BaseSettings, revolutiontech_env == 'DEV')
-switcher.register(ProdSettings, revolutiontech_env == 'PROD')
+api_gateway_stage = os.environ.get('STAGE', 'dev')
+switcher.register(BaseSettings, api_gateway_stage == 'dev')
+switcher.register(ProdSettings, api_gateway_stage == 'production')

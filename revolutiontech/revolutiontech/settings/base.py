@@ -29,6 +29,7 @@ class BaseSettings(DjangoDefaults):
         'django.contrib.staticfiles',
         'sorl.thumbnail',
         'ordered_model',
+        'storages',
         'basecategory',
         'games',
         'productions',
@@ -81,10 +82,19 @@ class BaseSettings(DjangoDefaults):
     USE_L10N = True
     USE_TZ = True
 
-    # Static files (CSS, JavaScript, Images)
+    # Static files (CSS, JavaScript, Images) and Media
     MEDIA_ROOT = os.path.join(TOP_DIR, 'media')
     MEDIA_URL = '/media/'
+    STATIC_ROOT = os.path.join(TOP_DIR, 'staticfiles')
     STATIC_URL = '/static/'
     STATICFILES_DIRS = (
         os.path.join(TOP_DIR, 'static'),
     )
+    STATICFILES_LOCATION = 'static'
+    MEDIAFILES_LOCATION = 'media'
+    AWS_HEADERS = {
+        'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
+        'Cache-Control': 'max-age=94608000',
+    }
+    AWS_STORAGE_BUCKET_NAME = 'revolutiontech'
+    AWS_S3_CUSTOM_DOMAIN = '{bucket}.s3.amazonaws.com'.format(bucket=AWS_STORAGE_BUCKET_NAME)

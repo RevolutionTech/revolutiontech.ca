@@ -26,7 +26,7 @@ In the future you can reactivate the virtual environment with:
 
 ### Installation
 
-Then in your virtual environment, you will need to install Python dependencies such as [Gunicorn](http://gunicorn.org/), [Django](https://www.djangoproject.com/), python-memcached, psycopg2, [pillow](https://pillow.readthedocs.org/), django-classbasedsettings,  [sorl-thumbnail](http://sorl-thumbnail.readthedocs.org/), and django-ordered-model. You can do this simply with the command:
+Then in your virtual environment, you will need to install Python dependencies such as [Zappa](https://www.zappa.io/), [Django](https://www.djangoproject.com/), python-memcached, psycopg2, [pillow](https://pillow.readthedocs.org/), django-classbasedsettings, [sorl-thumbnail](http://sorl-thumbnail.readthedocs.org/), and django-ordered-model. You can do this simply with the command:
 
     pip install -r requirements.txt
 
@@ -51,88 +51,23 @@ With everything installed and all files in place, you may now create the databas
 
 ### Deployment
 
-In the production environment, you will need to create a directory under `revolutiontech/revolutiontech/settings` called `secrets` and place all of the revolutiontech.ca environment variables in that directory, where the key of the variable is the name of the file and the value of the variable is the content in the file. In addition to the environment variables for the development environment, you will also need to provide one additional environment variable. `REVOLUTIONTECH_ENV` should be set to `PROD`:
+Deployments are done using `zappa`. First, you will need to decrypt the `zappa_settings.json.enc` to `zappa_settings.json`:
 
-    cd revolutiontech/settings
-    mkdir secrets
-    cd secrets
-    echo 'PROD' > REVOLUTIONTECH_ENV
+    openssl aes-256-cbc -k $DECRYPT_PASSWORD -in zappa_settings.json.enc -out zappa_settings.json -d
 
-revolutiontech.ca uses Gunicorn with [runit](http://smarden.org/runit/) and [Nginx](http://nginx.org/). You can install them with the following:
+where `$DECRYPT_PASSWORD` contains the key that the settings were encrypted with. Then, use `zappa` to deploy to the production environment:
 
-    sudo apt-get install runit nginx
+    zappa deploy
 
-Then we need to create the Nginx configuration for revolutiontech.ca:
+Once deployed, you will need to set environment variables on the generated Lambda. In addition to the environment variables for the development environment, you will also need to provide two additional environment variables: `REVOLUTIONTECH_AWS_ACCESS_KEY_ID` and `REVOLUTIONTECH_AWS_SECRET_ACCESS_KEY`.
 
-    cd /etc/nginx/sites-available
-    sudo nano revolutiontech.ca
+Then to publish static assets, run the `manage.py collectstatic` command locally, using the production environment variables listed above:
 
-And in this file, generate a configuration similar to the following:
+    STAGE=production REVOLUTIONTECH_AWS_ACCESS_KEY_ID=1234 REVOLUTIONTECH_AWS_SECRET_ACCESS_KEY=abc123 python manage.py collectstatic --noinput
 
-    server {
-        server_name revolutiontech.ca;
-        return 301 http://www.revolutiontech.ca$request_uri;
-    }
+You may also need to update `ALLOWED_HOSTS` in `settings/prod.py` to match the assigned URL for the Lambda. Once completed, the assigned URL should be running revolutiontech.ca.
 
-    server {
-        server_name www.revolutiontech.ca;
+If any changes to `zappa_settings.json` are made, the file should be re-encrypted before being committed. The following bash functions may be helpful for encrypting/decrypting:
 
-        access_log off;
-
-        location /static/ordered_model/ {
-            alias /home/lucas/.virtualenvs/revolutiontech.ca/lib/python2.7/site-packages/ordered_model/static/ordered_model/;
-        }
-        location /static/admin/ {
-            alias /home/lucas/.virtualenvs/revolutiontech.ca/lib/python2.7/site-packages/django/contrib/admin/static/admin/;
-        }
-        location /static/ {
-            alias /home/lucas/revolutiontech.ca/static/;
-        }
-        location /media/ {
-            alias /home/lucas/revolutiontech.ca/media/;
-        }
-
-        location /favicon.ico {
-            alias /home/lucas/revolutiontech.ca/static/favicon.ico;
-        }
-
-        location / {
-            proxy_pass http://127.0.0.1:8000;
-            proxy_set_header X-Forwarded-Host $server_name;
-            proxy_set_header X-Real-IP $remote_addr;
-            add_header P3P 'CP="ALL DSP COR PSAa PSDa OUR NOR ONL UNI COM NAV"';
-        }
-    }
-
-Save the file and link to it from sites-enabled:
-
-    cd ../sites-enabled
-    sudo ln -s ../sites-available/revolutiontech.ca revolutiontech.ca
-
-Then we need to create a script to run revolutiontech.ca on boot with runit:
-
-    sudo mkdir /etc/sv/revolutiontech.ca
-    cd /etc/sv/revolutiontech.ca
-    sudo nano run
-
-In this file, create a script similar to the following:
-
-    #!/bin/sh
-
-    GUNICORN=/home/lucas/.virtualenvs/revolutiontech.ca/bin/gunicorn
-    ROOT=/home/lucas/revolutiontech.ca/revolutiontech
-    PID=/var/run/gunicorn.pid
-
-    APP=revolutiontech.wsgi:application
-
-    if [ -f $PID ]; then rm $PID; fi
-
-    cd $ROOT
-    exec chpst -e $ROOT/revolutiontech/settings/secrets $GUNICORN -c $ROOT/revolutiontech/gunicorn.py --pid=$PID $APP
-
-Then change the permissions on the file to be executable and symlink the project to /etc/service:
-
-    sudo chmod u+x run
-    sudo ln -s /etc/sv/revolutiontech.ca /etc/service/revolutiontech.ca
-
-revolutiontech.ca should now automatically be running on the local machine.
+    function encrypt_openssl () { openssl aes-256-cbc -k $DECRYPT_PASSWORD -in "$1" -out "$1".enc; }
+    function decrypt_openssl () { openssl aes-256-cbc -k $DECRYPT_PASSWORD -in "$1".enc -out "$1" -d; }
