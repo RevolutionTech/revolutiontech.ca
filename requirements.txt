@@ -2,7 +2,7 @@ coverage==4.4.2
 zappa==0.45.1
 Django==1.11.8
 django-pigeon==0.2.0
-python-memcached==1.58
+python-memcached==1.59
 psycopg2==2.7.3.2
 Pillow==4.3.0
 django-classbasedsettings==1.5.0
