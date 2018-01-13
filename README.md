@@ -1,8 +1,8 @@
 # revolutiontech.ca
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/b4326bf2a9d34f8ba5e77e79c0da49c0)](https://www.codacy.com/app/RevolutionTech/revolutiontech.ca?utm_source=github.com&utm_medium=referral&utm_content=RevolutionTech/revolutiontech.ca&utm_campaign=badger)
 [![Build Status](https://travis-ci.org/RevolutionTech/revolutiontech.ca.svg?branch=master)](https://travis-ci.org/RevolutionTech/revolutiontech.ca)
 [![codecov](https://codecov.io/gh/RevolutionTech/revolutiontech.ca/branch/master/graph/badge.svg)](https://codecov.io/gh/RevolutionTech/revolutiontech.ca)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/b4326bf2a9d34f8ba5e77e79c0da49c0)](https://www.codacy.com/app/RevolutionTech/revolutiontech.ca)
 [![Updates](https://pyup.io/repos/github/RevolutionTech/revolutiontech.ca/shield.svg)](https://pyup.io/repos/github/RevolutionTech/revolutiontech.ca/)
 
 ## Setup
