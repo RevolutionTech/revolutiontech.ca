@@ -8,7 +8,7 @@ from django.apps import apps
 from django.contrib.auth.models import User
 from django.db import connection
 from django.db.migrations.executor import MigrationExecutor
-from django.test import TransactionTestCase
+from django.test import TestCase
 from django.utils.text import slugify
 
 from pigeon.test import RenderTestCase
@@ -69,7 +69,7 @@ class RevolutionTechTestCase(RenderTestCase):
         SoftwareButton.objects.create(software=self.software, text='View Site', external_url='http://flamingo.photo/')
 
 
-class MigrationTestCase(TransactionTestCase):
+class MigrationTestCase(TestCase):
     """
     Ref: https://www.caktusgroup.com/blog/2016/02/02/writing-unit-tests-django-migrations/
     """
@@ -102,6 +102,7 @@ class MigrationTestCase(TransactionTestCase):
 
         # Run the migration to test
         executor = MigrationExecutor(connection)
+        executor.loader.build_graph()
         executor.migrate(self.migrate_to)
         self.apps = executor.loader.project_state(self.migrate_to).apps
 
