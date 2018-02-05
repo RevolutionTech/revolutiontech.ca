@@ -20,7 +20,7 @@ class Category(OrderedModel):
     class Meta(OrderedModel.Meta):
         abstract = True
 
-    def __unicode__(self):
+    def __str__(self):
         return self.name
 
 
@@ -32,7 +32,7 @@ class Image(models.Model):
     class Meta:
         abstract = True
 
-    def __unicode__(self):
+    def __str__(self):
         return self.caption[:40]
 
 
@@ -41,7 +41,7 @@ class Platform(models.Model):
     name = models.CharField(max_length=20)
     css_class = models.CharField(max_length=15, verbose_name='CSS class')
 
-    def __unicode__(self):
+    def __str__(self):
         return self.name
 
 
@@ -55,7 +55,7 @@ class Button(models.Model):
     class Meta:
         abstract = True
 
-    def __unicode__(self):
+    def __str__(self):
         return "{text}: {resource}".format(
             text=self.text,
             resource=self.local_resource.name or self.external_url
@@ -81,7 +81,7 @@ class Video(models.Model):
     class Meta:
         abstract = True
 
-    def __unicode__(self):
+    def __str__(self):
         return "{title}: {url}".format(
             title=self.title,
             url=self.youtube_url
@@ -111,7 +111,7 @@ class Media(models.Model):
         abstract = True
         verbose_name_plural = "Media"
 
-    def __unicode__(self):
+    def __str__(self):
         return "{title}: {filename}".format(
             title=self.title,
             filename=self.media
@@ -135,7 +135,7 @@ class Item(OrderedModel):
     def first_real_char_index(string):
         return re.match(r"(<\w*>)*", string).end()
 
-    def __unicode__(self):
+    def __str__(self):
         return self.name
 
     def description_first_letter(self):
