@@ -28,11 +28,11 @@ class GamesInitialOrdersMigrationTestCase(MigrationTestCase):
     def testInstancesHaveInitialOrder(self):
         GameCategory = self.apps.get_model('games', 'GameCategory')
         game_category = GameCategory.objects.get(id=self.premigration_game_category.id)
-        self.assertEquals(game_category.order, game_category.id)
+        self.assertEqual(game_category.order, game_category.id)
 
         Game = self.apps.get_model('games', 'Game')
         game = Game.objects.get(id=self.premigration_game.id)
-        self.assertEquals(game.order, game.id)
+        self.assertEqual(game.order, game.id)
 
 
 class GamesAdminWebTestCase(RevolutionTechTestCase):

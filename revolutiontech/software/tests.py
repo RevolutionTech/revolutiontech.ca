@@ -20,7 +20,7 @@ class SoftwareInitialOrdersMigrationTestCase(MigrationTestCase):
     def testInstancesHaveInitialOrder(self):
         Software = self.apps.get_model('software', 'Software')
         software = Software.objects.get(id=self.premigration_software.id)
-        self.assertEquals(software.order, software.id)
+        self.assertEqual(software.order, software.id)
 
 
 class SoftwareAdminWebTestCase(RevolutionTechTestCase):

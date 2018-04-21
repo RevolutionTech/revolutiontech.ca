@@ -28,11 +28,11 @@ class ProductionsInitialOrdersMigrationTestCase(MigrationTestCase):
     def testInstancesHaveInitialOrder(self):
         ProductionCategory = self.apps.get_model('productions', 'ProductionCategory')
         production_category = ProductionCategory.objects.get(id=self.premigration_production_category.id)
-        self.assertEquals(production_category.order, production_category.id)
+        self.assertEqual(production_category.order, production_category.id)
 
         Production = self.apps.get_model('productions', 'Production')
         production = Production.objects.get(id=self.premigration_production.id)
-        self.assertEquals(production.order, production.id)
+        self.assertEqual(production.order, production.id)
 
 
 class ProductionsAdminWebTestCase(RevolutionTechTestCase):
