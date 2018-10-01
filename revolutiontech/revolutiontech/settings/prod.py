@@ -15,10 +15,10 @@ class ProdSettings(BaseSettings):
     ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'revolutiontech.ca', 'www.revolutiontech.ca']
 
     # Static and media files
-    STATIC_ROOT = None
-    MEDIA_ROOT = None
-    STATICFILES_STORAGE = 'revolutiontech.custom_storages.StaticStorage'
-    DEFAULT_FILE_STORAGE = 'revolutiontech.custom_storages.MediaStorage'
+    DEFAULT_FILE_STORAGE = 'django_s3_storage.storage.S3Storage'
+    STATICFILES_STORAGE = 'django_s3_storage.storage.StaticS3Storage'
+    AWS_S3_BUCKET_NAME = 'revolutiontech'
+    AWS_S3_BUCKET_NAME_STATIC = AWS_S3_BUCKET_NAME
 
     @property
     def AWS_ACCESS_KEY_ID(self):
@@ -27,17 +27,3 @@ class ProdSettings(BaseSettings):
     @property
     def AWS_SECRET_ACCESS_KEY(self):
         return os.environ['REVOLUTIONTECH_AWS_SECRET_ACCESS_KEY']
-
-    @property
-    def STATIC_URL(self):
-        return 'https://{aws_s3}/{static}/'.format(
-            aws_s3=self.AWS_S3_CUSTOM_DOMAIN,
-            static=self.STATICFILES_LOCATION
-        )
-
-    @property
-    def MEDIA_URL(self):
-        return 'https://{aws_s3}/{media}/'.format(
-            aws_s3=self.AWS_S3_CUSTOM_DOMAIN,
-            media=self.MEDIAFILES_LOCATION
-        )
