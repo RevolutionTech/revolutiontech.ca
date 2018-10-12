@@ -1,5 +1,5 @@
 coverage==4.5.1
-zappa==0.46.2
+zappa==0.47.0
 Django==1.11.15
 django-pigeon==0.3.0
 python-memcached==1.59
