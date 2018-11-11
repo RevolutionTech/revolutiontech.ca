@@ -3,7 +3,7 @@ zappa==0.47.0
 Django==1.11.16
 django-pigeon==0.3.0
 python-memcached==1.59
-psycopg2==2.7.6
+psycopg2==2.7.6.1
 Pillow==5.3.0
 django-classbasedsettings==1.5.0
 dj-database-url==0.5.0
