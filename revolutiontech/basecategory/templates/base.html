@@ -25,7 +25,7 @@
             <section class="top-bar-section">
                 <ul class="left">
                     <li {% if page == 'games' %}class="active"{% endif %}><a href="{% url 'games:games_list' %}">Games</a></li>
-                    <li {% if page == 'productions' %}class="active"{% endif %}><a href="{% url 'productions:productions_list' %}">Productions</a></li>
+                    {% if page == 'productions' %}<li class="active"><a href="{% url 'productions:productions_list' %}">Productions</a></li>{% endif %}
                     <li {% if page == 'software' %}class="active"{% endif %}><a href="{% url 'software:software_list' %}">Software</a></li>
                 </ul>
                 <ul class="right show-for-large-up">
