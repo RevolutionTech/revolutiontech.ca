@@ -28,8 +28,8 @@
 .avatar {
     border-radius: 50%;
     max-height: 125px;
-    float: left;
-    margin-right: 24px;
+    float: right;
+    margin-left: 24px;
     margin-bottom: 24px;
 }
 
@@ -87,8 +87,8 @@
 }
 
 .semi-avatar {
-    margin-left: 16px;
-    float: right;
+    margin-right: 16px;
+    float: left;
     max-height: 100px;
 }
 
