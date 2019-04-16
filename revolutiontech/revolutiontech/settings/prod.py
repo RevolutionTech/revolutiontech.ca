@@ -14,6 +14,15 @@ class ProdSettings(BaseSettings):
     DEBUG = False
     ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'revolutiontech.ca', 'www.revolutiontech.ca']
 
+    # Database
+    DATABASES = {
+        'default': {
+            'ENGINE': 'zappa_django_utils.db.backends.s3sqlite',
+            'NAME': 'db.sqlite3',
+            'BUCKET': 'revolutiontech-sqlite3',
+        },
+    }
+
     # Static and media files
     DEFAULT_FILE_STORAGE = 'django_s3_storage.storage.S3Storage'
     STATICFILES_STORAGE = 'django_s3_storage.storage.StaticS3Storage'

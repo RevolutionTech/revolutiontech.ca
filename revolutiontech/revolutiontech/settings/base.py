@@ -7,7 +7,6 @@
 import os
 
 from cbsettings import DjangoDefaults
-import dj_database_url
 
 
 def aws_s3_bucket_url(settings_class, bucket_name_settings):
@@ -36,6 +35,7 @@ class BaseSettings(DjangoDefaults):
         'django.contrib.staticfiles',
         'sorl.thumbnail',
         'ordered_model',
+        'zappa_django_utils',
         'django_s3_storage',
         'basecategory',
         'games',
@@ -77,10 +77,10 @@ class BaseSettings(DjangoDefaults):
         }
     }
     DATABASES = {
-        'default': dj_database_url.config(
-            env='REVOLUTIONTECH_DATABASE_URL',
-            default='postgres://postgres@localhost/revolutiontech'
-        ),
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        },
     }
 
     # Internationalization

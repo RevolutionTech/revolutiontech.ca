@@ -8,9 +8,9 @@
 
 ### Prerequisites
 
-revolutiontech.ca requires [memcached](http://memcached.org/), [PostgreSQL](http://www.postgresql.org/), libjpeg-dev, and Python header files, which you can install on debian with:
+revolutiontech.ca requires [memcached](http://memcached.org/), [SQLite](https://www.sqlite.org/index.html), libjpeg-dev, and Python header files, which you can install on debian with:
 
-    sudo apt-get install memcached postgresql postgresql-contrib python3-dev libssl-dev libpq-dev libjpeg-dev
+    sudo apt-get install memcached python3-dev libjpeg-dev
 
 ### Installation
 
@@ -20,16 +20,11 @@ Use [poetry](https://github.com/sdispater/poetry) to install Python dependencies
     
 ### Configuration
 
-Next we will need to set up some environment variables for your dev instance of revolutiontech.ca. These values should be kept secret. Add a secret key and the database credentials to your `~/.bashrc` file:
+Next we will need to set up some a secret key for your dev instance of revolutiontech.ca. This value should be kept secret. Add the secret key to your `~/.bashrc` file:
 
     export REVOLUTIONTECH_SECRET_KEY='-3f5yh&(s5%9uigtx^yn=t_woj0@90__fr!t2b*96f5xoyzb%b'
-    export REVOLUTIONTECH_DATABASE_URL='postgres://postgres:abc123@localhost:5432/revolutiontech'
 
-For reference, the format of the `DATABASE_URL` is as follows:
-
-    postgres://{USER}:{PASSWORD}@{HOST}:{PORT}/{NAME}
-
-Of course you should [generate your own secret key](http://stackoverflow.com/a/16630719) and use a more secure password for your database. Also, be sure that special characters (such as `?` and `#`) in your `DATABASE_URL` are percent-encoded. Then source your `~/.bashrc` file to set these environment variables:
+Of course you should [generate your own secret key](http://stackoverflow.com/a/16630719). Then source your `~/.bashrc` file to set this new environment variable:
 
     source ~/.bashrc
 
