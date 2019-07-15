@@ -6,12 +6,6 @@
 
 ## Setup
 
-### Prerequisites
-
-revolutiontech.ca requires [memcached](http://memcached.org/), [SQLite](https://www.sqlite.org/index.html), libjpeg-dev, and Python header files, which you can install on debian with:
-
-    sudo apt-get install memcached python3-dev libjpeg-dev
-
 ### Installation
 
 Use [poetry](https://github.com/sdispater/poetry) to install Python dependencies:
