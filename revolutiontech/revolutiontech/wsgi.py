@@ -12,6 +12,10 @@ import os
 from django.core.wsgi import get_wsgi_application
 
 import cbsettings
+from dotenv import load_dotenv
+
+
+load_dotenv()
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "revolutiontech.settings")
 cbsettings.configure('revolutiontech.settings.switcher')

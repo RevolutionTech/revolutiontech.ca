@@ -14,13 +14,7 @@ Use [poetry](https://github.com/sdispater/poetry) to install Python dependencies
     
 ### Configuration
 
-Next we will need to set up some a secret key for your dev instance of revolutiontech.ca. This value should be kept secret. Add the secret key to your `~/.bashrc` file:
-
-    export REVOLUTIONTECH_SECRET_KEY='-3f5yh&(s5%9uigtx^yn=t_woj0@90__fr!t2b*96f5xoyzb%b'
-
-Of course you should [generate your own secret key](http://stackoverflow.com/a/16630719). Then source your `~/.bashrc` file to set this new environment variable:
-
-    source ~/.bashrc
+revolutiontech.ca uses [python-dotenv](https://github.com/theskumar/python-dotenv) to read environment variables in from your local `.env` file. See `.env-sample` for configuration options. Be sure to [generate your own secret key](http://stackoverflow.com/a/16630719).
 
 With everything installed and all files in place, you may now create the database tables. You can do this with:
 
@@ -36,9 +30,9 @@ where `$DECRYPT_PASSWORD` contains the key that the settings were encrypted with
 
     poetry run zappa deploy
 
-Once deployed, you will need to set environment variables on the generated Lambda. In addition to the environment variables for the development environment, you will also need to provide two additional environment variables: `REVOLUTIONTECH_AWS_ACCESS_KEY_ID` and `REVOLUTIONTECH_AWS_SECRET_ACCESS_KEY`.
+Once deployed, you will need to set environment variables on the generated Lambda. See `prod.py` for additional environment variables used in production.
 
-Then to publish static assets, run the `manage.py collectstatic` command locally, using the production environment variables listed above:
+Then to publish static assets, run the `manage.py collectstatic` command locally, setting the environment variables for AWS credentials to the values used in production:
 
     STAGE=production REVOLUTIONTECH_AWS_ACCESS_KEY_ID=1234 REVOLUTIONTECH_AWS_SECRET_ACCESS_KEY=abc123 poetry run python manage.py collectstatic --noinput
 
