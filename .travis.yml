@@ -9,7 +9,7 @@ install:
   - poetry install
 
 before_script:
-  - export REVOLUTIONTECH_SECRET_KEY='-3f5yh&(s5%9uigtx^yn=t_woj0@90__fr!t2b*96f5xoyzb%b'
+  - cp .env-sample .env
 
 script:
   - cd revolutiontech
