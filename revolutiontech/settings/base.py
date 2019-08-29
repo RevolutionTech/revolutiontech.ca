@@ -19,7 +19,6 @@ def aws_s3_bucket_url(settings_class, bucket_name_settings):
 class BaseSettings(DjangoDefaults):
 
     BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-    TOP_DIR = os.path.dirname(BASE_DIR)
 
     SECRET_KEY = os.environ['REVOLUTIONTECH_SECRET_KEY']
     DEBUG = True
@@ -89,10 +88,10 @@ class BaseSettings(DjangoDefaults):
     USE_TZ = True
 
     # Static files (CSS, JavaScript, Images) and Media
-    MEDIA_ROOT = os.path.join(TOP_DIR, 'media')
-    STATIC_ROOT = os.path.join(TOP_DIR, 'staticfiles')
+    MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
     STATICFILES_DIRS = (
-        os.path.join(TOP_DIR, 'static'),
+        os.path.join(BASE_DIR, 'static'),
     )
     AWS_S3_KEY_PREFIX = 'media'
     AWS_S3_KEY_PREFIX_STATIC = 'static'
