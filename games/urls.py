@@ -11,8 +11,13 @@ from games.models import Game
 from games.views import GamesListView
 
 
-app_name = 'games'
+app_name = "games"
 urlpatterns = [
-    url(r'^(?P<slug>[\w_-]+)/?$', ItemPageView.as_view(), {'items': Game}, name='item_details'),
-    url(r'^$', GamesListView.as_view(), {'items': Game}, name='games_list'),
+    url(
+        r"^(?P<slug>[\w_-]+)/?$",
+        ItemPageView.as_view(),
+        {"items": Game},
+        name="item_details",
+    ),
+    url(r"^$", GamesListView.as_view(), {"items": Game}, name="games_list"),
 ]

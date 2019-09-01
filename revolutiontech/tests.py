@@ -21,52 +21,64 @@ from software.models import Software, SoftwareButton
 
 class RevolutionTechTestCase(RenderTestCase):
 
-    USER_USERNAME = 'jsmith'
-    USER_EMAIL = 'jsmith@example.com'
-    USER_PASSWORD = 'abc123'
+    USER_USERNAME = "jsmith"
+    USER_EMAIL = "jsmith@example.com"
+    USER_PASSWORD = "abc123"
 
-    PLATFORM_NAME = 'Windows'
-    GAME_CATEGORY_NAME = 'Puzzle'
-    GAME_NAME = 'Blockade'
-    PRODUCTION_CATEGORY_NAME = 'Videography'
-    PRODUCTION_NAME = 'The Gum Thief'
-    SOFTWARE_NAME = 'Flamingo'
+    PLATFORM_NAME = "Windows"
+    GAME_CATEGORY_NAME = "Puzzle"
+    GAME_NAME = "Blockade"
+    PRODUCTION_CATEGORY_NAME = "Videography"
+    PRODUCTION_NAME = "The Gum Thief"
+    SOFTWARE_NAME = "Flamingo"
 
     def setUp(self):
         super(RevolutionTechTestCase, self).setUp()
 
         # Create admin user
-        self.user = User.objects.create_user(self.USER_USERNAME, email=self.USER_EMAIL, password=self.USER_PASSWORD)
+        self.user = User.objects.create_user(
+            self.USER_USERNAME, email=self.USER_EMAIL, password=self.USER_PASSWORD
+        )
         self.user.is_staff = True
         self.user.is_superuser = True
         self.user.save()
         self.client.login(username=self.USER_USERNAME, password=self.USER_PASSWORD)
 
         # Create initial item instances
-        self.platform = Platform.objects.create(name=self.PLATFORM_NAME, css_class=self.PLATFORM_NAME.lower())
+        self.platform = Platform.objects.create(
+            name=self.PLATFORM_NAME, css_class=self.PLATFORM_NAME.lower()
+        )
         self.game_category = GameCategory.objects.create(name=self.GAME_CATEGORY_NAME)
-        self.production_category = ProductionCategory.objects.create(name=self.PRODUCTION_CATEGORY_NAME)
+        self.production_category = ProductionCategory.objects.create(
+            name=self.PRODUCTION_CATEGORY_NAME
+        )
         self.game = Game.objects.create(
             name=self.GAME_NAME,
             slug=slugify(self.GAME_NAME),
             description="The idea of <em>Blockade</em> spawned from the basic mechanics of <em>Tetris</em>.",
             hero=True,
-            category=self.game_category
+            category=self.game_category,
         )
         self.production = Production.objects.create(
             name=self.PRODUCTION_NAME,
             slug=slugify(self.PRODUCTION_NAME),
-            category=self.production_category
+            category=self.production_category,
         )
-        self.software = Software.objects.create(name=self.SOFTWARE_NAME, slug=slugify(self.SOFTWARE_NAME))
+        self.software = Software.objects.create(
+            name=self.SOFTWARE_NAME, slug=slugify(self.SOFTWARE_NAME)
+        )
 
         # Create instances attached to items
         GameVideo.objects.create(
             game=self.game,
-            title='Blockade Trailer',
-            youtube_url='http://www.youtube.com/watch?v=1lAI5e-zkxA&t=1s'
+            title="Blockade Trailer",
+            youtube_url="http://www.youtube.com/watch?v=1lAI5e-zkxA&t=1s",
         )
-        SoftwareButton.objects.create(software=self.software, text='View Site', external_url='http://flamingo.photo/')
+        SoftwareButton.objects.create(
+            software=self.software,
+            text="View Site",
+            external_url="http://flamingo.photo/",
+        )
 
 
 class MigrationTestCase(TransactionTestCase):
@@ -110,12 +122,9 @@ class MigrationTestCase(TransactionTestCase):
 
 
 class AdminWebTestCase(RevolutionTechTestCase):
-
     def get200s(self):
-        return [
-            '/admin/',
-        ]
+        return ["/admin/"]
 
     def testAdminLoginPageRenders(self):
         self.client.logout()
-        self.assertResponseRedirects('/admin/', '/admin/login/')
+        self.assertResponseRedirects("/admin/", "/admin/login/")

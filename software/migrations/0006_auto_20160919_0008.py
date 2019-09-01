@@ -4,17 +4,12 @@ from django.db import migrations
 
 
 class Migration(migrations.Migration):
-
     def set_initial_orders(apps, schema_editor):
         Software = apps.get_model("software", "Software")
         for software in Software.objects.all():
             software.order = software.id
             software.save()
 
-    dependencies = [
-        ('software', '0005_auto_20150811_0639'),
-    ]
+    dependencies = [("software", "0005_auto_20150811_0639")]
 
-    operations = [
-        migrations.RunPython(set_initial_orders, lambda *args: None),
-    ]
+    operations = [migrations.RunPython(set_initial_orders, lambda *args: None)]

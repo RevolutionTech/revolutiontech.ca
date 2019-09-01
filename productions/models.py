@@ -6,12 +6,10 @@
 
 from django.db import models
 
-from basecategory.models import Category, Image, Button, Video, Media, \
-    Item
+from basecategory.models import Category, Image, Button, Video, Media, Item
 
 
 class ProductionCategory(Category):
-
     class Meta(Category.Meta):
         verbose_name_plural = "Production categories"
 

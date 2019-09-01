@@ -7,10 +7,15 @@
 from django import forms
 from django.contrib import admin
 
-from basecategory.admin import ImageInline, ButtonInline, VideoInline, \
-    MediaInline, CategoryAdmin, ItemAdmin
-from games.models import GameCategory, Game, GameImage, GameButton, \
-    GameVideo, GameMedia
+from basecategory.admin import (
+    ImageInline,
+    ButtonInline,
+    VideoInline,
+    MediaInline,
+    CategoryAdmin,
+    ItemAdmin,
+)
+from games.models import GameCategory, Game, GameImage, GameButton, GameVideo, GameMedia
 
 
 class GameImageInline(ImageInline):
@@ -32,13 +37,24 @@ class GameMediaInline(MediaInline):
 class GameAdminForm(forms.ModelForm):
     class Meta:
         model = Game
-        fields = ['name', 'slug', 'category', 'release_year', 'description', 'platform', 'min_players', 'max_players', 'hero', 'visible',]
+        fields = [
+            "name",
+            "slug",
+            "category",
+            "release_year",
+            "description",
+            "platform",
+            "min_players",
+            "max_players",
+            "hero",
+            "visible",
+        ]
 
 
 class GameAdmin(ItemAdmin):
-    list_display = ('name', 'category', 'release_year', 'visible', 'move_up_down_links',)
+    list_display = ("name", "category", "release_year", "visible", "move_up_down_links")
     form = GameAdminForm
-    inlines = [GameImageInline, GameButtonInline, GameVideoInline, GameMediaInline,]
+    inlines = [GameImageInline, GameButtonInline, GameVideoInline, GameMediaInline]
 
 
 admin.site.register(GameCategory, CategoryAdmin)

@@ -9,52 +9,56 @@ from revolutiontech.tests import RevolutionTechTestCase, MigrationTestCase
 
 class ProductionsInitialOrdersMigrationTestCase(MigrationTestCase):
 
-    migrate_from = '0004_production_visible'
-    migrate_to = '0006_auto_20160919_0008'
+    migrate_from = "0004_production_visible"
+    migrate_to = "0006_auto_20160919_0008"
 
     def setUpBeforeMigration(self, apps):
         # Create a production category
-        ProductionCategory = apps.get_model('productions', 'ProductionCategory')
-        self.premigration_production_category = ProductionCategory.objects.create(name='Animation')
+        ProductionCategory = apps.get_model("productions", "ProductionCategory")
+        self.premigration_production_category = ProductionCategory.objects.create(
+            name="Animation"
+        )
 
         # Create a production
-        Production = apps.get_model('productions', 'Production')
+        Production = apps.get_model("productions", "Production")
         self.premigration_production = Production.objects.create(
-            name='Connect',
-            slug='connect',
-            category=self.premigration_production_category
+            name="Connect",
+            slug="connect",
+            category=self.premigration_production_category,
         )
 
     def testInstancesHaveInitialOrder(self):
-        ProductionCategory = self.apps.get_model('productions', 'ProductionCategory')
-        production_category = ProductionCategory.objects.get(id=self.premigration_production_category.id)
+        ProductionCategory = self.apps.get_model("productions", "ProductionCategory")
+        production_category = ProductionCategory.objects.get(
+            id=self.premigration_production_category.id
+        )
         self.assertEqual(production_category.order, production_category.id)
 
-        Production = self.apps.get_model('productions', 'Production')
+        Production = self.apps.get_model("productions", "Production")
         production = Production.objects.get(id=self.premigration_production.id)
         self.assertEqual(production.order, production.id)
 
 
 class ProductionsAdminWebTestCase(RevolutionTechTestCase):
-
     def get200s(self):
         return [
-            '/admin/productions/',
-            '/admin/productions/productioncategory/',
-            '/admin/productions/productioncategory/add/',
-            '/admin/productions/productioncategory/{category_id}/change/'.format(
+            "/admin/productions/",
+            "/admin/productions/productioncategory/",
+            "/admin/productions/productioncategory/add/",
+            "/admin/productions/productioncategory/{category_id}/change/".format(
                 category_id=self.production_category.id
             ),
-            '/admin/productions/production/',
-            '/admin/productions/production/add/',
-            '/admin/productions/production/{production_id}/change/'.format(production_id=self.production.id),
+            "/admin/productions/production/",
+            "/admin/productions/production/add/",
+            "/admin/productions/production/{production_id}/change/".format(
+                production_id=self.production.id
+            ),
         ]
 
 
 class ProductionsWebTestCase(RevolutionTechTestCase):
-
     def get200s(self):
         return [
-            '/productions/',
-            '/productions/{slug}/'.format(slug=self.production.slug),
+            "/productions/",
+            "/productions/{slug}/".format(slug=self.production.slug),
         ]

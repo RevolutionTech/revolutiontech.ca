@@ -22,16 +22,15 @@ class CategoryPageView(TemplateView):
 
     def get_context_data(self, items, **kwargs):
         context = super(CategoryPageView, self).get_context_data(**kwargs)
-        context['page'] = items._meta.verbose_name_plural.lower()
+        context["page"] = items._meta.verbose_name_plural.lower()
 
-        item_qs = items.objects.filter(visible=True).order_by('order')
+        item_qs = items.objects.filter(visible=True).order_by("order")
         heroes = item_qs.filter(hero=True)
         regular = item_qs.filter(hero=False)
-        context['items'] = {
-            'heroes': heroes,
-            'regular': regular,
-        }
-        context['random_hero_unit_index'] = random.randint(0, heroes.count()-1) if heroes.count() > 0 else 0
+        context["items"] = {"heroes": heroes, "regular": regular}
+        context["random_hero_unit_index"] = (
+            random.randint(0, heroes.count() - 1) if heroes.count() > 0 else 0
+        )
 
         return context
 
@@ -45,14 +44,12 @@ class ItemPageView(TemplateView):
             self.item = items.objects.get(slug=slug)
         except items.DoesNotExist:
             verbose_name_plural = items._meta.verbose_name_plural.lower()
-            items_list = "{items}:{items}_list".format(
-                items=verbose_name_plural
-            )
+            items_list = "{items}:{items}_list".format(items=verbose_name_plural)
             return HttpResponseRedirect(reverse(items_list))
         return super(ItemPageView, self).dispatch(request, *args, **kwargs)
 
     def get_context_data(self, **kwargs):
         context = super(ItemPageView, self).get_context_data(**kwargs)
-        context['item'] = self.item
-        context['absolute_uri'] = self.request.build_absolute_uri()
+        context["item"] = self.item
+        context["absolute_uri"] = self.request.build_absolute_uri()
         return context
