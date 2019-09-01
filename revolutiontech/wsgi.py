@@ -18,6 +18,6 @@ from dotenv import load_dotenv
 load_dotenv()
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "revolutiontech.settings")
-cbsettings.configure('revolutiontech.settings.switcher')
+cbsettings.configure("revolutiontech.settings.switcher")
 
 application = get_wsgi_application()

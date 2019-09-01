@@ -4,7 +4,6 @@ from django.db import migrations
 
 
 class Migration(migrations.Migration):
-
     def set_initial_orders(apps, schema_editor):
         ProductionCategory = apps.get_model("productions", "ProductionCategory")
         for category in ProductionCategory.objects.all():
@@ -15,10 +14,6 @@ class Migration(migrations.Migration):
             production.order = production.id
             production.save()
 
-    dependencies = [
-        ('productions', '0005_auto_20150811_0639'),
-    ]
+    dependencies = [("productions", "0005_auto_20150811_0639")]
 
-    operations = [
-        migrations.RunPython(set_initial_orders, lambda *args: None),
-    ]
+    operations = [migrations.RunPython(set_initial_orders, lambda *args: None)]

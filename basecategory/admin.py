@@ -28,11 +28,11 @@ class MediaInline(admin.TabularInline):
 
 
 class CategoryAdmin(OrderedModelAdmin):
-    list_display = ('name', 'move_up_down_links',)
+    list_display = ("name", "move_up_down_links")
 
 
 class ItemAdmin(OrderedModelAdmin):
-    prepopulated_fields = {'slug': ('name',)}
+    prepopulated_fields = {"slug": ("name",)}
 
 
 admin.site.register(Platform)

@@ -13,15 +13,15 @@ from basecategory.views import HomeView
 
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'^games/', include('games.urls', namespace='games')),
-    url(r'^productions/', include('productions.urls', namespace='productions')),
-    url(r'^software/', include('software.urls', namespace='software')),
-    url(r'^$', HomeView.as_view(), name='home'),
+    url(r"^admin/", admin.site.urls),
+    url(r"^games/", include("games.urls", namespace="games")),
+    url(r"^productions/", include("productions.urls", namespace="productions")),
+    url(r"^software/", include("software.urls", namespace="software")),
+    url(r"^$", HomeView.as_view(), name="home"),
 ]
 
 # Add media folder to urls when DEBUG = True
 if settings.DEBUG:
     urlpatterns.append(
-        url(r'^media/(?P<path>.*)$', serve, {'document_root': settings.MEDIA_ROOT})
+        url(r"^media/(?P<path>.*)$", serve, {"document_root": settings.MEDIA_ROOT})
     )

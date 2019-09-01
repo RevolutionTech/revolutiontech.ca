@@ -10,7 +10,6 @@ from basecategory.models import Image, Button, Video, Media, Item
 
 
 class Software(Item):
-
     class Meta(Item.Meta):
         verbose_name_plural = "Software"
 
