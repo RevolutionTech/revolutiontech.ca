@@ -44,13 +44,13 @@ class GamesAdminWebTestCase(RevolutionTechTestCase):
             ),
             "/admin/games/game/",
             "/admin/games/game/add/",
-            "/admin/games/game/{game_id}/change/".format(game_id=self.game.id),
+            f"/admin/games/game/{self.game.id}/change/",
         ]
 
 
 class GamesWebTestCase(RevolutionTechTestCase):
     def get200s(self):
-        return ["/games/", "/games/{slug}/".format(slug=self.game.slug)]
+        return ["/games/", f"/games/{self.game.slug}/"]
 
     def testInvalidSlugRedirectsToList(self):
         self.assertResponseRedirects("/games/does-not-exist/", "/games/")

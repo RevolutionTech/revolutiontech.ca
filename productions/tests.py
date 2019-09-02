@@ -58,7 +58,4 @@ class ProductionsAdminWebTestCase(RevolutionTechTestCase):
 
 class ProductionsWebTestCase(RevolutionTechTestCase):
     def get200s(self):
-        return [
-            "/productions/",
-            "/productions/{slug}/".format(slug=self.production.slug),
-        ]
+        return ["/productions/", f"/productions/{self.production.slug}/"]

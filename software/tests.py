@@ -39,4 +39,4 @@ class SoftwareAdminWebTestCase(RevolutionTechTestCase):
 
 class SoftwareWebTestCase(RevolutionTechTestCase):
     def get200s(self):
-        return ["/software/", "/software/{slug}/".format(slug=self.software.slug)]
+        return ["/software/", f"/software/{self.software.slug}/"]
