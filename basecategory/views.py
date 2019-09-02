@@ -21,7 +21,7 @@ class CategoryPageView(TemplateView):
     template_name = "category-page.html"
 
     def get_context_data(self, items, **kwargs):
-        context = super(CategoryPageView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context["page"] = items._meta.verbose_name_plural.lower()
 
         item_qs = items.objects.filter(visible=True).order_by("order")
@@ -46,10 +46,10 @@ class ItemPageView(TemplateView):
             verbose_name_plural = items._meta.verbose_name_plural.lower()
             items_list = "{items}:{items}_list".format(items=verbose_name_plural)
             return HttpResponseRedirect(reverse(items_list))
-        return super(ItemPageView, self).dispatch(request, *args, **kwargs)
+        return super().dispatch(request, *args, **kwargs)
 
     def get_context_data(self, **kwargs):
-        context = super(ItemPageView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         context["item"] = self.item
         context["absolute_uri"] = self.request.build_absolute_uri()
         return context

@@ -33,7 +33,7 @@ class RevolutionTechTestCase(RenderTestCase):
     SOFTWARE_NAME = "Flamingo"
 
     def setUp(self):
-        super(RevolutionTechTestCase, self).setUp()
+        super().setUp()
 
         # Create admin user
         self.user = User.objects.create_user(

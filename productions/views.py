@@ -10,7 +10,7 @@ from productions.models import ProductionCategory
 
 class ProductionsListView(CategoryPageView):
     def get_context_data(self, **kwargs):
-        context = super(ProductionsListView, self).get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
         regular = context["items"]["regular"]
 
         regular_categories = regular.values("category")

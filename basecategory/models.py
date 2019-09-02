@@ -83,7 +83,7 @@ class Video(models.Model):
         abstract = True
 
     def __str__(self):
-        return "{title}: {url}".format(title=self.title, url=self.youtube_url)
+        return f"{self.title}: {self.youtube_url}"
 
     def youtube_video_code_and_params(self):
         video_code_and_params_str = self.youtube_url.split("/watch?v=")[1]
@@ -96,10 +96,10 @@ class Video(models.Model):
 
     def youtube_embed_url(self):
         video_code, url_params = self.youtube_video_code_and_params()
-        url = "https://www.youtube.com/embed/{v}".format(v=video_code)
+        url = f"https://www.youtube.com/embed/{video_code}"
 
         if url_params:
-            url += "?{params}".format(params=url_params)
+            url += f"?{url_params}"
         return url
 
 
@@ -113,7 +113,7 @@ class Media(models.Model):
         verbose_name_plural = "Media"
 
     def __str__(self):
-        return "{title}: {filename}".format(title=self.title, filename=self.media)
+        return f"{self.title}: {self.media}"
 
 
 class Item(OrderedModel):
@@ -185,10 +185,7 @@ class Item(OrderedModel):
 
     def url(self):
         item_type = self._meta.verbose_name_plural.lower()
-        return reverse(
-            "{item_type}:item_details".format(item_type=item_type),
-            kwargs={"slug": self.slug},
-        )
+        return reverse(f"{item_type}:item_details", kwargs={"slug": self.slug})
 
     def youtube_only(self):
         platforms = self.platform.all()
