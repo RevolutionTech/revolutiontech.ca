@@ -162,6 +162,17 @@ six = "*"
 
 [[package]]
 category = "main"
+description = "An AWS S3-hosted SQLite database backend for Django."
+name = "django-s3-sqlite"
+optional = false
+python-versions = "*"
+version = "0.0.2"
+
+[package.dependencies]
+Django = ">=2"
+
+[[package]]
+category = "main"
 description = "Django Amazon S3 file storage."
 name = "django-s3-storage"
 optional = false
@@ -498,19 +509,8 @@ troposphere = ">=1.9.0"
 wheel = ">=0.30.0"
 wsgi-request-logger = "0.4.6"
 
-[[package]]
-category = "main"
-description = "Helpers for Django Zappa deployments"
-name = "zappa-django-utils"
-optional = false
-python-versions = "*"
-version = "0.4.0"
-
-[package.dependencies]
-Django = ">=1.9"
-
 [metadata]
-content-hash = "9054de2b1323ebb5a3861c0e471375718e8a801f69347661529e98dfbcd58fbe"
+content-hash = "4e8a4790348e0c09a5fd4ee8715adbe65a44fb8125351cd859be554de60df2ed"
 python-versions = "^3.6"
 
 [metadata.hashes]
@@ -529,6 +529,7 @@ django = ["48522428f4a285cf265af969f4744c5ebb027c7f41958ba48b639ace2068ffe7", "a
 django-classbasedsettings = ["c85708a85614c671e81d75e8781691c0e69a173ea6d25e54b366d6004dd8c5ee"]
 django-ordered-model = ["0931f498008f91a00a32c4e0ae08a662ef608a1092bf6e6ec9af9b1a83f08acf", "abf0d963f7e607a994baf6bc300e50af647b3d243c3e592c6cc8f8b924b6d427"]
 django-pigeon = ["ae7433109d944a2236223b4f61baf8e19043fea35c0a949e1edd1fb79cc94b18"]
+django-s3-sqlite = ["3a6a694efa79dae0a56291271503d425a96df803c101e5bfe5d3e9b003ef1e20", "bc2f8264920f5de62be241ce26c2470b6d20b05a82fedf34f723433df59b96e5"]
 django-s3-storage = ["14b8670a0d32b364f76174675904deffedb10332ad3aa2df84e98a7f6479fae9"]
 docutils = ["02aec4bd92ab067f6ff27a38a38a41173bf01bed8f89157768c1573f53e474a6", "51e64ef2ebfb29cae1faa133b3710143496eca21c530f3f71424d77687764274", "7a4bd47eaf6596e1295ecb11361139febe29b084a87bf005bf899f9a42edc3c6"]
 durationpy = ["5ef9416b527b50d722f34655becfb75e49228eb82f87b855ed1911b3314b5408"]
@@ -564,4 +565,3 @@ werkzeug = ["97660b282aa7e29f94f3fe378e5c7162d7ab9d601a8dbb1cbb2ffc8f0e54607d", 
 wheel = ["66a8fd76f28977bb664b098372daef2b27f60dc4d1688cfab7b37a09448f0e9d", "8eb4a788b3aec8abf5ff68d4165441bc57420c9f64ca5f471f58c3969fe08668"]
 wsgi-request-logger = ["445d7ec52799562f812006394d0b4a7064b37084c6ea6bd74ea7a2136c97ed83"]
 zappa = ["621209ceaf2cf5fcc18ed6bb6cf53aeb2315e38989a6929cbb49c66b5454d656", "86b125c0e9696b177f61bf636ab19ead7aba1bb9281cdba0651825358337008e", "b7a04172407cdb9277cb166b42920d3c5d745fd50204d1ce7f42769e61b6649e"]
-zappa-django-utils = ["8c624f81329453ebf5785e502a08b0a63d26c90148c93a12d3a8f34e213cbef8", "9d6d14b8cf4184c025f224d34657d56986de2f6bbde48573efd264daa92046a5"]

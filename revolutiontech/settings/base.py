@@ -36,7 +36,7 @@ class BaseSettings(DjangoDefaults):
         "django.contrib.staticfiles",
         "sorl.thumbnail",
         "ordered_model",
-        "zappa_django_utils",
+        "django_s3_sqlite",
         "django_s3_storage",
         "basecategory",
         "games",
