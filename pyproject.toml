@@ -15,8 +15,8 @@ python-memcached = "^1.59"
 sorl-thumbnail = "^12.5.0"
 django-ordered-model = "^3.3.0"
 django-s3-storage = "^0.12.5"
-zappa-django-utils = "^0.4.0"
 python-dotenv = "^0.10.3"
+django-s3-sqlite = "^0.0.2"
 
 [tool.poetry.dev-dependencies]
 coverage = "^4.5.4"
