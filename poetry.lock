@@ -392,8 +392,8 @@ category = "main"
 description = "Thumbnails for Django"
 name = "sorl-thumbnail"
 optional = false
-python-versions = "*"
-version = "12.5.0"
+python-versions = ">=3.4"
+version = "12.6.2"
 
 [[package]]
 category = "main"
@@ -519,7 +519,7 @@ wheel = ">=0.30.0"
 wsgi-request-logger = "0.4.6"
 
 [metadata]
-content-hash = "5bb5ba889ebc63412c9e42f6aaa95bcf118463ffab3210cea64daf3d55ed2170"
+content-hash = "5806cac1548418a473620ec69e81442f33d59567c30cd88c70f35fb54f0e7898"
 python-versions = "^3.6"
 
 [metadata.hashes]
@@ -562,7 +562,7 @@ regex = ["15454b37c5a278f46f7aa2d9339bda450c300617ca2fca6558d05d870245edc7", "1a
 requests = ["502a824f31acdacb3a35b6690b5fbf0bc41d63a24a45c4004352b0242707598e", "7bf2a778576d825600030a110f3c0e3e8edc51dfaafe1c146e39a2027784957b"]
 s3transfer = ["7b9ad3213bff7d357f888e0fab5101b56fa1a0548ee77d121c3a3dbfbef4cb2e", "f23d5cb7d862b104401d9021fc82e5fa0e0cf57b7660a1331425aab0c691d021"]
 six = ["3350809f0555b11f552448330d0b52d5f24c91a322ea4a15ef22629740f3761c", "d16a0141ec1a18405cd4ce8b4613101da75da0e9a7aec5bdd4fa804d0e0eba73"]
-sorl-thumbnail = ["8dfe5fda91a5047d1d35a0b9effe7b000764a01d648e15ca076f44e9c34b6dbd", "d9e3f018d19293824803e4ffead96b19dfcd44fa7987cea392f50436817bef34"]
+sorl-thumbnail = ["838e1b7907eec6039471f3604ac1ac9cdb9e8cabecde17330599bca61c28d48c", "ab42da28892f5aa4d95fb84f1a9f498af3a0535fd27d5cc501b11f87903fe8c4"]
 sqlparse = ["40afe6b8d4b1117e7dff5504d7a8ce07d9a1b15aeeade8a2d10f130a834f8177", "7c3dca29c022744e95b547e867cee89f4fce4373f3549ccd8797d8eb52cdb873"]
 tokenize-rt = ["2f44eee8f620102f8a03c50142795121faf86e020d208896ea7a7047bbe933cf", "53f5c22d36e5c6f8e3fdbc6cb4dd151d1b3d38cea1b85b5fef6268f153733899"]
 toml = ["229f81c57791a41d65e399fc06bf0848bab550a9dfd5ed66df18ce5f05e73d5c", "235682dd292d5899d361a811df37e04a8828a5b1da3115886b73cf81ebc9100e", "f1db651f9657708513243e61e6cc67d101a39bad662eaa9b5546f789338e07a3"]
