@@ -19,7 +19,7 @@ python-dotenv = "^0.10.5"
 django-s3-sqlite = "^0.0.2"
 
 [tool.poetry.dev-dependencies]
-coverage = "^5.0.1"
+coverage = "^5.0.3"
 django-pigeon = "^0.3.0"
 black = {version = "^19.10b0",allows-prereleases = true}
 pyupgrade = "^1.26"
