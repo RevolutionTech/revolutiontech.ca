@@ -1,0 +1,4 @@
+<h4>
+    {{ item.name }}{% if item.release_year %} ({{ item.release_year }}){% endif %}&nbsp;
+    {% include "includes/badges.html" with item=item %}
+</h4>

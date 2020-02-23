@@ -1,18 +1,18 @@
 {% load thumbnail %}
 
 <div class="hero-unit">
-    {% thumbnail item.image_random.img "x200" as thumb %}
-        <div class="hero-unit-right">
+    <div class="hero-unit-right">
+        {% thumbnail item.image_random.img "x200" as thumb %}
             <a href="{{ item.url }}"><img src="{{ thumb.url }}" width="{{ thumb.width }}" height="{{ thumb.height }}" alt="{{ item.name }}"></a>
-            {% if item.button_main %}
-                <a class="button expand {{ item.button_main.css_class }}" href="{{ item.button_main.link }}" {% if item.button_main.link_is_external %}target="_blank"{% endif %}>{{ item.button_main.text }}</a>
-            {% endif %}
-        </div>
-        <h2>
-            <a href="{{ item.url }}">{{ item.name }}</a>{% if item.release_year %} ({{ item.release_year }}){% endif %}&nbsp;
-            {% include "includes/badges.html" with item=item %}
-        </h2>
-    {% endthumbnail %}
+        {% endthumbnail %}
+        {% if item.button_main %}
+            <a class="button expand {{ item.button_main.css_class }}" href="{{ item.button_main.link }}" {% if item.button_main.link_is_external %}target="_blank"{% endif %}>{{ item.button_main.text }}</a>
+        {% endif %}
+    </div>
+    <h2>
+        <a href="{{ item.url }}">{{ item.name }}</a>{% if item.release_year %} ({{ item.release_year }}){% endif %}&nbsp;
+        {% include "includes/badges.html" with item=item %}
+    </h2>
     <p><span class="firstletter">{{ item.description_first_letter }}</span>{{ item.description_rest|safe }}</p>
     {% for button in item.button_rest %}
         <a class="button small {{ button.css_class }}" href="{{ button.link }}" {% if button.link_is_external %}target="_blank"{% endif %}>{{ button.text }}</a>

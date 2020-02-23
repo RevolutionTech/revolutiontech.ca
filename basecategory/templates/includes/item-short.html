@@ -4,13 +4,12 @@
     <a class="th" href="{{ item.url }}">
         {% thumbnail item.image_random.img "x200" as thumb %}
             <img class="item-short-img show-for-medium-up" src="{{ thumb.url }}" width="{{ thumb.width }}" height="{{ thumb.height }}" alt="{{ item.name }}">
-            <h4>
-                {{ item.name }}{% if item.release_year %} ({{ item.release_year }}){% endif %}&nbsp;
-                {% include "includes/badges.html" with item=item %}
-            </h4>
+            {% include "includes/item-short-name.html" with item=item %}
             <div align="center">
                 <img class="item-short-img-small show-for-small-only" src="{{ thumb.url }}" width="{{ thumb.width }}" height="{{ thumb.height }}" alt="{{ item.name }}">
             </div>
+        {% empty %}
+            {% include "includes/item-short-name.html" with item=item %}
         {% endthumbnail %}
         <p>{{ item.description|safe }}</p>
     </a>

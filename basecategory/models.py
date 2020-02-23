@@ -153,7 +153,9 @@ class Item(OrderedModel):
         return getattr(self, image_model_set_name).all().order_by("id")
 
     def image_random(self):
-        return random.choice(self.image_all())
+        images = self.image_all()
+        if images:
+            return random.choice(images)
 
     def button_all(self):
         button_model_set_name = "{item_type}button_set".format(
