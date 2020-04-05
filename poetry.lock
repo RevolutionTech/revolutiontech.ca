@@ -561,8 +561,8 @@ wheel = "*"
 wsgi-request-logger = "*"
 
 [metadata]
-content-hash = "9c778625344691488ce4dc6949ff1e841a75c8fd0fb909b5d1dff75dbefc04a2"
-python-versions = "^3.6"
+content-hash = "ef429d6b2d37565ccea7f36caf9a4071b753f68001120768bc9df633f5d3b6e0"
+python-versions = "^3.8"
 
 [metadata.files]
 appdirs = [
