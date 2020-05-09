@@ -6,7 +6,7 @@
 
 import os
 
-from cbsettings import DjangoDefaults
+from configurations import Configuration, values
 
 
 def aws_s3_bucket_url(settings_class, bucket_name_settings):
@@ -16,13 +16,11 @@ def aws_s3_bucket_url(settings_class, bucket_name_settings):
     return ""
 
 
-class BaseSettings(DjangoDefaults):
+class BaseConfig(Configuration):
 
-    BASE_DIR = os.path.dirname(
-        os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    )
+    BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-    SECRET_KEY = os.environ["REVOLUTIONTECH_SECRET_KEY"]
+    SECRET_KEY = values.SecretValue(environ_prefix="REVOLUTIONTECH")
     DEBUG = True
     ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
 
@@ -111,3 +109,31 @@ class BaseSettings(DjangoDefaults):
             aws_s3=aws_s3_bucket_url(self, "AWS_S3_BUCKET_NAME_STATIC"),
             static=self.AWS_S3_KEY_PREFIX_STATIC,
         )
+
+
+class ProdConfig(BaseConfig):
+
+    DEBUG = False
+    ALLOWED_HOSTS = [
+        "localhost",
+        "127.0.0.1",
+        "revolutiontech.ca",
+        "www.revolutiontech.ca",
+    ]
+
+    # Database
+    DATABASES = {
+        "default": {
+            "ENGINE": "django_s3_sqlite",
+            "NAME": "db.sqlite3",
+            "BUCKET": "revolutiontech-sqlite3",
+        }
+    }
+
+    # Static and media files
+    DEFAULT_FILE_STORAGE = "django_s3_storage.storage.S3Storage"
+    STATICFILES_STORAGE = "django_s3_storage.storage.StaticS3Storage"
+    AWS_S3_BUCKET_NAME = "revolutiontech"
+    AWS_S3_BUCKET_NAME_STATIC = AWS_S3_BUCKET_NAME
+    AWS_ACCESS_KEY_ID = values.SecretValue(environ_prefix="REVOLUTIONTECH")
+    AWS_SECRET_ACCESS_KEY = values.SecretValue(environ_prefix="REVOLUTIONTECH")

@@ -161,15 +161,21 @@ bcrypt = ["bcrypt"]
 
 [[package]]
 category = "main"
-description = "Use classes to define settings."
-name = "django-classbasedsettings"
+description = "A helper for organizing Django settings."
+name = "django-configurations"
 optional = false
 python-versions = "*"
-version = "1.5.0"
+version = "2.2"
 
 [package.dependencies]
-Django = ">=1.8"
-future = ">=0.15"
+six = "*"
+
+[package.extras]
+cache = ["django-cache-url"]
+database = ["dj-database-url"]
+email = ["dj-email-url"]
+search = ["dj-search-url"]
+testing = ["django-discover-runner", "mock", "django-cache-url (>=1.0.0)", "dj-database-url", "dj-email-url", "dj-search-url", "Sphinx (>=1.4)"]
 
 [[package]]
 category = "main"
@@ -573,7 +579,7 @@ wheel = "*"
 wsgi-request-logger = "*"
 
 [metadata]
-content-hash = "fad5edd58b5cfb878fafd4574cf06e42f28e6165e2ef667ea6ddd625cc370148"
+content-hash = "68ce9f8d4cb7d3d0fb975d8423d1355a050b22d5ef92ebfe2c05bfa6b4473e67"
 python-versions = "^3.8"
 
 [metadata.files]
@@ -657,8 +663,9 @@ django = [
     {file = "Django-3.0.5-py3-none-any.whl", hash = "sha256:642d8eceab321ca743ae71e0f985ff8fdca59f07aab3a9fb362c617d23e33a76"},
     {file = "Django-3.0.5.tar.gz", hash = "sha256:d4666c2edefa38c5ede0ec1655424c56dc47ceb04b6d8d62a7eac09db89545c1"},
 ]
-django-classbasedsettings = [
-    {file = "django-classbasedsettings-1.5.0.tar.gz", hash = "sha256:c85708a85614c671e81d75e8781691c0e69a173ea6d25e54b366d6004dd8c5ee"},
+django-configurations = [
+    {file = "django-configurations-2.2.tar.gz", hash = "sha256:9e3bcea1355ac50a4c9f854f751d214cb17e5f8adf18405a4488d0a1e8945915"},
+    {file = "django_configurations-2.2-py2.py3-none-any.whl", hash = "sha256:0b93cb7042739e2d69cfc6fb81676bbd3cbb63ea19b02e8b681f4cad3a8aaf1b"},
 ]
 django-ordered-model = [
     {file = "django-ordered-model-3.3.0.tar.gz", hash = "sha256:abf0d963f7e607a994baf6bc300e50af647b3d243c3e592c6cc8f8b924b6d427"},
