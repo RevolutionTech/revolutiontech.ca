@@ -11,7 +11,6 @@ from django.views.static import serve
 
 from basecategory.views import HomeView
 
-
 urlpatterns = [
     url(r"^admin/", admin.site.urls),
     url(r"^games/", include("games.urls", namespace="games")),

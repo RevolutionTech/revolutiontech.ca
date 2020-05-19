@@ -10,7 +10,6 @@ from basecategory.views import ItemPageView
 from games.models import Game
 from games.views import GamesListView
 
-
 app_name = "games"
 urlpatterns = [
     url(

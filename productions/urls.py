@@ -10,7 +10,6 @@ from basecategory.views import ItemPageView
 from productions.models import Production
 from productions.views import ProductionsListView
 
-
 app_name = "productions"
 urlpatterns = [
     url(

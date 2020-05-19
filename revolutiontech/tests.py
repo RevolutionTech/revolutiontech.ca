@@ -10,12 +10,11 @@ from django.db import connection
 from django.db.migrations.executor import MigrationExecutor
 from django.test import TransactionTestCase
 from django.utils.text import slugify
-
 from pigeon.test import RenderTestCase
 
 from basecategory.models import Platform
-from games.models import GameCategory, Game, GameVideo
-from productions.models import ProductionCategory, Production
+from games.models import Game, GameCategory, GameVideo
+from productions.models import Production, ProductionCategory
 from software.models import Software, SoftwareButton
 
 

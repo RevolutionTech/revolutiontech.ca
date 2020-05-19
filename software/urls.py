@@ -10,7 +10,6 @@ from basecategory.views import ItemPageView
 from software.models import Software
 from software.views import SoftwareListView
 
-
 app_name = "software"
 urlpatterns = [
     url(

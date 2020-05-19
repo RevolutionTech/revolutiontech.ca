@@ -6,7 +6,7 @@
 
 from django.db import models
 
-from basecategory.models import Category, Image, Button, Video, Media, Item
+from basecategory.models import Button, Category, Image, Item, Media, Video
 
 
 class GameCategory(Category):

@@ -8,20 +8,20 @@ from django import forms
 from django.contrib import admin
 
 from basecategory.admin import (
-    ImageInline,
     ButtonInline,
-    VideoInline,
-    MediaInline,
     CategoryAdmin,
+    ImageInline,
     ItemAdmin,
+    MediaInline,
+    VideoInline,
 )
 from productions.models import (
-    ProductionCategory,
     Production,
-    ProductionImage,
     ProductionButton,
-    ProductionVideo,
+    ProductionCategory,
+    ProductionImage,
     ProductionMedia,
+    ProductionVideo,
 )
 
 

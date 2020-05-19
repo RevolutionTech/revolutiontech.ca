@@ -5,7 +5,6 @@
 """
 
 from django.contrib import admin
-
 from ordered_model.admin import OrderedModelAdmin
 
 from basecategory.models import Platform
