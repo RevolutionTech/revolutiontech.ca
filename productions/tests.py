@@ -4,7 +4,7 @@
 
 """
 
-from revolutiontech.tests import RevolutionTechTestCase, MigrationTestCase
+from revolutiontech.tests import MigrationTestCase, RevolutionTechTestCase
 
 
 class ProductionsInitialOrdersMigrationTestCase(MigrationTestCase):

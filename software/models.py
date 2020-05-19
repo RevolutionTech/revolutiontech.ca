@@ -6,7 +6,7 @@
 
 from django.db import models
 
-from basecategory.models import Image, Button, Video, Media, Item
+from basecategory.models import Button, Image, Item, Media, Video
 
 
 class Software(Item):

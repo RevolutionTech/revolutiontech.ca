@@ -9,7 +9,6 @@ import re
 
 from django.db import models
 from django.urls import reverse
-
 from ordered_model.models import OrderedModel
 
 
