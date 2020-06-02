@@ -183,7 +183,7 @@ description = "Allows Django models to be ordered and provides a simple admin in
 name = "django-ordered-model"
 optional = false
 python-versions = "*"
-version = "3.3.0"
+version = "3.4.1"
 
 [[package]]
 category = "dev"
@@ -593,7 +593,7 @@ wheel = "*"
 wsgi-request-logger = "*"
 
 [metadata]
-content-hash = "07780c909524a0c0b3f389ff31522bf14609f27588d36cd1000c7877efb1fe7e"
+content-hash = "33634d95970be4d348f92dd5c5eb191087ef301416db45a388550b8597ac1d4e"
 python-versions = "^3.8"
 
 [metadata.files]
@@ -682,8 +682,8 @@ django-configurations = [
     {file = "django_configurations-2.2-py2.py3-none-any.whl", hash = "sha256:0b93cb7042739e2d69cfc6fb81676bbd3cbb63ea19b02e8b681f4cad3a8aaf1b"},
 ]
 django-ordered-model = [
-    {file = "django-ordered-model-3.3.0.tar.gz", hash = "sha256:abf0d963f7e607a994baf6bc300e50af647b3d243c3e592c6cc8f8b924b6d427"},
-    {file = "django_ordered_model-3.3.0-py3-none-any.whl", hash = "sha256:0931f498008f91a00a32c4e0ae08a662ef608a1092bf6e6ec9af9b1a83f08acf"},
+    {file = "django-ordered-model-3.4.1.tar.gz", hash = "sha256:d867166ed4dd12501139e119cbbc5b4d19798a3e72740aef0af4879ba97102cf"},
+    {file = "django_ordered_model-3.4.1-py3-none-any.whl", hash = "sha256:29af6624cf3505daaf0df00e2df1d0726dd777b95e08f304d5ad0264092aa934"},
 ]
 django-pigeon = [
     {file = "django-pigeon-0.3.0.tar.gz", hash = "sha256:ae7433109d944a2236223b4f61baf8e19043fea35c0a949e1edd1fb79cc94b18"},
