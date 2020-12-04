@@ -137,3 +137,10 @@ class ProdConfig(BaseConfig):
     AWS_S3_BUCKET_NAME_STATIC = AWS_S3_BUCKET_NAME
     AWS_ACCESS_KEY_ID = values.SecretValue(environ_prefix="REVOLUTIONTECH")
     AWS_SECRET_ACCESS_KEY = values.SecretValue(environ_prefix="REVOLUTIONTECH")
+
+
+# Config for running ./manage.py collectstatic
+# without requiring secrets that are unused by the command
+class ProdCollectStaticConfig(ProdConfig):
+
+    SECRET_KEY = "dummyvalue"
