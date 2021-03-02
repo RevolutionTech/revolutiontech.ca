@@ -170,15 +170,14 @@ python-versions = "*"
 
 [[package]]
 name = "django-pigeon"
-version = "0.3.0"
+version = "0.4.0"
 description = "Test utilities for Django projects."
 category = "dev"
 optional = false
-python-versions = "*"
+python-versions = ">=3.6.1,<4.0.0"
 
 [package.dependencies]
-Django = ">=1.8"
-six = "*"
+Django = ">=2.2"
 
 [[package]]
 name = "django-s3-sqlite"
@@ -602,7 +601,7 @@ wsgi-request-logger = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "531d3e1bf3ef4116d0472e34362f95a26fc31e4d2c7c3056c6a10edff993a576"
+content-hash = "ab8682ba8619527fda4b5505b048bd1ce5c79496fc05c782b0f9ea321e3ef942"
 
 [metadata.files]
 appdirs = [
@@ -707,7 +706,8 @@ django-ordered-model = [
     {file = "django_ordered_model-3.4.1-py3-none-any.whl", hash = "sha256:29af6624cf3505daaf0df00e2df1d0726dd777b95e08f304d5ad0264092aa934"},
 ]
 django-pigeon = [
-    {file = "django-pigeon-0.3.0.tar.gz", hash = "sha256:ae7433109d944a2236223b4f61baf8e19043fea35c0a949e1edd1fb79cc94b18"},
+    {file = "django-pigeon-0.4.0.tar.gz", hash = "sha256:528407a3d8e6fa1e57f79155a809f90ed882d31bd394e9244a4e0c832ebd34e4"},
+    {file = "django_pigeon-0.4.0-py3-none-any.whl", hash = "sha256:aaa94e55ff10eb4dfc157ca74bc39a64fe94d7ed0e0fb316d2778e4ff0a0e091"},
 ]
 django-s3-sqlite = [
     {file = "django-s3-sqlite-0.0.3.tar.gz", hash = "sha256:a4e6bc25fe3c38d17cbb6cf31ca5735289186a24151dc21ebc819f6023e623e2"},
