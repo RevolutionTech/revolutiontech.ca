@@ -8,7 +8,7 @@ license = "ISC"
 [tool.poetry.dependencies]
 python = "^3.8"
 Django = "~3.2"
-zappa = "^0.52.0"
+zappa = "^0.53.0"
 Pillow = "^8.2.0"
 python-memcached = "^1.59"
 sorl-thumbnail = "^12.7.0"
