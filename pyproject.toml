@@ -19,7 +19,7 @@ django-s3-sqlite = "^0.0.3"
 django-configurations = "^2.2"
 
 [tool.poetry.dev-dependencies]
-coverage = "^6.1"
+coverage = "^6.2"
 django-pigeon = "^0.4.0"
 opstrich = "^0.6.0"
 
