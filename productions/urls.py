@@ -4,7 +4,7 @@
 
 """
 
-from django.conf.urls import url
+from django.urls import path
 
 from basecategory.views import ItemPageView
 from productions.models import Production
@@ -12,14 +12,14 @@ from productions.views import ProductionsListView
 
 app_name = "productions"
 urlpatterns = [
-    url(
-        r"^(?P<slug>[\w_-]+)/?$",
+    path(
+        "<slug:slug>/",
         ItemPageView.as_view(),
         {"items": Production},
         name="item_details",
     ),
-    url(
-        r"^$",
+    path(
+        "",
         ProductionsListView.as_view(),
         {"items": Production},
         name="productions_list",
