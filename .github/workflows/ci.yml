@@ -16,4 +16,4 @@ jobs:
       - run: poetry run inv check.all
       - run: poetry run coverage run ./manage.py test
       - run: poetry run coverage xml
-      - uses: codecov/codecov-action@v2.1.0
+      - uses: codecov/codecov-action@v3.1.0
