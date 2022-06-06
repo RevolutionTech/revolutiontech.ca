@@ -179,7 +179,7 @@ testing = ["django-cache-url (>=1.0.0)", "dj-database-url", "dj-email-url", "dj-
 
 [[package]]
 name = "django-ordered-model"
-version = "3.5"
+version = "3.6"
 description = "Allows Django models to be ordered and provides a simple admin interface for reordering them."
 category = "main"
 optional = false
@@ -623,7 +623,7 @@ wsgi-request-logger = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "431c3bc9390566f6a11d0fac39a412f8032436765e78ae49bdae0a1bf0884473"
+content-hash = "804ac766773a24fce48739360d38ba1bf9c852895120d10bdbdbcf051f3ed52b"
 
 [metadata.files]
 argcomplete = [
@@ -756,8 +756,8 @@ django-configurations = [
     {file = "django_configurations-2.3.2-py3-none-any.whl", hash = "sha256:c0363b0111df6536442186d0f23d12138390eaa9f4f97ce46950ee78856a46c9"},
 ]
 django-ordered-model = [
-    {file = "django-ordered-model-3.5.tar.gz", hash = "sha256:26c6b5a87a6e51323c53e0233d999dd1a9f40d43b0f17e478de951bc1f999c73"},
-    {file = "django_ordered_model-3.5-py3-none-any.whl", hash = "sha256:a840b475ca0f2bac5f6e4918e107a8e075578babcd94b3b8d0ba7f009eaf1450"},
+    {file = "django-ordered-model-3.6.tar.gz", hash = "sha256:62161a6bc51d8b402644854b257605d7b5183d01fd349826682a87e9227c05b5"},
+    {file = "django_ordered_model-3.6-py3-none-any.whl", hash = "sha256:0006b111f472a2348f75554a4e77bee2b1f379a0f96726af6b1a3ebf3a950789"},
 ]
 django-pigeon = [
     {file = "django-pigeon-0.4.0.tar.gz", hash = "sha256:528407a3d8e6fa1e57f79155a809f90ed882d31bd394e9244a4e0c832ebd34e4"},
