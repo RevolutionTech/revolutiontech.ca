@@ -7,7 +7,7 @@ license = "ISC"
 
 [tool.poetry.dependencies]
 python = "^3.8"
-Django = "~4.0"
+Django = "~4.1"
 zappa = "^0.54.2"
 Pillow = "^9.2.0"
 python-memcached = "^1.59"
