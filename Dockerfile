@@ -1,4 +1,4 @@
-FROM revolutiontech/zappa:1.0
+FROM revolutiontech/zappa:1.1
 
 COPY . .
 
