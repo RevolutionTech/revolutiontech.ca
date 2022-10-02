@@ -378,6 +378,17 @@ docs = ["Sphinx (>=4)", "furo (>=2021.7.5b38)", "proselint (>=0.10.2)", "sphinx-
 test = ["appdirs (==1.4.4)", "pytest (>=6)", "pytest-cov (>=2.7)", "pytest-mock (>=3.6)"]
 
 [[package]]
+name = "pymemcache"
+version = "3.5.2"
+description = "A comprehensive, fast, pure Python memcached client"
+category = "main"
+optional = false
+python-versions = "*"
+
+[package.dependencies]
+six = "*"
+
+[[package]]
 name = "python-dateutil"
 version = "2.6.1"
 description = "Extensions to the standard Python datetime module"
@@ -398,17 +409,6 @@ python-versions = ">=3.7"
 
 [package.extras]
 cli = ["click (>=5.0)"]
-
-[[package]]
-name = "python-memcached"
-version = "1.59"
-description = "Pure python memcached client"
-category = "main"
-optional = false
-python-versions = "*"
-
-[package.dependencies]
-six = ">=1.4.0"
 
 [[package]]
 name = "python-slugify"
@@ -644,7 +644,7 @@ wsgi-request-logger = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "a14bfa9ee62261fc8220fee4d454daa2a8eb11a991db1d547dd774db7bbe1acd"
+content-hash = "763c107580652a36ea0f134b6dd6170ae2cc53be0f7390a9dd62caffbe8494f4"
 
 [metadata.files]
 argcomplete = [
@@ -919,6 +919,10 @@ platformdirs = [
     {file = "platformdirs-2.5.1-py3-none-any.whl", hash = "sha256:bcae7cab893c2d310a711b70b24efb93334febe65f8de776ee320b517471e227"},
     {file = "platformdirs-2.5.1.tar.gz", hash = "sha256:7535e70dfa32e84d4b34996ea99c5e432fa29a708d0f4e394bbcb2a8faa4f16d"},
 ]
+pymemcache = [
+    {file = "pymemcache-3.5.2-py2.py3-none-any.whl", hash = "sha256:3fca0215845d7b2ecd5f4c627fcf4ce2345a703a897b7e116380115b5a197be2"},
+    {file = "pymemcache-3.5.2.tar.gz", hash = "sha256:8923ab59840f0d5338f1c52dba229fa835545b91c3c2f691c118e678d0fb974e"},
+]
 python-dateutil = [
     {file = "python-dateutil-2.6.1.tar.gz", hash = "sha256:891c38b2a02f5bb1be3e4793866c8df49c7d19baabf9c1bad62547e0b4866aca"},
     {file = "python_dateutil-2.6.1-py2.py3-none-any.whl", hash = "sha256:95511bae634d69bc7329ba55e646499a842bc4ec342ad54a8cdb65645a0aad3c"},
@@ -926,10 +930,6 @@ python-dateutil = [
 python-dotenv = [
     {file = "python-dotenv-0.21.0.tar.gz", hash = "sha256:b77d08274639e3d34145dfa6c7008e66df0f04b7be7a75fd0d5292c191d79045"},
     {file = "python_dotenv-0.21.0-py3-none-any.whl", hash = "sha256:1684eb44636dd462b66c3ee016599815514527ad99965de77f43e0944634a7e5"},
-]
-python-memcached = [
-    {file = "python-memcached-1.59.tar.gz", hash = "sha256:a2e28637be13ee0bf1a8b6843e7490f9456fd3f2a4cb60471733c7b5d5557e4f"},
-    {file = "python_memcached-1.59-py2.py3-none-any.whl", hash = "sha256:4dac64916871bd3550263323fc2ce18e1e439080a2d5670c594cf3118d99b594"},
 ]
 python-slugify = [
     {file = "python-slugify-1.2.4.tar.gz", hash = "sha256:57a385df7a1c6dbd15f7666eaff0ff29d3f60363b228b1197c5308ed3ba5f824"},
