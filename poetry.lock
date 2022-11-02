@@ -379,14 +379,11 @@ test = ["appdirs (==1.4.4)", "pytest (>=6)", "pytest-cov (>=2.7)", "pytest-mock 
 
 [[package]]
 name = "pymemcache"
-version = "3.5.2"
+version = "4.0.0"
 description = "A comprehensive, fast, pure Python memcached client"
 category = "main"
 optional = false
-python-versions = "*"
-
-[package.dependencies]
-six = "*"
+python-versions = ">=3.7"
 
 [[package]]
 name = "python-dateutil"
@@ -644,7 +641,7 @@ wsgi-request-logger = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "547b81a934421be390f3f1c27ac9c5b93e62ed4fa458d9ff59d5b8936f74bd6f"
+content-hash = "b54356d189d9911eb50b3512ab046401f22eab6b8fa9e8ae1af593bd09e22752"
 
 [metadata.files]
 argcomplete = [
@@ -921,8 +918,8 @@ platformdirs = [
     {file = "platformdirs-2.5.1.tar.gz", hash = "sha256:7535e70dfa32e84d4b34996ea99c5e432fa29a708d0f4e394bbcb2a8faa4f16d"},
 ]
 pymemcache = [
-    {file = "pymemcache-3.5.2-py2.py3-none-any.whl", hash = "sha256:3fca0215845d7b2ecd5f4c627fcf4ce2345a703a897b7e116380115b5a197be2"},
-    {file = "pymemcache-3.5.2.tar.gz", hash = "sha256:8923ab59840f0d5338f1c52dba229fa835545b91c3c2f691c118e678d0fb974e"},
+    {file = "pymemcache-4.0.0-py2.py3-none-any.whl", hash = "sha256:f507bc20e0dc8d562f8df9d872107a278df049fa496805c1431b926f3ddd0eab"},
+    {file = "pymemcache-4.0.0.tar.gz", hash = "sha256:27bf9bd1bbc1e20f83633208620d56de50f14185055e49504f4f5e94e94aff94"},
 ]
 python-dateutil = [
     {file = "python-dateutil-2.6.1.tar.gz", hash = "sha256:891c38b2a02f5bb1be3e4793866c8df49c7d19baabf9c1bad62547e0b4866aca"},
