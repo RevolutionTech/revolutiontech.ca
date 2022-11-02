@@ -7,19 +7,19 @@ license = "ISC"
 
 [tool.poetry.dependencies]
 python = "^3.8"
-Django = "~4.1"
+Django = "~4.0"
 zappa = "^0.54.2"
-Pillow = "^9.3.0"
-sorl-thumbnail = "^12.9.0"
+Pillow = "^9.2.0"
+python-memcached = "^1.59"
+sorl-thumbnail = "^12.8.0"
 django-ordered-model = "^3.6"
-django-s3-storage = "^0.13.10"
-python-dotenv = "^0.21.0"
+django-s3-storage = "^0.13.8"
+python-dotenv = "^0.20.0"
 django-s3-sqlite = "^0.0.5"
 django-configurations = "^2.4"
-pymemcache = "^4.0.0"
 
 [tool.poetry.dev-dependencies]
-coverage = "^6.5"
+coverage = "^6.4"
 django-pigeon = "^0.4.0"
 opstrich = "^0.7.0"
 

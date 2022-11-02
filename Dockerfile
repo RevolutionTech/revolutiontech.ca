@@ -1,7 +1,7 @@
-FROM revolutiontech/zappa:1.1
+FROM revolutiontech/zappa:1.0
 
 COPY . .
 
-RUN poetry install --only main
+RUN poetry install --no-dev
 
 CMD ["poetry", "run", "zappa", "update"]
