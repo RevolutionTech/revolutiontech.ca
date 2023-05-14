@@ -1,5 +1,11 @@
 # revolutiontech.ca
 
+## Deprecated
+
+This project is no longer being maintained by the owner. The Revolution Technologies website has been moved to a fully static website [hosted on GitHub Pages](https://github.com/RevolutionTech/revolutiontech.github.io).
+
+---
+
 ![CI](https://github.com/RevolutionTech/revolutiontech.ca/actions/workflows/ci.yml/badge.svg)
 [![codecov](https://codecov.io/gh/RevolutionTech/revolutiontech.ca/branch/main/graph/badge.svg)](https://codecov.io/gh/RevolutionTech/revolutiontech.ca)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/b4326bf2a9d34f8ba5e77e79c0da49c0)](https://www.codacy.com/app/RevolutionTech/revolutiontech.ca)
